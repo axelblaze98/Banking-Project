@@ -17,6 +17,8 @@ import { RegisterComponent } from './register/register.component';
 import { SessionexpiredComponent } from './sessionexpired/sessionexpired.component';
 import { SetnewpasswordComponent } from './setnewpassword/setnewpassword.component';
 import { SetnewtransactionpasswordComponent } from './setnewtransactionpassword/setnewtransactionpassword.component';
+import { AccountCreationStatusComponent } from './account-creation-status/account-creation-status.component';
+import { FundTransferComponent } from './fund-transfer/fund-transfer.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { SetnewtransactionpasswordComponent } from './setnewtransactionpassword/
     RegisterComponent,
     SessionexpiredComponent,
     SetnewpasswordComponent,
-    SetnewtransactionpasswordComponent
+    SetnewtransactionpasswordComponent,
+    AccountCreationStatusComponent,
+    FundTransferComponent
   ],
   imports: [
     BrowserModule,

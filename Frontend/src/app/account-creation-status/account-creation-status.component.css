@@ -1,0 +1,19 @@
+.text{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+.table thead{
+    background-color: darkblue;
+    color: white;
+    text-align:center;
+}
+.table tbody{
+    text-align: center;
+}
+#wrapper{
+    display: flex;
+    justify-content: center;
+}
+.btn-primary{
+    background-color: darkblue;
+}
