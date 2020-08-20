@@ -23,9 +23,9 @@
                     <div class="form-group row">
                         <label for="bName" class="col-sm-5 col-form-label">Beneficiary Name*</label>
                         <div class="col-sm-6">
-                            <input type="text" #name="ngModel" [class.is-invalid]="name.invalid && name.touched" class="form-control" id="bName" name ="bName" [(ngModel)]="someProperty.name" placeholder="Enter Beneficiary Name" required>
+                            <input type="text" class="form-control" id="bName" name ="bName" placeholder="Enter Beneficiary Name" required>
                         </div>
-                        <small class="text-danger col-sm-3" [class.d-none]="name.valid || name.untouched">Name is Required</small>
+                        <!-- <small class="text-danger col-sm-3" [class.d-none]="name.valid || name.untouched">Name is Required</small> -->
                     </div>
 
                     <div class="form-group row">
@@ -37,7 +37,7 @@
                     <div class="form-group row">
                         <label for="bAccountNumber" class="col-sm-5 col-form-label">Enter Account Number*</label>
                         <div class="col-sm-6">
-                         <input type="tel" class="form-control" #acnumber="ngModel" id="bAccountNumber" pattern="[1,2,3,4]{4}[0-9]{8}" [(ngModel)]="someProperty.acnumber" placeholder="Enter Account Number" required>
+                         <input type="tel" class="form-control" id="bAccountNumber" pattern="[1,2,3,4]{4}[0-9]{8}" placeholder="Enter Account Number" required>
                         </div>
                     </div>
                     <div class="form-group row">
