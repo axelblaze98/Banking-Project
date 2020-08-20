@@ -1,0 +1,222 @@
+
+<div class="wrapper">
+    <h3 style="margin-bottom: 20px; margin-top: 10px;">Open A Savings Account</h3>
+</div>
+<div>
+    <form class="form" onsubmit="validate()">
+        <div class="wrapper">
+            <div class="card" style="width:50%">
+                <div>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-5 col-form-label" style="font-size: large;"><b>Personal Details: </b></label>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="title" class="col-sm-5 col-form-label">Title*</label>
+                        <div class="col-sm-6">
+                            <select class="form-control" id="title">
+                                <option *ngFor = "let title of titles">{{title}}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="fName" class="col-sm-5 col-form-label">First Name*</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="fName" placeholder="Enter First Name" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="mName" class="col-sm-5 col-form-label">Middle Name</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="mName" placeholder="Enter Middle Name">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="lName" class="col-sm-5 col-form-label">Last Name* </label>
+                        <div class="col-sm-6">
+                          <input type="text" class="form-control" id="lName" placeholder="Enter Last Name" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="fatherName" class="col-sm-5 col-form-label">Father's Name*</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="fatherName" placeholder="Enter Father's Name" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="mobileNumber" class="col-sm-5 col-form-label">Mobile Number*</label>
+                        <div class="col-sm-6">
+                         <input type="tel" class="form-control" id="mobileNumber" pattern="[6,7,8,9]{5}-[0-9]{5}"placeholder="Enter Mobile Number" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="emailId" class="col-sm-5 col-form-label">Email ID</label>
+                        <div class="col-sm-6">
+                          <input type="email" class="form-control" id="emailId" placeholder="Enter Email Address">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="aadharNumber" class="col-sm-5 col-form-label">Aadhar Card Number*</label>
+                        <div class="col-sm-6">
+                         <input type="tel" class="form-control" pattern="[0-9]{12}" id="aadharNumber" placeholder="Enter Aadhar Card Number" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="dob" class="col-sm-5 col-form-label">Date of Birth*</label>
+                        <div class="col-sm-6">
+                          <input type="date" class="form-control" id="dob" placeholder="Enter DOB" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper">
+            <div class="card" style="width:50%">
+                <div>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-5 col-form-label" style="font-size: large;"><b>Residential Address: </b></label>
+                    </div>
+
+                    <div class="form-group row">
+                    <label for="resLine1" class="col-sm-5 col-form-label">Address Line 1*</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="resLine1" placeholder="Enter Address Line 1" required>
+                    </div>
+                    </div>
+                    <div class="form-group row">
+                    <label for="resLine2" class="col-sm-5 col-form-label">Address Line 2*</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="resLine2" placeholder="Enter Address Line 2" required>
+                    </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="resLandmark" class="col-sm-5 col-form-label">Landmark</label>
+                        <div class="col-sm-6">
+                        <input type="text" class="form-control" id="resLandmark" placeholder="Enter Landmark">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="resState" class="col-sm-5 col-form-label">State*</label>
+                        <div class="col-sm-6">
+                        <input type="text" class="form-control" id="resState" placeholder="Enter State" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="resCity" class="col-sm-5 col-form-label">City*</label>
+                        <div class="col-sm-6">
+                        <input type="text" class="form-control" id="resCity" placeholder="Enter City" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="resCode" class="col-sm-5 col-form-label">Pin Code*</label>
+                        <div class="col-sm-6">
+                        <input type="tel" pattern="[0-9]{6}" class="form-control" id="resCode" placeholder="Enter Pin Code" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-5 col-form-label" style="font-size: large;"><b>Permanent Address: </b></label> 
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" (click)=checkAdress() id="defaultCheck1">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Permanent address same as Residential Address
+                        </label>
+                    </div>
+                    <br>
+
+                    <div class="form-group row">
+                        <label for="perLine1" class="col-sm-5 col-form-label">Address Line 1*</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" disabled={{result}} id="perLine1" value="{{line1}}" placeholder="Enter Address Line1" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="perLine2" class="col-sm-5 col-form-label">Address Line 2*</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" disabled={{result}} id="perLine2" value="{{line2}}" placeholder="Enter Address Line2" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                            <label for="perLandmark" class="col-sm-5 col-form-label">Landmark</label>
+                            <div class="col-sm-6">
+                            <input type="text" class="form-control" disabled={{result}} id="perLandmark" value="{{landmark}}" placeholder="Enter Landmark">
+                            </div>
+                    </div>
+                    <div class="form-group row">
+                            <label for="perState" class="col-sm-5 col-form-label">State*</label>
+                            <div class="col-sm-6">
+                            <input type="text" class="form-control" disabled={{result}} id="perState" value="{{state}}" placeholder="Enter State" required>
+                            </div>
+                    </div>
+                    <div class="form-group row">
+                            <label for="perCity" class="col-sm-5 col-form-label">City*</label>
+                            <div class="col-sm-6">
+                            <input type="text" class="form-control" disabled={{result}} id="perCity" value="{{city}}" placeholder="Enter City" required>
+                            </div>
+                    </div>
+                    <div class="form-group row">
+                            <label for="perCode" class="col-sm-5 col-form-label">Pin Code*</label>
+                            <div class="col-sm-6">
+                            <input type="tel" pattern="[0-9]{6}" disabled={{result}} class="form-control" id="perCode" value="{{code}}" placeholder="Enter Pin Code" required>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wrapper">
+            <div class="card" style="width:50%">
+                <div>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-5 col-form-label" style="font-size: large;"><b>Occupation Details: </b></label>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="title" class="col-sm-5 col-form-label">Occupation Type*</label>
+                        <div class="col-sm-6">
+                            <select class="form-control" id="title" required>
+                                <option *ngFor = "let occupation of occupations">{{occupation}} </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="title" class="col-sm-5 col-form-label">Source of Income*</label>
+                        <div class="col-sm-6">
+                            <select class="form-control" id="title" required>
+                                <option *ngFor = "let source of sources">{{source}} Income </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="title" class="col-sm-5 col-form-label">Gross Annual Income</label>
+                        <div class="col-sm-6">
+                            <select class="form-control" id="title">
+                                <option *ngFor = "let income of incomes">{{income}}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Opt for Net Banking
+                        </label>
+                    </div>
+                    <br>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" required>
+                        <label class="form-check-label" for="defaultCheck1">
+                            I Agree to all Terms & Conditions*
+                        </label>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <div class="wrapper">
+            <button class="btn btn-primary" type="submit" onclick="validate()" style="margin-bottom: 20px; width: 100px;">Submit</button><br>
+        </div>
+    </form>
+</div>    

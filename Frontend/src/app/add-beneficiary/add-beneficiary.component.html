@@ -1,0 +1,63 @@
+
+<div class="wrapper">
+    <h3 style="margin-bottom: 20px; margin-top: 10px;">Open A Savings Account</h3>
+</div>
+<div>
+    <form class="form" #beneficiaryForm = "ngForm">
+        <div class="wrapper">
+            <div class="card" style="width:50%">
+                <div>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-5 col-form-label" style="font-size: large;"><b>Personal Details: </b></label>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="title" class="col-sm-5 col-form-label">Title*</label>
+                        <div class="col-sm-6">
+                            <select class="form-control" id="title" required>
+                                <option *ngFor="let title of titles">{{title}}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="bName" class="col-sm-5 col-form-label">Beneficiary Name*</label>
+                        <div class="col-sm-6">
+                            <input type="text" #name="ngModel" [class.is-invalid]="name.invalid && name.touched" class="form-control" id="bName" name ="bName" [(ngModel)]="someProperty.name" placeholder="Enter Beneficiary Name" required>
+                        </div>
+                        <small class="text-danger col-sm-3" [class.d-none]="name.valid || name.untouched">Name is Required</small>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="bNickName" class="col-sm-5 col-form-label">Enter Nick Name</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="bNickName" placeholder="Enter Nick Name">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="bAccountNumber" class="col-sm-5 col-form-label">Enter Account Number*</label>
+                        <div class="col-sm-6">
+                         <input type="tel" class="form-control" #acnumber="ngModel" id="bAccountNumber" pattern="[1,2,3,4]{4}[0-9]{8}" [(ngModel)]="someProperty.acnumber" placeholder="Enter Account Number" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="bReAccountNumber" class="col-sm-5 col-form-label">Re-enter Account Number*</label>
+                        <div class="col-sm-6">
+                         <input type="tel" class="form-control" id="bReAccountNumber" pattern="[1,2,3,4]{4}[0-9]{8}"placeholder="Re-enter Account Number" required>
+                        </div>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" (click)=saveBeneficiry() id="addBenf" required>
+                        <label class="form-check-label" for="addBenf">
+                            Save Beneficiary
+                        </label>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <div class="wrapper">
+            <button class="btn btn-primary" type="submit" onclick="validate()" style="margin-bottom: 20px; width: 100px;">Submit</button><br>
+        </div>
+    </form>
+</div>    
