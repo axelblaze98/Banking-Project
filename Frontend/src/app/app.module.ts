@@ -9,6 +9,14 @@ import { AccountmainpageComponent } from './accountmainpage/accountmainpage.comp
 import { FaqmainComponent } from './faqmain/faqmain.component';
 import { AddBeneficiaryComponent } from './add-beneficiary/add-beneficiary.component';
 import { OpenAccountComponent } from './open-account/open-account.component';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { ForgotuseridComponent } from './forgotuserid/forgotuserid.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { SessionexpiredComponent } from './sessionexpired/sessionexpired.component';
+import { SetnewpasswordComponent } from './setnewpassword/setnewpassword.component';
+import { SetnewtransactionpasswordComponent } from './setnewtransactionpassword/setnewtransactionpassword.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +25,15 @@ import { OpenAccountComponent } from './open-account/open-account.component';
     AccountmainpageComponent,
     FaqmainComponent,
     AddBeneficiaryComponent,
-    OpenAccountComponent
+    OpenAccountComponent,
+    AdminloginComponent,
+    ForgotpasswordComponent,
+    ForgotuseridComponent,
+    LoginComponent,
+    RegisterComponent,
+    SessionexpiredComponent,
+    SetnewpasswordComponent,
+    SetnewtransactionpasswordComponent
   ],
   imports: [
     BrowserModule,
