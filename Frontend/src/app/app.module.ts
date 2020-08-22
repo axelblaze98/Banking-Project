@@ -19,6 +19,9 @@ import { SetnewpasswordComponent } from './setnewpassword/setnewpassword.compone
 import { SetnewtransactionpasswordComponent } from './setnewtransactionpassword/setnewtransactionpassword.component';
 import { AccountCreationStatusComponent } from './account-creation-status/account-creation-status.component';
 import { FundTransferComponent } from './fund-transfer/fund-transfer.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { LearnmoreComponent } from './learnmore/learnmore.component';
+import { ContactusComponent } from './contactus/contactus.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,10 @@ import { FundTransferComponent } from './fund-transfer/fund-transfer.component';
     SetnewpasswordComponent,
     SetnewtransactionpasswordComponent,
     AccountCreationStatusComponent,
-    FundTransferComponent
+    FundTransferComponent,
+    AboutusComponent,
+    LearnmoreComponent,
+    ContactusComponent
   ],
   imports: [
     BrowserModule,
