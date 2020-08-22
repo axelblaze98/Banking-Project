@@ -1,0 +1,42 @@
+.navbar-nav{
+    margin: 0px;
+    width: 100%;
+    display:table;
+    color: whitesmoke !important;
+
+}
+.navbar-nav > li {
+    float:none;
+    display:table-cell;
+    text-align:center;
+}
+.navbar-custom{
+    color: whitesmoke !important;
+}
+
+.jumbotron {
+    height: 80vh;
+    background-color: moccasin !important;
+    margin-bottom:5px;
+
+}
+.bg-primary{
+    background-color: darkblue !important;
+    font-weight: bold !important; 
+    font-style: Arial !important;
+    margin-bottom: 5px;
+    color: white !important;
+}
+
+.carddecks{
+    margin-bottom: 5px !important;
+}
+.card-deck .card {
+    margin-bottom: 5px !important;
+}
+.mb-3, .my-3 {
+    margin-bottom: 5px !important;
+}
+.bg-chng{
+    background-color: silver;
+}

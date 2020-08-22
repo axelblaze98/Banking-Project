@@ -1,33 +1,32 @@
 .cardz{
-    margin: auto;
-    width:80%;
-  }
-  .navbar-nav{
-    margin: 0px;
-    width: 100%;
-    display:table;
+  margin: auto;
+  width:80%;
+}
+.navbar-nav{
+  margin: 0px;
+  width: 100%;
+  display:table;
+
+}
+.navbar-nav > li {
+  float: center;
+  display:table-cell;
+  text-decoration-style: dashed;
+}
+.foots{
+    text-align: center !important;
+    background-color: black;
+    color: whitesmoke;
+}
+
+.bg-primary{
+  background-color: black !important;
+  margin-bottom: 5px;
+}
+
+
+
+
+
   
-  }
-  .navbar-nav > li {
-    float: center;
-    display:table-cell;
-    text-decoration-style: dashed;
-  }
-  .foots{
-      text-align: center !important;
-      background-color: black;
-      color: whitesmoke;
   
-  }
-  
-  .bg-primary{
-    background-color: black !important;
-    margin-bottom: 5px;
-  }
-  
-  
-  
-  
-  
-    
-    
