@@ -1,3 +1,5 @@
+import { FundTransferComponent } from './fund-transfer/fund-transfer.component';
+import { AddBeneficiaryComponent } from './add-beneficiary/add-beneficiary.component';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { OpenAccountComponent } from './open-account/open-account.component';
 import { RegisterComponent } from './register/register.component';
@@ -25,7 +27,9 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'openaccount', component: OpenAccountComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'adminlogin', component: AdminloginComponent}
+  {path: 'adminlogin', component: AdminloginComponent},
+  {path: 'addbeneficiary', component: AddBeneficiaryComponent},
+  {path: 'fundtransfer', component: FundTransferComponent}
 ];
 
 @NgModule({
@@ -33,5 +37,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [FaqmainComponent, AccountmainpageComponent, HomepagemainComponent, AboutusComponent, ContactusComponent, LearnmoreComponent, ForgotpasswordComponent, ForgotuseridComponent, LoginComponent, RegisterComponent, OpenAccountComponent, AdminloginComponent]
+export const routingComponents = [FaqmainComponent, AccountmainpageComponent, HomepagemainComponent, AboutusComponent, ContactusComponent, LearnmoreComponent, ForgotpasswordComponent, ForgotuseridComponent, LoginComponent, RegisterComponent, OpenAccountComponent, AdminloginComponent, AddBeneficiaryComponent, FundTransferComponent]
 
