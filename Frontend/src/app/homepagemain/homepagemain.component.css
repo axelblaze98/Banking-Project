@@ -1,18 +1,3 @@
-.navbar-nav{
-    margin: 0px;
-    width: 100%;
-    display:table;
-    color: whitesmoke !important;
-
-}
-.navbar-nav > li {
-    float:none;
-    display:table-cell;
-    text-align:center;
-}
-.navbar-custom{
-    color: whitesmoke !important;
-}
 
 .jumbotron {
     height: 80vh;

@@ -1,5 +1,9 @@
-<div class="cardz">
-    <nav class="navbar navbar-expand-lg bg-primary">
+import { Component, Input } from '@angular/core';
+@Component({
+    selector: 'navbarmain',
+    template: `
+    <div class="cardz">
+    <nav class="navbar navbar-expand-lg bg-warning">
       <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="list">
@@ -20,5 +24,8 @@
           </ul>
       </div>
       </nav>
-    </div>
-  
+      </div>
+    `,
+    styleUrls: ['./navbarmain.component.css']
+  }) 
+  export class navBarMainComponent {}

@@ -1,3 +1,4 @@
+import { navBarMainComponent } from './navbarmain.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -12,7 +13,6 @@ import { AccountCreationStatusComponent } from './account-creation-status/accoun
 import { LogoutComponent } from './logout/logout.component';
 import { TrackapplicationstatusComponent } from './trackapplicationstatus/trackapplicationstatus.component';
 import { AdminregisterComponent } from './adminregister/adminregister.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,8 +23,9 @@ import { AdminregisterComponent } from './adminregister/adminregister.component'
     AccountCreationStatusComponent,
     LogoutComponent,
     TrackapplicationstatusComponent,
-    AdminregisterComponent
-    ],
+    AdminregisterComponent, 
+    navBarMainComponent
+      ],
   imports: [
     BrowserModule,
     AppRoutingModule,
