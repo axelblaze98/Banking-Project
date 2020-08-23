@@ -24,7 +24,7 @@ import { AdminregisterComponent } from './adminregister/adminregister.component'
     LogoutComponent,
     TrackapplicationstatusComponent,
     AdminregisterComponent
-  ],
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,

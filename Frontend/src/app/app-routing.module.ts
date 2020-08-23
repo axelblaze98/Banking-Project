@@ -1,3 +1,4 @@
+import { NavabarhomeComponent } from './navabarhome/navabarhome.component';
 import { FundTransferComponent } from './fund-transfer/fund-transfer.component';
 import { AddBeneficiaryComponent } from './add-beneficiary/add-beneficiary.component';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
@@ -16,7 +17,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  {path: '', component: HomepagemainComponent},
+  {path: '', component: HomepagemainComponent,
+  children: [{ path: 'navbarhome', component: NavabarhomeComponent}]
+  },
   {path: 'faqmain', component: FaqmainComponent},
   {path: 'accountmainpage', component: AccountmainpageComponent},
   {path: 'aboutus', component: AboutusComponent},
@@ -37,5 +40,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [FaqmainComponent, AccountmainpageComponent, HomepagemainComponent, AboutusComponent, ContactusComponent, LearnmoreComponent, ForgotpasswordComponent, ForgotuseridComponent, LoginComponent, RegisterComponent, OpenAccountComponent, AdminloginComponent, AddBeneficiaryComponent, FundTransferComponent]
+export const routingComponents = [FaqmainComponent, AccountmainpageComponent, HomepagemainComponent, AboutusComponent, ContactusComponent, LearnmoreComponent, ForgotpasswordComponent, ForgotuseridComponent, LoginComponent, RegisterComponent, OpenAccountComponent, AdminloginComponent, AddBeneficiaryComponent, FundTransferComponent, NavabarhomeComponent]
 
