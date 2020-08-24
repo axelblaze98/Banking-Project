@@ -5,7 +5,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.lti.dto.AdminCredentials;
-import com.lti.exception.AdminServiceException;
+import com.lti.exception.ServiceException;
 import com.lti.pojo.Admin;
 import com.lti.repository.AdminRepository;
 
@@ -23,7 +23,7 @@ public class AdminServiceImpl implements AdminService {
 		if(obj==null) {
 			repo.save(admin);
 		}else {
-			throw new AdminServiceException("User Already Exists");
+			throw new ServiceException("User Already Exists");
 		}
 	}
 
@@ -36,7 +36,7 @@ public class AdminServiceImpl implements AdminService {
 //			System.out.println("value is "+repo.findAdminById(adminCredentials.getUserId()));
 			if(!repo.isAdminAvailable(adminCredentials.getUserId())) {
 //				System.out.println("printing this");
-				throw new AdminServiceException("User Not Exist");
+				throw new ServiceException("User Not Exist");
 			}
 			String userId = repo.getAdminByIdAndPassword(adminCredentials.getUserId(), adminCredentials.getPassword());
 			Admin admin = repo.getAdminById(userId);
@@ -44,7 +44,7 @@ public class AdminServiceImpl implements AdminService {
 			return admin;
 		}
 		catch(EmptyResultDataAccessException e){
-			throw new AdminServiceException("Incorrect UserId/Password");
+			throw new ServiceException("Incorrect UserId/Password");
 		}
 	}
 }
