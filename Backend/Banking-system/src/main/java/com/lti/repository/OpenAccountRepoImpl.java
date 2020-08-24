@@ -36,5 +36,18 @@ public class OpenAccountRepoImpl implements OpenAccountRepo {
 		return (Long) entityManager.createQuery("select count(*) from OpenAccount t")
 				.getSingleResult();
 	}
+	
+	@Override
+	public Long maxAccountNumber() {
+		return (Long) entityManager.createQuery("select max(t.accountNumber) from OpenAccount t")
+				.getSingleResult();
+	}
+
+	@Override
+	public Long maxRefId() {
+		return (Long) entityManager.createQuery("select max(t.refernceId) from OpenAccount t")
+				.getSingleResult();
+	}
+	
 
 }

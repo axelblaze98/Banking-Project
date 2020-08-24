@@ -8,5 +8,6 @@ public interface OpenAccountRepo {
 	OpenAccount getAccountByAccNumber(int accountNumber);
 	boolean isAccountPresent(String aadharCard);
 	Long numberOfAccountPresent();
-	
+	Long maxAccountNumber();
+	Long maxRefId();
 }

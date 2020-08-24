@@ -24,13 +24,15 @@ public class OpenAccountServiceImpl implements OpenAccountService {
 		else {
 			Long initialAccNumber = (long) 50005001;
 			Long initialRefId = (long) 30001;
-			Long num = repo.numberOfAccountPresent();
-			if(num == 0) {
+			Long numOfAccount = repo.numberOfAccountPresent();
+			Long maxAccountNumber = repo.maxAccountNumber();
+			Long maxRefId = repo.maxRefId();
+			if(numOfAccount == 0) {
 				account.setAccountNumber(initialAccNumber);
 				account.setRefernceId(initialRefId);
 			}else {
-				account.setAccountNumber(initialAccNumber+num);
-				account.setRefernceId(initialRefId+num);
+				account.setAccountNumber(maxAccountNumber+1);
+				account.setRefernceId(maxRefId+1);
 			}
 			repo.save(account);
 		}
