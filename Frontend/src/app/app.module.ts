@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 
 import { SessionexpiredComponent } from './sessionexpired/sessionexpired.component';
 import { SetnewtransactionpasswordComponent } from './setnewtransactionpassword/setnewtransactionpassword.component';
+import { ForgotuseridComponent } from './forgotuserid/forgotuserid.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,8 @@ import { SetnewtransactionpasswordComponent } from './setnewtransactionpassword/
     SetnewtransactionpasswordComponent,
     navBarMainComponent,
     navBarLoginComponent,
-    navBarAccountComponent
+    navBarAccountComponent,
+    ForgotuseridComponent
      ],
   imports: [
     BrowserModule,
