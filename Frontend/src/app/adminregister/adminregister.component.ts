@@ -1,19 +1,16 @@
 import { Component,OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-import { HttpClient} from '@angular/common/http';
-
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-adminregister',
   templateUrl: './adminregister.component.html',
   styleUrls: ['./adminregister.component.css']
 })
 export class AdminregisterComponent implements OnInit {
-
-
-
-
-
+    user:Admin=new Admin();
+  
   loginForm: FormGroup;
+  
 
   error_messages = {
     'fname': [
@@ -21,31 +18,35 @@ export class AdminregisterComponent implements OnInit {
     ],
 
     'lname': [
-      { type: 'required', message: 'Last Name is required.' }
+      { type: 'required', message: 'Last Name is required.' },
+      { type: 'required', message: 'User Id must be maximum of 6 character' }
     ],
 
     'password': [
       { type: 'required', message: 'password is required.' },
       { type: 'minlength', message: 'password length.' },
       { type: 'maxlength', message: 'password length.' },
-      { type: 'pattern', message:'password must consist one special character,one alphabet and one numeric'}
+      { type: 'pattern', message:'password must consist one special character,one alphabet and one numric'}
     ],
     'confirmpassword': [
       { type: 'required', message: 'password is required.' },
       { type: 'minlength', message: 'password length.' },
-      { type: 'maxlength', message: 'password length.' }
+      { type: 'maxlength', message: 'password length.' },
+      { type: 'required', message: 'Password does not match'}
     ],
   }
 
   constructor(
-    public formBuilder: FormBuilder
+    public formBuilder: FormBuilder, 
+    private http: HttpClient
   ) {
     this.loginForm = this.formBuilder.group({
       fname: new FormControl('', Validators.compose([
         Validators.required
       ])),
       lname: new FormControl('', Validators.compose([
-        Validators.required
+        Validators.required,
+        Validators.maxLength(6),
       ])),
       
       password: new FormControl('', Validators.compose([
@@ -72,6 +73,32 @@ export class AdminregisterComponent implements OnInit {
     const { value: confirmPassword } = formGroup.get('confirmpassword');
     return password === confirmPassword ? null : { passwordNotMatch: true };
   }
-
+ /* Register(){
+    console.log(this.user);
+    this.http.post<any>("http://localhost:8086/registerAdmin",this.user)
+    .subscribe(data=>{
+      if(data.status=='FAILURE'){
+        alert(data.message);
+      }else{
+        alert("welcome");
+      }
+    })
+}*/
+view(){
+  console.log(this.user)
+  this.http.post<any>("http://localhost:8086/registerAdmin",this.user)
+    .subscribe(data=>{
+      if(data.status=='FAILURE'){
+        alert(data.message);
+      }else{
+        alert("User Registered");
+      }
+    })
+}
+}
+class Admin{
+  public adminUserID:string;
+   public adminPassword:string;
+   public adminName:string;
 }
 
