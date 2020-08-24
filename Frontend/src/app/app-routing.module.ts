@@ -9,7 +9,6 @@ import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { OpenAccountComponent } from './open-account/open-account.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import { ForgotuseridComponent } from './forgotuserid/forgotuserid.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { LearnmoreComponent } from './learnmore/learnmore.component';
 import { ContactusComponent } from './contactus/contactus.component';
@@ -28,7 +27,6 @@ const routes: Routes = [
   {path: 'contactus', component: ContactusComponent},
   {path: 'learnmore', component: LearnmoreComponent},
   {path: 'forgotpassword', component: ForgotpasswordComponent},
-  {path: 'forgotuserid', component: ForgotuseridComponent},
   {path: 'login', component: LoginComponent},
   {path: 'openaccount', component: OpenAccountComponent},
   {path: 'register', component: RegisterComponent},
@@ -47,5 +45,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [FaqmainComponent, AccountmainpageComponent, HomepagemainComponent, AboutusComponent, ContactusComponent, LearnmoreComponent, ForgotpasswordComponent, ForgotuseridComponent, LoginComponent, RegisterComponent, OpenAccountComponent, AdminloginComponent, AddBeneficiaryComponent, FundTransferComponent, TrackapplicationstatusComponent, LogoutComponent, AdminregisterComponent, AccountCreationStatusComponent, SetnewpasswordComponent]
+export const routingComponents = [FaqmainComponent, AccountmainpageComponent, HomepagemainComponent, AboutusComponent, ContactusComponent, LearnmoreComponent, ForgotpasswordComponent, LoginComponent, RegisterComponent, OpenAccountComponent, AdminloginComponent, AddBeneficiaryComponent, FundTransferComponent, TrackapplicationstatusComponent, LogoutComponent, AdminregisterComponent, AccountCreationStatusComponent, SetnewpasswordComponent]
 

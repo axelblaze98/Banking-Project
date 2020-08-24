@@ -1,63 +1,57 @@
-<navbarlogin></navbarlogin>
 
+<navbarlogin></navbarlogin>
 <div class="wrapper">
-  
-    <h3>Login</h3>
-  </div>
-  <div class="wrapper">
-  
-  <div class="card" style="width:50%">
-  
-  <div>
-    
-    <form class="form">
-        
-    <div class="form-group row">
-      
-    <label for="staticEmail" class="col-sm-3 col-form-label">User Id <span style="color:red" >*</span></label>
-    
-    <div class="col-sm-6">
-      
-     <input type="text" class="form-control" id="staticEmail" placeholder="Enter Your User Id" required autocomplete="false">
-      
-    </div>
-         
-   </div>
-          
-  <div class="form-group row">
-        
-      <label for="inputPassword" class="col-sm-3 col-form-label">Password <span style="color:red" >*</span></label>
-        
-      <div class="col-sm-6">
-           
-     <input type="password" class="form-control" id="inputPassword" placeholder="Enter Your Password" required minlength="6">
-      
-        </div>
-      
+  <h3>Login</h3>
+</div>
+<div class="wrapper">
+	<div class="card" style="width:50%">
+		
+
+		<form [formGroup]="loginForm">
+			<div class="form-group row">
+        <label for="staticEmail" class="col-sm-4 col-form-label">User Id <span style="color:red" >*</span></label>
+        <div class="col-sm-6">
+				<input class="form-control" formControlName="fname" placeholder="Enter Your User Id" type="text" />
       </div>
+    </div>
+			<div class="error-messages">
+				<ng-container *ngFor="let error of error_messages.fname">
+					<div class="error-message" *ngIf="loginForm.get('fname').hasError(error.type) && (loginForm.get('fname').dirty || loginForm.get('fname').touched)">
+						{{ error.message }}
+					</div>
+				</ng-container>
+			</div>
+
+      <div class="form-group row">
         
-  </form>
-  
-  </div>
-  
-  <div class="wrapper">
+        <label for="inputPassword" class="col-sm-4 col-form-label"> Password <span style="color:red" >*</span></label>
+          
+        <div class="col-sm-6">
+				<input class="form-control" formControlName="password" type="password" placeholder="Enter Your Password"/>
+      </div>
+    </div>
+			<div class="error-messages">
+				<ng-container *ngFor="let error of error_messages.password">
+					<div class="error-message" *ngIf="loginForm.get('password').hasError(error.type) && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+            {{ error.message }}
+            
+					</div>
+				</ng-container>
+			</div>
+      <div class="wrapper">
+        <a routerLink="/accountmainpage" routerLinkActive="active"><button type="button" class="form-control btn btn-primary" style="margin-bottom: 20px; width: 100px;" [disabled]="!loginForm.valid">Login</button></a>
+      </div>
+    </form>
+    <div class="wrapper" style="margin-top:3px">
+    
+      <a href="">Forgot User ID</a>
+    
+    </div>
+    
+    <div class="wrapper" style="margin-bottom:2px">
       
-    <a routerLink="/accountmainpage" routerLinkActive="active"><button type="button" class="btn btn-primary" style="margin-bottom: 20px; width: 100px;">Login</button></a>
-  
-  </div>
-  
-  <div class="wrapper" style="margin-top:3px">
+      <a href="">Forgot Password</a>
     
-    <a href="">Forgot User ID</a>
-  
+    </div>
   </div>
-  
-  <div class="wrapper" style="margin-bottom:2px">
-    
-    <a href="">Forgot Password</a>
-  
-  </div>
-  
-  </div>
-  
-  </div>
+</div>

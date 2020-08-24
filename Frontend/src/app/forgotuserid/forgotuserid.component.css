@@ -8,14 +8,10 @@
    .wrapper
    {
        display: flex;
+       
    justify-content: center;
    margin-top: 20px;
-   }
-   .Back
-   {
-    margin-top:10px;
-    display: flex;
-   justify-content: center;
+   
    }  
    .card{
      
@@ -28,3 +24,16 @@
      background-color: #d8d8dae0;
    
    }
+   .error-message {
+    color: red;
+  }
+  input.ng-touched.ng-invalid {
+    border: 1px solid red;
+  }
+  .Back
+     {
+      margin-top:10px;
+      display: flex;
+     justify-content: center;
+     }  
+   

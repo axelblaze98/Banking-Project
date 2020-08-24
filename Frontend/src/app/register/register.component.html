@@ -1,95 +1,112 @@
 <navbarlogin></navbarlogin>
 <div class="wrapper">
-  
-    <h3>Register</h3>
-  </div>
-  <div class="wrapper">
-  
-  <div class="card" style="width:70%">
-  
-  <div>
-    
-    <form class="form">
-        
-    <div class="form-group row">
-      
-    <label for="example-number-input" class="col-sm-5 col-form-label">Enter Account Number <span style="color:red" >*</span></label>
-    
-    <div class="col-sm-6">
-      
-     <input type="number" class="form-control" id="example-number-input" placeholder="Enter Account Number" required length="12">
-      
+  <h3>Register</h3>
+</div>
+<div class="wrapper">
+	<div class="card" style="width:80%">
+		
+
+		<form [formGroup]="loginForm">
+			<div class="form-group row">
+        <label for="staticEmail" class="col-sm-4 col-form-label">Enter Account Number <span style="color:red" >*</span></label>
+        <div class="col-sm-6">
+				<input class="form-control" formControlName="fname" type="number" placeholder="Enter Account Number" />
+      </div>
     </div>
-         
-   </div>
+			<div class="error-messages">
+				<ng-container *ngFor="let error of error_messages.fname">
+					<div class="error-message" *ngIf="loginForm.get('fname').hasError(error.type) && (loginForm.get('fname').dirty || loginForm.get('fname').touched)">
+						{{ error.message }}
+					</div>
+				</ng-container>
+			</div>
+
+			
+
+      <div class="form-group row">
+        
+        <label for="inputPassword" class="col-sm-4 col-form-label">  Set Login Password <span style="color:red" >*</span></label>
           
-  <div class="form-group row">
+        <div class="col-sm-6">
+				<input class="form-control" formControlName="password" type="password" placeholder="Enter Login Password" />
+      </div>
+    </div>
+			<div class="error-messages">
+				<ng-container *ngFor="let error of error_messages.password">
+					<div class="error-message" *ngIf="loginForm.get('password').hasError(error.type) && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+            {{ error.message }}
+            
+					</div>
+				</ng-container>
+			</div>
+
+			<div class="form-group row">
         
-      <label for="inputPassword" class="col-sm-5 col-form-label"> Set Login Password <span style="color:red" >*</span></label>
+        <label for="inputPassword" class="col-sm-4 col-form-label"> Confirm Login Password <span style="color:red" >*</span></label>
+          
+        <div class="col-sm-6">
+				<input class="form-control" formControlName="confirmpassword" type="password" placeholder="Enter Password" />
+      </div>
+			</div>
+			<div class="error-messages">
+				<ng-container *ngFor="let error of error_messages.confirmpassword">
+					<div class="error-message" *ngIf="loginForm.get('confirmpassword').hasError(error.type) && (loginForm.get('confirmpassword').dirty || loginForm.get('confirmpassword').touched)">
+						{{ error.message }}
+					</div>
+				</ng-container>
+      </div>
+      
+      <div class="form-group row">
         
-      <div class="col-sm-6">
-           
-     <input type="password" class="form-control" id="inputPassword" placeholder="Enter Password" required minlength="6">
-      
-        </div>
-      
+        <label for="inputPassword" class="col-sm-4 col-form-label">  Set Transaction Password <span style="color:red" >*</span></label>
+          
+        <div class="col-sm-6">
+				<input class="form-control" formControlName="password" type="password" placeholder="Enter Transaction Password"/>
+      </div>
+    </div>
+			<div class="error-messages">
+				<ng-container *ngFor="let error of error_messages.password">
+					<div class="error-message" *ngIf="loginForm.get('password').hasError(error.type) && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+            {{ error.message }}
+            
+					</div>
+				</ng-container>
+			</div>
+
+			<div class="form-group row">
+        
+        <label for="inputPassword" class="col-sm-4 col-form-label"> Confirm Transaction Password <span style="color:red" >*</span></label>
+          
+        <div class="col-sm-6">
+				<input class="form-control" formControlName="confirmpassword" type="password" placeholder="Enter Password" />
+      </div>
+			</div>
+			<div class="error-messages">
+				<ng-container *ngFor="let error of error_messages.confirmpassword">
+					<div class="error-message" *ngIf="loginForm.get('confirmpassword').hasError(error.type) && (loginForm.get('confirmpassword').dirty || loginForm.get('confirmpassword').touched)">
+						{{ error.message }}
+					</div>
+				</ng-container>
       </div>
       <div class="form-group row">
         
-        <label for="inputPassword" class="col-sm-5 col-form-label"> Confirm Login Password <span style="color:red" >*</span></label>
+        <label for="inputPassword" class="col-sm-4 col-form-label"> Enter OTP <span style="color:red" >*</span></label>
           
         <div class="col-sm-6">
-             
-       <input type="password" class="form-control" id="inputPassword" placeholder="Enter  Password" required minlength="6">
-        
-          </div>
-        
-        </div> 
-        <div class="form-group row">
-        
-            <label for="inputPassword" class="col-sm-5 col-form-label"> Set Transaction Password <span style="color:red" >*</span></label>
-              
-            <div class="col-sm-6">
-                 
-           <input type="password" class="form-control" id="inputPassword" placeholder="Enter  Password" required minlength="6">
+				<input class="form-control" formControlName="lname" type="number" placeholder="Enter OTP"/>
+      </div>
+    </div>
+			<div class="error-messages">
+				<ng-container *ngFor="let error of error_messages.lname">
+					<div class="error-message" *ngIf="loginForm.get('lname').hasError(error.type) && (loginForm.get('lname').dirty || loginForm.get('lname').touched)">
+            {{ error.message }}
             
-              </div>
-            
-            </div>
-            <div class="form-group row">
-        
-                <label for="inputPassword" class="col-sm-5 col-form-label"> Confirm Transaction Password <span style="color:red" >*</span></label>
-                  
-                <div class="col-sm-6">
-                     
-               <input type="password" class="form-control" id="inputPassword" placeholder="Enter Password" required minlength="6">
-                
-                  </div>
-                
-                </div>
-                <div class="form-group row">
-        
-                    <label for="example-number-input" class="col-sm-5 col-form-label"> Enter OTP <span style="color:red" >*</span></label>
-                      
-                    <div class="col-sm-6">
-                         
-                   <input type="number" class="form-control" id="example-number-input" placeholder="Enter OTP" required>
-                    
-                      </div>
-                    
-                    </div>
-  </form>
-  
+					</div>
+				</ng-container>
+			</div>
+      <div class="wrapper">
+      <button type="submit" class="form-control btn btn-primary" style="margin-bottom: 20px; width: 100px;" [disabled]="!loginForm.valid">Register</button>
+      </div>
+		</form>
   </div>
-  
-  <div class="wrapper">
-      
-  <button type="button" class="btn btn-primary" style="margin-bottom: 20px; width: 100px;">Submit</button>
-  
-  </div>
- 
-  
-  </div>
-  
-  </div>
-
+</div>

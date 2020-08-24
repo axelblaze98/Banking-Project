@@ -1,93 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+
 
 <div class="wrapper">
-  
-    <h3>Admin Register</h3>
-  </div>
-  <div class="wrapper">
-  
-  <div class="card" style="width:60%">
-  
-  <div>
-    
-    <form class="form">
+  <h3>Admin Register</h3>
+</div>
+<div class="wrapper">
+	<div class="card" style="width:50%">
+		
 
-        <div class="form-group row">
-      
-            <label for="staticEmail" class="col-sm-4 col-form-label">Username <span style="color:red" >*</span></label>
-            
-            
-            <div class="col-sm-6">
-              
-             <input type="text"   class="form-control" id="staticEmail" placeholder="Enter Your Username" autocomplet="false" required>
-            
-        
-           
-            
-            </div>
-                 
-           </div>
-        
-    <div class="form-group row">
-      
-    <label for="staticEmail" class="col-sm-4 col-form-label">User Id <span style="color:red" >*</span></label>
-    
-    
-    <div class="col-sm-6">
-      
-     <input type="text"   class="form-control" id="staticEmail" placeholder="Enter Your User Id" autocomplet="false" required>
-    
-
-   
-    
-    </div>
-         
-   </div>
-          
-  <div class="form-group row">
-        
-      <label for="inputPassword" class="col-sm-4 col-form-label">Password <span style="color:red" >*</span></label>
-        
-      <div class="col-sm-6">
-           
-     <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Enter Your Password" required minlength="6">
-     
-        </div>
-      
+		<form [formGroup]="loginForm">
+			<div class="form-group row">
+        <label for="staticEmail" class="col-sm-4 col-form-label">Username <span style="color:red" >*</span></label>
+        <div class="col-sm-6">
+				<input class="form-control" formControlName="fname" type="text" placeholder="Enter Your Username"/>
       </div>
+    </div>
+			<div class="error-messages">
+				<ng-container *ngFor="let error of error_messages.fname">
+					<div class="error-message" *ngIf="loginForm.get('fname').hasError(error.type) && (loginForm.get('fname').dirty || loginForm.get('fname').touched)">
+						{{ error.message }}
+					</div>
+				</ng-container>
+			</div>
+
+			<div class="form-group row">
+      
+        
+      <label for="staticEmail" class="col-sm-4 col-form-label">User Id <span style="color:red" >*</span></label>
+      <div class="col-sm-6">
+				<input class="form-control" formControlName="lname" type="text" placeholder="Enter Your User Id"/>
+      </div>
+    </div>
+			<div class="error-messages">
+				<ng-container *ngFor="let error of error_messages.lname">
+					<div class="error-message" *ngIf="loginForm.get('lname').hasError(error.type) && (loginForm.get('lname').dirty || loginForm.get('lname').touched)">
+						{{ error.message }}
+					</div>
+				</ng-container>
+			</div>
+
+			
+
       <div class="form-group row">
+        
+        <label for="inputPassword" class="col-sm-4 col-form-label"> Password <span style="color:red" >*</span></label>
+          
+        <div class="col-sm-6">
+				<input class="form-control" formControlName="password" type="password" placeholder="Enter Your Password"/>
+      </div>
+    </div>
+			<div class="error-messages">
+				<ng-container *ngFor="let error of error_messages.password">
+					<div class="error-message" *ngIf="loginForm.get('password').hasError(error.type) && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+            {{ error.message }}
+            
+					</div>
+				</ng-container>
+			</div>
+
+			<div class="form-group row">
         
         <label for="inputPassword" class="col-sm-4 col-form-label"> Confirm Password <span style="color:red" >*</span></label>
           
         <div class="col-sm-6">
-             
-       <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Enter Your Password" required minlength="6">
-       
-          </div>
-        
-        </div>
-        
-  </form>
-  
+				<input class="form-control" formControlName="confirmpassword" type="password" placeholder="Enter Password"/>
+      </div>
+			</div>
+			<div class="error-messages">
+				<ng-container *ngFor="let error of error_messages.confirmpassword">
+					<div class="error-message" *ngIf="loginForm.get('confirmpassword').hasError(error.type) && (loginForm.get('confirmpassword').dirty || loginForm.get('confirmpassword').touched)">
+						{{ error.message }}
+					</div>
+				</ng-container>
+			</div>
+      <div class="wrapper">
+      <button type="submit" class="form-control btn btn-primary" style="margin-bottom: 20px; width: 100px;" [disabled]="!loginForm.valid">Register</button>
+      </div>
+		</form>
   </div>
-  
-  <div class="wrapper">
-      
-  <button type="button"  class="btn btn-primary" style="margin-bottom: 20px; width: 100px;">Submit</button>
-  
-  </div>
-
-  
-  </div>
-  
-  </div>
-</body>
-</html>
-
+</div>
