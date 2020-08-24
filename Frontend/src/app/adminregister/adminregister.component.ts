@@ -1,6 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-adminregister',
   templateUrl: './adminregister.component.html',
@@ -38,7 +39,7 @@ export class AdminregisterComponent implements OnInit {
 
   constructor(
     public formBuilder: FormBuilder, 
-    private http: HttpClient
+    private http: HttpClient,private router: Router
   ) {
     this.loginForm = this.formBuilder.group({
       fname: new FormControl('', Validators.compose([
@@ -92,6 +93,7 @@ view(){
         alert(data.message);
       }else{
         alert("User Registered");
+        this.router.navigate(['adminlogin'])
       }
     })
 }
