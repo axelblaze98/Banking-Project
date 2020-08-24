@@ -9,7 +9,7 @@
 			<div class="form-group row">
         <label for="staticEmail" class="col-sm-4 col-form-label">User Id <span style="color:red" >*</span></label>
         <div class="col-sm-6">
-				<input class="form-control" formControlName="fname" type="text"  placeholder="Enter Your User Id" />
+				<input class="form-control" formControlName="fname" type="text"  placeholder="Enter Your User Id" [(ngModel)]="user.userId"/>
       </div>
     </div>
 			<div class="error-messages">
@@ -25,7 +25,7 @@
         <label for="inputPassword" class="col-sm-4 col-form-label"> Password <span style="color:red" >*</span></label>
           
         <div class="col-sm-6">
-				<input class="form-control" formControlName="password" type="password"   placeholder="Enter Your Password"/>
+				<input class="form-control" formControlName="password" type="password"   placeholder="Enter Your Password" [(ngModel)]="user.password"/>
       </div>
     </div>
 			<div class="error-messages">

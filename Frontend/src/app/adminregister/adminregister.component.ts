@@ -1,5 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-adminregister',
@@ -8,9 +9,11 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 })
 export class AdminregisterComponent implements OnInit {
 
-  
+
+
+
+
   loginForm: FormGroup;
-  
 
   error_messages = {
     'fname': [

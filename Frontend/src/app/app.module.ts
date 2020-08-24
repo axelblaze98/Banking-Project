@@ -1,3 +1,5 @@
+import { Admin } from './admin';
+import { ConnectionService } from './connection.service';
 import { navBarAccountComponent } from './navbaraccount.component';
 import { navBarMainComponent } from './navbarmain.component';
 import { navBarLoginComponent } from './navbarlogin.component';
@@ -5,6 +7,7 @@ import { navBarLoginComponent } from './navbarlogin.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClient} from '@angular/common/http';
 
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,9 +30,10 @@ import { ForgotuseridComponent } from './forgotuserid/forgotuserid.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClient
   ],
-  providers: [],
+  providers: [ConnectionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
