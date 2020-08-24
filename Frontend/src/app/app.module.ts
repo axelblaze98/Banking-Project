@@ -1,4 +1,3 @@
-import { Admin } from './admin';
 import { ConnectionService } from './connection.service';
 import { navBarAccountComponent } from './navbaraccount.component';
 import { navBarMainComponent } from './navbarmain.component';

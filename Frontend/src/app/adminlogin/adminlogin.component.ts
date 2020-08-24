@@ -1,4 +1,3 @@
-import { RouterModule } from '@angular/router';
 import { Admin } from './../admin';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
@@ -15,7 +14,6 @@ export class AdminloginComponent{
   }
 
   user = new Admin();
-  data = String;
 
   AdminLogin()
   {
@@ -23,7 +21,7 @@ export class AdminloginComponent{
     console.log(this.user);
     this.http.post<any>("http://localhost:8060/loginAdmin", this.user)
     .subscribe(
-      data => console.log(data);
+      data => {console.log(data)
       if (data.status=="FAILURE")
       {
         alert(data.message);
@@ -31,7 +29,8 @@ export class AdminloginComponent{
       else{
         console.log("successful login attempt");
       }
-    )
+    }
+)
   }
   
 
