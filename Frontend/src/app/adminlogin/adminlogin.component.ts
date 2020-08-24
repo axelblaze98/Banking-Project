@@ -19,7 +19,7 @@ export class AdminloginComponent{
   {
 
     console.log(this.user);
-    this.http.post<any>("http://localhost:8060/loginAdmin", this.user)
+    this.http.post<any>("http://localhost:8086/loginAdmin", this.user)
     .subscribe(
       data => {console.log(data)
       if (data.status=="FAILURE")
@@ -27,7 +27,7 @@ export class AdminloginComponent{
         alert(data.message);
       }
       else{
-        console.log("successful login attempt");
+        alert(data.message);
       }
     }
 )

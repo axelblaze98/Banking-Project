@@ -6,7 +6,7 @@ import { navBarLoginComponent } from './navbarlogin.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClient} from '@angular/common/http';
+import { HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,9 +30,9 @@ import { ForgotuseridComponent } from './forgotuserid/forgotuserid.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClient
+    HttpClientModule
   ],
-  providers: [ConnectionService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
