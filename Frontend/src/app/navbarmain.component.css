@@ -12,9 +12,14 @@
     display:table-cell;
     text-align:center;
     text-decoration-style: dashed;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 
   }
   .navbar-custom{
     color: white !important;
   }
+  .navbar-nav > li > a{
+    color: white !important;
+    text-decoration: none;
+    background-color: transparent;
+}

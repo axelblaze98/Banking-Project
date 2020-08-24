@@ -2,8 +2,19 @@
   margin: auto;
   width:80%;
 }
+.navbar-nav{
+  margin: 0px;
+  width: 100%;
+  display:table;
+
+}
+.navbar-nav > li {
+  float: center;
+  display:table-cell;
+  text-decoration-style: dashed;
+}
 .foots{
-  margin-top: 20px;
+  margin-top: 10px;
     text-align: center !important;
     background-color: black;
     color: white;
@@ -13,10 +24,6 @@
   background-color: black !important;
   margin-bottom: 5px;
 }
-.bg-warning {
-  background-color: darkblue !important;
-}
-
 
 
 

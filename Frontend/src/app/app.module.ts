@@ -1,4 +1,7 @@
+import { navBarAccountComponent } from './navbaraccount.component';
 import { navBarMainComponent } from './navbarmain.component';
+import { navBarLoginComponent } from './navbarlogin.component';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -18,14 +21,11 @@ import { AdminregisterComponent } from './adminregister/adminregister.component'
     AppComponent,
     routingComponents,
     SessionexpiredComponent,
-    SetnewpasswordComponent,
     SetnewtransactionpasswordComponent,
-    AccountCreationStatusComponent,
-    LogoutComponent,
-    TrackapplicationstatusComponent,
-    AdminregisterComponent, 
-    navBarMainComponent
-      ],
+    navBarMainComponent,
+    navBarLoginComponent,
+    navBarAccountComponent
+     ],
   imports: [
     BrowserModule,
     AppRoutingModule,

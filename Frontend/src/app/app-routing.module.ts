@@ -1,3 +1,8 @@
+import { SetnewpasswordComponent } from './setnewpassword/setnewpassword.component';
+import { AccountCreationStatusComponent } from './account-creation-status/account-creation-status.component';
+import { AdminregisterComponent } from './adminregister/adminregister.component';
+import { LogoutComponent } from './logout/logout.component';
+import { TrackapplicationstatusComponent } from './trackapplicationstatus/trackapplicationstatus.component';
 import { FundTransferComponent } from './fund-transfer/fund-transfer.component';
 import { AddBeneficiaryComponent } from './add-beneficiary/add-beneficiary.component';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
@@ -29,7 +34,12 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'adminlogin', component: AdminloginComponent},
   {path: 'addbeneficiary', component: AddBeneficiaryComponent},
-  {path: 'fundtransfer', component: FundTransferComponent}
+  {path: 'fundtransfer', component: FundTransferComponent},
+  {path: 'trackapp', component: TrackapplicationstatusComponent},
+  {path: 'logout', component: LogoutComponent},
+  {path: 'adminregister', component: AdminregisterComponent},
+  {path: 'trackaccount', component: AccountCreationStatusComponent},
+  {path: 'setloginpassword', component: SetnewpasswordComponent}
 ];
 
 @NgModule({
@@ -37,5 +47,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [FaqmainComponent, AccountmainpageComponent, HomepagemainComponent, AboutusComponent, ContactusComponent, LearnmoreComponent, ForgotpasswordComponent, ForgotuseridComponent, LoginComponent, RegisterComponent, OpenAccountComponent, AdminloginComponent, AddBeneficiaryComponent, FundTransferComponent]
+export const routingComponents = [FaqmainComponent, AccountmainpageComponent, HomepagemainComponent, AboutusComponent, ContactusComponent, LearnmoreComponent, ForgotpasswordComponent, ForgotuseridComponent, LoginComponent, RegisterComponent, OpenAccountComponent, AdminloginComponent, AddBeneficiaryComponent, FundTransferComponent, TrackapplicationstatusComponent, LogoutComponent, AdminregisterComponent, AccountCreationStatusComponent, SetnewpasswordComponent]
 
