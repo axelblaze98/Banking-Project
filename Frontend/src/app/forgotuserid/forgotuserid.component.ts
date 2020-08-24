@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'app-forgotuserid',
   templateUrl: './forgotuserid.component.html',
@@ -7,9 +7,52 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ForgotuseridComponent implements OnInit {
 
-  constructor() { }
+  
+  loginForm: FormGroup;
+  
 
-  ngOnInit(): void {
+  error_messages = {
+    'fname': [
+      { type: 'required', message: 'Account Number is required.' },
+    ],
+
+
+    'password': [
+      { type: 'required', message: 'OTP is required.' },
+      { type: 'minlength', message: 'password length.' },
+      { type: 'maxlength', message: 'password length.' }
+      
+    ],
+    
   }
 
+  constructor(
+    public formBuilder: FormBuilder
+  ) {
+    this.loginForm = this.formBuilder.group({
+      fname: new FormControl('', Validators.compose([
+        Validators.required
+        
+        
+      ])),
+      
+      
+      password: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(30),
+        
+      ])),
+      
+    }, 
+      
+    );
+  }
+
+  ngOnInit() {
+  }
+
+  
+
 }
+
