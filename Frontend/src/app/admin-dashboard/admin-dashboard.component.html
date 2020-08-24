@@ -1,0 +1,83 @@
+<h1 style="padding-left: 40%;">All Account Holders Details</h1>
+<br>
+<div >
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+            <th style="margin: auto;" scope="col">Title</th>
+            <th style="margin: auto; border-collapse: collapse;" scope="col">First Name</th>
+            <th scope="col">Middle Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Mobile Number</th>
+            <th scope="col">Email Address</th>
+            <th scope="col">Father's Name</th>
+            <th scope="col">Mother's Name</th>
+            <th scope="col">Unique Aadhar Card</th>
+            <th scope="col"> DOB</th>
+            <th scope="col">Resedential Address Line1</th>
+            <th scope="col">Resedential Address Line2</th>
+            <th scope="col">Resedential Landmark</th>
+            <th scope="col">Resedential State</th>
+            <th scope="col">Resedential City</th>
+            <th scope="col">Resedential Pincode</th>
+            <th scope="col">Permanent Address Line1</th>
+            <th scope="col">Permanent Address Line2</th>
+            <th scope="col">Permanent Landmark</th>
+            <th scope="col">Permanent State</th>
+            <th scope="col">Permanent City</th>
+            <th scope="col">Permanent Pincode</th>
+            <th scope="col">Type of Occupation</th>
+            <th scope="col">Source Of Income</th>
+            <th scope="col">Annual Salary</th>
+            <th scope="col">Account Number</th>
+            <th scope="col"> Account Reference ID</th>
+            <th scope="col">Account Balance</th>
+            <th scope="col"> Approved By admin</th>
+            <th scope="col">Admin Remark</th>
+            <th scope="col">Submit Details</th>
+
+        </tr>
+      </thead>
+     <tbody>
+      <tr *ngFor="let account of accounts">
+        <td><span>{{account.title}}</span></td>
+        <td><span>{{account.firstName}}</span></td>
+        <td><span>{{account.middleName}}</span></td>
+        <td><span>{{account.lastName}}</span></td>
+        <td><span>{{account.mobileNumber}}</span></td>
+        <td><span>{{account.email}}</span></td>
+        <td><span>{{account.fatherName}}</span></td>
+        <td><span>{{account.motherName}}</span></td>
+        <td><span>{{account.aadharCard}}</span></td>
+        <td><span>{{account.dob}}</span></td>
+        <td><span>{{account.resAddress1}}</span></td>
+        <td><span>{{account.resAddress2}}</span></td>
+        <td><span>{{account.resLandMark}}</span></td>
+        <td><span>{{account.resState}}</span></td>
+        <td><span>{{account.resCity}}</span></td>
+        <td><span>{{account.resPincode}}</span></td>
+        <td><span>{{account.perAddress1}}</span></td>
+        <td><span>{{account.perAddress2}}</span></td>
+        <td><span>{{account.perLandMark}}</span></td>
+        <td><span>{{account.perState}}</span></td>
+        <td><span>{{account.perCity}}</span></td>
+        <td><span>{{account.perPincode}}</span></td>
+        <td><span>{{account.occupation}}</span></td>
+        <td><span>{{account.sourceOfIncome}}</span></td>
+        <td><span>{{account.annualSalary}}</span></td>
+        <td><span>{{account.accountNumber}}</span></td>
+        <td><span>{{account.refernceId}}</span></td>
+        <td><span>{{account.accountBalance}}</span></td>
+        <td><span>
+            <select id="adminStatus" name="adminStatus">
+                <option value="Approved">Approved</option>
+                <option value="Decline">Decline</option>
+            </select>
+        </span></td>
+        <td><span><input type="text" id="remarks" name="remarks"></span></td>
+        <button type="submit" (click) ="sendAdminRemarks()"> Submit Status</button>
+      </tr>
+      </tbody> 
+    </table>
+    
+</div>  
