@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lti.dto.AdminCredentials;
-import com.lti.exception.AdminServiceException;
+import com.lti.exception.ServiceException;
 import com.lti.pojo.Admin;
 import com.lti.service.AdminService;
 import com.lti.status.LoginStatus;
@@ -19,7 +19,7 @@ public class AdminController {
 	@Autowired
 	private AdminService service;
 	
-	@PostMapping(path="/register")
+	@PostMapping(path="/registerAdmin")
 	public Status registerAdmin(@RequestBody Admin admin) {
 	try {
 			service.registerAdmin(admin);
@@ -28,7 +28,7 @@ public class AdminController {
 			registerStatus.setMessage("User Registered");
 			return registerStatus;
 		}
-	catch(AdminServiceException e) {
+	catch(ServiceException e) {
 			Status registerStatus = new Status();
 			registerStatus.setStatus(StatusType.FAILURE);
 			registerStatus.setMessage(e.getMessage());
@@ -36,7 +36,7 @@ public class AdminController {
 		}
 	}
 	
-	@PostMapping(path="/login")
+	@PostMapping(path="/loginAdmin")
 	public LoginStatus adminLogin(@RequestBody AdminCredentials adminCredentials) {
 		try {
 			Admin admin = service.adminLogin(adminCredentials);
@@ -47,7 +47,7 @@ public class AdminController {
 			loginStatus.setStatus(StatusType.SUCCESS);
 			return loginStatus;
 		}
-		catch(AdminServiceException e) {
+		catch(ServiceException e) {
 			LoginStatus loginStatus = new LoginStatus();
 			loginStatus.setMessage(e.getMessage());
 			loginStatus.setStatus(StatusType.FAILURE);
