@@ -38,13 +38,13 @@ public class UserRepositoryImpl implements UserRepository {
 	}
 	@Override
 	@Transactional
-	public OpenAccount findbyId(long accNumber) {
+	public OpenAccount findbyId(String accNumber) {
 		return em.find(OpenAccount.class,accNumber);
 	}
 	
 	@Override
 	@Transactional
-	public boolean isAccountRegistered(long accNumber) {
+	public boolean isAccountRegistered(String accNumber) {
 		return (Long)em.createNamedQuery("getAcc").setParameter("accNumber", accNumber)
 				.getSingleResult()==1 ? true : false;
 	}
