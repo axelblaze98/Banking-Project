@@ -44,6 +44,34 @@ public class UserServiceImpl implements UserService {
 		
 		repo.save(userLogin);
 		
-		return userLogin.getUserId();	
-}
+		return userLogin.getUserId();
+	}
+	
+		@Override
+		public User loginUser(String userId, String password) {
+			
+			int attempts = repo.getNoOfInvalidAttempts(userId);
+			
+			if(!repo.isUserValid(userId))
+			{	
+				throw new ServiceException("User Doesn't Exist");
+			}
+			else if(attempts>3){
+				throw new ServiceException("Account Blocked");
+			}
+			else {
+				if(!repo.validUserIdPassword(userId, password)) {
+					repo.setNoOfInvalidAttempts(userId, attempts+1);
+					throw new ServiceException("Invalid Credentials");
+				}
+				repo.setNoOfInvalidAttempts(userId, 0);
+				User user = repo.findUserById(userId);
+				return user;
+			}
+		}
+		
+		public int getInvalidAttempts(String userId) {
+			return repo.getNoOfInvalidAttempts(userId);
+		}
+
 }
