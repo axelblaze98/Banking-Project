@@ -3,18 +3,28 @@ package com.lti.pojo;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+@NamedQuery(name="checkIfAccountPresent", query="select count(t.aadharCard) from OpenAccount t where t.aadharCard = :aadharNumber") 
+@NamedQuery(name="countTotalAccounts", query="select count(*) from OpenAccount t") 
+@NamedQuery(name="checkMaxAccountNumber", query="select max(t.accountNumber) from OpenAccount t") 
+@NamedQuery(name="checkMaxRefernceIdNumber", query="select max(t.refernceId) from OpenAccount t") 
+@NamedQuery(name="getAllAccounts", query="from OpenAccount t") 
+@NamedQuery(name="getAccountNumberByRefId", query="select t.accountNumber from OpenAccount t where t.refernceId = :refId") 
+@NamedQuery(name="updateAccountStatusByAdmin", query="update OpenAccount set approvedByAdmin = :status, adminRemark = :remark where accountNumber = :acc ") 
+
+
 @Entity
-@Table(name="open_account")
+@Table(name="account_details")
 public class OpenAccount {
 	
 	@Id
 	@Column(length = 9)
-	private Long accountNumber;
+	private String accountNumber;
 	
 	@Column(length = 6)
-	private Long refernceId;
+	private String refernceId;
 
 	@Column(length = 20)
 	private int accountBalance = 5000;
@@ -25,7 +35,7 @@ public class OpenAccount {
 	@Column(length = 20)
 	private String firstName;
 	
-	@Column(length = 20)
+	@Column(length = 20, nullable = true)
 	private String middleName;
 	
 	@Column(length = 20)
@@ -97,23 +107,24 @@ public class OpenAccount {
 	@Column(length = 20)
 	private String annualSalary;
 	
-	@Column(nullable = true, length = 5)
-	private String approvedByAdmin;
+	@Column(nullable = true, length = 10)
+	private String approvedByAdmin = "pending...";
 	
 	@Column(nullable = true, length = 50)
 	private String adminRemark;
 	
 	
-	public Long getAccountNumber() {
+	
+	public String getAccountNumber() {
 		return accountNumber;
 	}
-	public void setAccountNumber(Long accountNumber) {
+	public void setAccountNumber(String accountNumber) {
 		this.accountNumber = accountNumber;
 	}
-	public Long getRefernceId() {
+	public String getRefernceId() {
 		return refernceId;
 	}
-	public void setRefernceId(Long refernceId) {
+	public void setRefernceId(String refernceId) {
 		this.refernceId = refernceId;
 	}
 	public int getAccountBalance() {
