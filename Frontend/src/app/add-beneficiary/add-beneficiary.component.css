@@ -13,4 +13,10 @@ padding: 16px;
 text-align: left;
 background-color: #d8d8dae8;
 }
+.error-message {
+    color: red;
+  }
+  input.ng-touched.ng-invalid {
+    border: 1px solid red;
+  }
 
