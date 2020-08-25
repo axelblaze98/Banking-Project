@@ -9,10 +9,10 @@ import { Component } from '@angular/core';
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="list">
-              <a class="nav-link" href="#">User Profile</a>
+              <a class="nav-link" routerLink="/accountmainpage" routerLinkActive="active">Dashboard</a>
             </li>
               <li class="list">
-                <a class="nav-link" href="#">Account Details</a>
+                <a class="nav-link" routerLink="/userprofile" routerLinkActive="active">User Profile</a>
               </li>
               <li class="list">
                 <a class="nav-link" href="#">Transaction History</a>
@@ -27,7 +27,8 @@ import { Component } from '@angular/core';
                   <a class="nav-link" routerLink="/fundtransfer" routerLinkActive="active">Fund Transfer</a>
               </li>
               <li class="list">
-                  <a class="nav-link" href="#">Logout</a>
+              <a routerLink=""><button type="button" class="btn btn-primary">Logout</button>
+              </a>
               </li>
             </ul>
         </div>

@@ -1,0 +1,12 @@
+.table thead{
+    background-color: darkblue;
+    color: white;
+    text-align:center;
+}
+.table tbody{
+    text-align: center;
+}
+.th{
+    border: 1px solid black;
+    border-collapse: collapse;
+  }

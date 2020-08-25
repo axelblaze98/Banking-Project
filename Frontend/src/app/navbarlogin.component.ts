@@ -26,9 +26,6 @@ import { Component } from '@angular/core';
               <li class="list">
                   <a class="nav-link" routerLink="/contactus">Need Help?</a>
               </li>
-              <li class="list">
-                  <a class="nav-link" routerLink="/logout">Logout</a>
-              </li>
             </ul>
         </div>
         </nav>
