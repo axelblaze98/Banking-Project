@@ -10,10 +10,10 @@ import { HttpClient } from '@angular/common/http';
 export class AdminDashboardComponent implements OnInit {
 
   constructor(private http: HttpClient) { }
-  public accounts;
+  accounts = new AccountHolderDetails;
   
   ngOnInit(): void {
-    this.http.get<AccountHolderDetails>('http://localhost:8086/viewAllAccounts')
+    this.http.get<any>("http://localhost:8086/viewAllAccounts", this.accounts)
       .subscribe(data => 
         {
           console.log(data);

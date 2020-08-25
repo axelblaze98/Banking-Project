@@ -39,7 +39,7 @@
         </tr>
       </thead>
      <tbody>
-      <tr *ngFor="let account of accounts">
+      <tr *ngFor="let account of accounts; let i=index">
         <td><span>{{account.title}}</span></td>
         <td><span>{{account.firstName}}</span></td>
         <td><span>{{account.middleName}}</span></td>
@@ -75,7 +75,7 @@
             </select>
         </span></td>
         <td><span><input type="text" id="remarks" name="remarks"></span></td>
-        <button type="submit" (click) ="sendAdminRemarks()"> Submit Status</button>
+        <button type="submit" (click) ="sendAdminRemarks()"> GetDetails</button>
       </tr>
       </tbody> 
     </table>
