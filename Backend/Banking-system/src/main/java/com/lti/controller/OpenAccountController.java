@@ -46,4 +46,32 @@ public class OpenAccountController {
 	public List<OpenAccount> viewAllAccounts(){
 		return service.getAllAccounts();
 	}
+	
+	@GetMapping(path = "/viewAccountByRefId/{refId}")
+	public CreateAccountStatus viewAccountByRefId(@PathVariable(value = "refId") String refId) 
+	{
+//		System.out.println("Reference Id is: "+refId);
+		
+		try {
+			OpenAccount account = service.getAccountById(refId);
+			System.out.println("acc is : "+account);
+			
+			CreateAccountStatus status = new CreateAccountStatus();
+			status.setRefernceId(account.getRefernceId());
+			status.setFirstName(account.getFirstName());
+			status.setAdminRemark(account.getAdminRemark());
+			status.setApprovedByAdmin(account.getApprovedByAdmin());
+			System.out.println(account.getApprovedByAdmin());
+			if(account.getApprovedByAdmin().equals("Decline") || account.getApprovedByAdmin().equals("Waiting for Approval")) {
+				status.setAccountNumber("NA");
+			}else status.setAccountNumber(account.getAccountNumber());
+			return status;
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+			CreateAccountStatus status = new CreateAccountStatus();
+			status.setAccountNumber("No User");
+			return status;
+		}
+	}
 }

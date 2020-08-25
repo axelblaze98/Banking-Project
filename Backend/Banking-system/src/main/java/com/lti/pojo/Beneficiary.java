@@ -4,53 +4,54 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
-//@NamedQuery(name = "gettingBIdFromAccounts", query = "select b.beneficiaryId from beneficiary b where b.accountNumber = :from and b.beneficiaryAccountNumber = :to")
 
+//@NamedQuery(name = "gettingBenefIdFromAccounts", query = "select b.beneficiaryId from beneficiary b where b.userAccountNumber = :from and b.beneficiaryAccountNumber = :to")
+//														  select b.beneficiary_Id from beneficiary_details b where b.user_Account_Number = '124' and b.beneficiary_Account_Number = '123';
 @Entity
 @Table(name = "beneficiary_details")
 public class Beneficiary {
 	
 	@Id
 	@GeneratedValue
-	private int beneificiaryId;
-	
-	@Column(length = 9)
-	private String accountNumber;
+	private int beneficiaryId;
 
-	@Column(length = 9)
+	@Column(length = 9, nullable = false)
 	private String beneficiaryAccountNumber;
-
+	
 	@Column(length = 20)
 	private String beneficiaryName;
 
 	@Column(length = 15)
 	private String beneficiaryNickName;
 
-	public int getBeneificiaryId() {
-		return beneificiaryId;
+	@Column(length = 9, nullable = false)
+	private String userAccountNumber;
+	
+	
+	public String getUserAccountName() {
+		return userAccountNumber;
 	}
 
-	public void setBeneificiaryId(int beneificiaryId) {
-		this.beneificiaryId = beneificiaryId;
+	public void setUserAccountName(String userAccountNumber) {
+		this.userAccountNumber = userAccountNumber;
 	}
 
-	public String getAccountNumber() {
-		return accountNumber;
-	}
-
-	public void setAccountNumber(String accountNumber) {
-		this.accountNumber = accountNumber;
-	}
-
-	public String getBeneficiaryAccountNumber() {
+	public String getBenefAccountNumber() {
 		return beneficiaryAccountNumber;
 	}
 
-	public void setBeneficiaryAccountNumber(String beneficiaryAccountNumber) {
-		this.beneficiaryAccountNumber = beneficiaryAccountNumber;
+	public void setBenefAccountNumber(String benefAccountNumber) {
+		this.beneficiaryAccountNumber = benefAccountNumber;
+	}
+
+	public int getBeneificiaryId() {
+		return beneficiaryId;
+	}
+
+	public void setBeneificiaryId(int beneficiaryId) {
+		this.beneficiaryId = beneficiaryId;
 	}
 
 	public String getBeneficiaryName() {
@@ -71,10 +72,10 @@ public class Beneficiary {
 
 	@Override
 	public String toString() {
-		return "Beneficiary [beneificiaryId=" + beneificiaryId + ", accountNumber=" + accountNumber
-				+ ", beneficiaryAccountNumber=" + beneficiaryAccountNumber + ", beneficiaryName=" + beneficiaryName
-				+ ", beneficiaryNickName=" + beneficiaryNickName + "]";
-	}
+		return "Beneficiary [beneficiaryId=" + beneficiaryId + ", beneficiaryAccountNumber=" + beneficiaryAccountNumber
+				+ ", beneficiaryName=" + beneficiaryName + ", beneficiaryNickName=" + beneficiaryNickName
+				+ ", userAccountNumber=" + userAccountNumber + "]";
+	}	
 	
 	
 }
