@@ -47,4 +47,18 @@ public class OpenAccountServiceImpl implements OpenAccountService {
 	public List<OpenAccount> getAllAccounts() {
 		return repo.viewAllRecords();
 	}
+	
+	@Override
+	public OpenAccount getAccountById(String refId) {
+		try {
+		System.out.println("ref is "+refId);
+			String acNo = repo.findAccountNumberByRefId(refId);
+			System.out.println("acc is "+acNo);
+			return repo.getAccountByAccNumber(acNo);
+		}
+		catch (NullPointerException e) {
+			// TODO: handle exception
+			throw new ServiceException();
+		}
+	}
 }

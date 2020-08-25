@@ -35,11 +35,10 @@
             <th scope="col"> Approved By admin</th>
             <th scope="col">Admin Remark</th>
             <th scope="col">Submit Details</th>
-
         </tr>
       </thead>
      <tbody>
-      <tr *ngFor="let account of accounts; let i=index">
+      <tr *ngFor="let account of accounts; let i=index; let num of array">
         <td><span>{{account.title}}</span></td>
         <td><span>{{account.firstName}}</span></td>
         <td><span>{{account.middleName}}</span></td>
@@ -69,13 +68,13 @@
         <td><span>{{account.refernceId}}</span></td>
         <td><span>{{account.accountBalance}}</span></td>
         <td><span>
-            <select id="adminStatus" name="adminStatus">
-                <option value="Approved">Approved</option>
-                <option value="Decline">Decline</option>
+            <select id=i name="approvedByAdmin" [(ngModel)]="adminObj.approvedByAdmin" (ngModelChange)="dataChanged($event)" >
+                <option value="Approved" >Approved</option>
+                <option value="Decline" >Decline</option>
             </select>
         </span></td>
-        <td><span><input type="text" id="remarks" name="remarks"></span></td>
-        <button type="submit" (click) ="sendAdminRemarks()"> GetDetails</button>
+        <td><span><input type="text" id="remarks" name="remarks" [(ngModel)]="adminObj.adminRemark" ></span></td>
+        <button type="button" (click) ="sendAdminRemarks(i)"> Submit Status</button>
       </tr>
       </tbody> 
     </table>

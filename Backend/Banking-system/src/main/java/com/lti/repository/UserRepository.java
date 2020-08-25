@@ -7,5 +7,11 @@ public interface UserRepository {
 	void save(User user);
 	boolean isUserPresent();
 	String getUserId();
-	OpenAccount findbyId(long id);
-	}
+	OpenAccount findbyId(String id);
+	boolean isAccountRegistered(String accNumber);
+	boolean validUserIdPassword(String userId, String password);
+	User findUserById(String userId);
+	boolean isUserValid(String userId);
+	int getNoOfInvalidAttempts(String userId);
+	void setNoOfInvalidAttempts(String userId, int attempts);
+}

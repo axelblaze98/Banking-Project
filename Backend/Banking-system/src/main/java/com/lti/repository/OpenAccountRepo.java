@@ -15,4 +15,6 @@ public interface OpenAccountRepo {
 	List<OpenAccount> viewAllRecords();
 	String findAccountNumberByRefId(String refId);
 	void updateAccountStatus(String adminApproval, String adminRemark, String accNo);
+	boolean isAccountActive(String acNo);
+	
 }
