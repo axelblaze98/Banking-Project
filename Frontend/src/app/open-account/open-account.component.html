@@ -3,7 +3,7 @@
     <h3 style="margin-bottom: 20px; margin-top: 10px;">Open A Savings Account</h3>
 </div>
 <div>
-    <form class="form" onsubmit="validate()">
+    <form class="form" [formGroup]="loginForm" >
         <div class="wrapper">
             <div class="card" style="width:50%">
                 <div>
@@ -12,19 +12,28 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="title" class="col-sm-5 col-form-label">Title*</label>
+                        <label for="title" class="col-sm-5 col-form-label">Title <span style="color:red" >*</span></label>
                         <div class="col-sm-6">
                             <select class="form-control" id="title">
-                                <option *ngFor = "let title of titles">{{title}}</option>
+                                <option value="Mr."> Mr.</option>
+                                <option value="Mrs."> Mrs.</option>
+                                <option value="Ms."> Ms.</option>
                             </select>
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <label for="fName" class="col-sm-5 col-form-label">First Name*</label>
+                        <label for="fName" class="col-sm-5 col-form-label">First Name <span style="color:red" >*</span></label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="fName" placeholder="Enter First Name" required>
+                            <input type="text" class="form-control" id="fName" formControlName="fname" placeholder="Enter First Name" required>
                         </div>
+                    </div>
+                    <div class="error-messages">
+                        <ng-container *ngFor="let error of error_messages.fname">
+                            <div class="error-message" *ngIf="loginForm.get('fname').hasError(error.type) && (loginForm.get('fname').dirty || loginForm.get('fname').touched)">
+                                {{ error.message }}
+                            </div>
+                        </ng-container>
                     </div>
                     <div class="form-group row">
                         <label for="mName" class="col-sm-5 col-form-label">Middle Name</label>
@@ -33,37 +42,65 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="lName" class="col-sm-5 col-form-label">Last Name* </label>
+                        <label for="lName" class="col-sm-5 col-form-label">Last Name <span style="color:red" >*</span> </label>
                         <div class="col-sm-6">
-                          <input type="text" class="form-control" id="lName" placeholder="Enter Last Name" required>
+                          <input type="text" class="form-control" id="lName" formControlName="lname" placeholder="Enter Last Name" required>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label for="fatherName" class="col-sm-5 col-form-label">Father's Name*</label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="fatherName" placeholder="Enter Father's Name" required>
-                        </div>
+                    <div class="error-messages">
+                        <ng-container *ngFor="let error of error_messages.lname">
+                            <div class="error-message" *ngIf="loginForm.get('lname').hasError(error.type) && (loginForm.get('lname').dirty || loginForm.get('lname').touched)">
+                                {{ error.message }}
+                            </div>
+                        </ng-container>
                     </div>
                     <div class="form-group row">
-                        <label for="mobileNumber" class="col-sm-5 col-form-label">Mobile Number*</label>
+                        <label for="fatherName" class="col-sm-5 col-form-label">Father's Name <span style="color:red" >*</span></label>
                         <div class="col-sm-6">
-                         <input type="tel" class="form-control" id="mobileNumber" pattern="[6,7,8,9]{5}-[0-9]{5}"placeholder="Enter Mobile Number" required>
+                            <input type="text" class="form-control" id="fatherName" formControlName="faname" placeholder="Enter Father's Name" required>
                         </div>
+                    </div>
+                    <div class="error-messages">
+                        <ng-container *ngFor="let error of error_messages.faname">
+                            <div class="error-message" *ngIf="loginForm.get('faname').hasError(error.type) && (loginForm.get('faname').dirty || loginForm.get('faname').touched)">
+                                {{ error.message }}
+                            </div>
+                        </ng-container>
+                    </div>
+                    <div class="form-group row">
+                        <label for="mobileNumber" class="col-sm-5 col-form-label">Mobile Number <span style="color:red" >*</span></label>
+                        <div class="col-sm-6">
+                         <input type="text" class="form-control" id="mobileNumber" formControlName="mo" placeholder="Enter Mobile Number" >
+                        </div>
+                    </div>
+                    <div class="error-messages">
+                        <ng-container *ngFor="let error of error_messages.mo">
+                            <div class="error-message" *ngIf="loginForm.get('mo').hasError(error.type) && (loginForm.get('mo').dirty || loginForm.get('mo').touched)">
+                                {{ error.message }}
+                            </div>
+                        </ng-container>
                     </div>
                     <div class="form-group row">
                         <label for="emailId" class="col-sm-5 col-form-label">Email ID</label>
                         <div class="col-sm-6">
-                          <input type="email" class="form-control" id="emailId" placeholder="Enter Email Address" required>
+                          <input type="email" class="form-control" id="emailId" placeholder="Enter Email Address">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="aadharNumber" class="col-sm-5 col-form-label">Aadhar Card Number*</label>
+                        <label for="aadharNumber" class="col-sm-5 col-form-label">Aadhar Card Number <span style="color:red" >*</span></label>
                         <div class="col-sm-6">
-                         <input type="tel" class="form-control" pattern="[0-9]{12}" id="aadharNumber" placeholder="Enter Aadhar Card Number" required>
+                         <input type="text" class="form-control"  id="aadharNumber" formControlName="ad" placeholder="Enter Aadhar Card Number">
                         </div>
                     </div>
+                    <div class="error-messages">
+                        <ng-container *ngFor="let error of error_messages.ad">
+                            <div class="error-message" *ngIf="loginForm.get('ad').hasError(error.type) && (loginForm.get('ad').dirty || loginForm.get('ad').touched)">
+                                {{ error.message }}
+                            </div>
+                        </ng-container>
+                    </div>
                     <div class="form-group row">
-                        <label for="dob" class="col-sm-5 col-form-label">Date of Birth*</label>
+                        <label for="dob" class="col-sm-5 col-form-label">Date of Birth <span style="color:red" >*</span></label>
                         <div class="col-sm-6">
                           <input type="date" class="form-control" id="dob" placeholder="Enter DOB" required>
                         </div>
@@ -80,40 +117,75 @@
                     </div>
 
                     <div class="form-group row">
-                    <label for="resLine1" class="col-sm-5 col-form-label">Address Line 1*</label>
+                    <label for="resLine1" class="col-sm-5 col-form-label">Address Line 1 <span style="color:red" >*</span></label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" id="resLine1" placeholder="Enter Address Line 1" required>
+                        <input type="text" class="form-control" id="resLine1"  formControlName="add" placeholder="Enter Address Line 1" required>
                     </div>
+                    </div>
+                    <div class="error-messages">
+                        <ng-container *ngFor="let error of error_messages.add">
+                            <div class="error-message" *ngIf="loginForm.get('add').hasError(error.type) && (loginForm.get('add').dirty || loginForm.get('add').touched)">
+                                {{ error.message }}
+                            </div>
+                        </ng-container>
                     </div>
                     <div class="form-group row">
-                    <label for="resLine2" class="col-sm-5 col-form-label">Address Line 2*</label>
+                    <label for="resLine2" class="col-sm-5 col-form-label">Address Line 2 <span style="color:red" >*</span></label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" id="resLine2" placeholder="Enter Address Line 2" required>
+                        <input type="text" class="form-control" id="resLine2"  formControlName="da" placeholder="Enter Address Line 2" required>
                     </div>
+                    </div>
+                    <div class="error-messages">
+                        <ng-container *ngFor="let error of error_messages.da">
+                            <div class="error-message" *ngIf="loginForm.get('da').hasError(error.type) && (loginForm.get('da').dirty || loginForm.get('da').touched)">
+                                {{ error.message }}
+                            </div>
+                        </ng-container>
                     </div>
                     <div class="form-group row">
                         <label for="resLandmark" class="col-sm-5 col-form-label">Landmark</label>
                         <div class="col-sm-6">
-                        <input type="text" class="form-control" id="resLandmark" placeholder="Enter Landmark">
+                        <input type="text" class="form-control" id="resLandmark"  placeholder="Enter Landmark">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="resState" class="col-sm-5 col-form-label">State*</label>
+                        <label for="resState" class="col-sm-5 col-form-label">State <span style="color:red" >*</span></label>
                         <div class="col-sm-6">
-                        <input type="text" class="form-control" id="resState" placeholder="Enter State" required>
+                        <input type="text" class="form-control" id="resState"  formControlName="st" placeholder="Enter State" required>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label for="resCity" class="col-sm-5 col-form-label">City*</label>
-                        <div class="col-sm-6">
-                        <input type="text" class="form-control" id="resCity" placeholder="Enter City" required>
-                        </div>
+                    <div class="error-messages">
+                        <ng-container *ngFor="let error of error_messages.st">
+                            <div class="error-message" *ngIf="loginForm.get('st').hasError(error.type) && (loginForm.get('st').dirty || loginForm.get('st').touched)">
+                                {{ error.message }}
+                            </div>
+                        </ng-container>
                     </div>
                     <div class="form-group row">
-                        <label for="resCode" class="col-sm-5 col-form-label">Pin Code*</label>
+                        <label for="resCity" class="col-sm-5 col-form-label">City <span style="color:red" >*</span></label>
                         <div class="col-sm-6">
-                        <input type="tel" pattern="[0-9]{6}" class="form-control" id="resCode" placeholder="Enter Pin Code" required>
+                        <input type="text" class="form-control" id="resCity"   formControlName="ci" placeholder="Enter City" required>
                         </div>
+                    </div>
+                    <div class="error-messages">
+                        <ng-container *ngFor="let error of error_messages.ci">
+                            <div class="error-message" *ngIf="loginForm.get('ci').hasError(error.type) && (loginForm.get('ci').dirty || loginForm.get('ci').touched)">
+                                {{ error.message }}
+                            </div>
+                        </ng-container>
+                    </div>
+                    <div class="form-group row">
+                        <label for="resCode" class="col-sm-5 col-form-label">Pin Code <span style="color:red" >*</span></label>
+                        <div class="col-sm-6">
+                        <input type="tel" pattern="[0-9]{6}" class="form-control"  id="resCode" formControlName="pi" placeholder="Enter Pin Code" required>
+                        </div>
+                    </div>
+                    <div class="error-messages">
+                        <ng-container *ngFor="let error of error_messages.pi">
+                            <div class="error-message" *ngIf="loginForm.get('pi').hasError(error.type) && (loginForm.get('pi').dirty || loginForm.get('pi').touched)">
+                                {{ error.message }}
+                            </div>
+                        </ng-container>
                     </div>
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-5 col-form-label" style="font-size: large;"><b>Permanent Address: </b></label> 
@@ -128,40 +200,75 @@
                     <br>
 
                     <div class="form-group row">
-                        <label for="perLine1" class="col-sm-5 col-form-label">Address Line 1*</label>
+                        <label for="perLine1" class="col-sm-5 col-form-label">Address Line 1 <span style="color:red" >*</span></label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" disabled={{result}} id="perLine1" value="{{line1}}" placeholder="Enter Address Line1" required>
+                            <input type="text" class="form-control"  id="perLine1"  disabled={{result}} formControlName="ri" value="{{line1}}" placeholder="Enter Address Line1" required>
                         </div>
                     </div>
+                    <div class="error-messages">
+                        <ng-container *ngFor="let error of error_messages.ri">
+                            <div class="error-message" *ngIf="loginForm.get('ri').hasError(error.type) && (loginForm.get('ri').dirty || loginForm.get('ri').touched)">
+                                {{ error.message }}
+                            </div>
+                        </ng-container>
+                    </div>
                     <div class="form-group row">
-                        <label for="perLine2" class="col-sm-5 col-form-label">Address Line 2*</label>
+                        <label for="perLine2" class="col-sm-5 col-form-label">Address Line 2 <span style="color:red" >*</span></label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" disabled={{result}} id="perLine2" value="{{line2}}" placeholder="Enter Address Line2" required>
+                            <input type="text" class="form-control"  id="perLine2" disabled={{result}} formControlName="an" value="{{line2}}" placeholder="Enter Address Line2" required>
                         </div>
+                    </div>
+                    <div class="error-messages">
+                        <ng-container *ngFor="let error of error_messages.an">
+                            <div class="error-message" *ngIf="loginForm.get('an').hasError(error.type) && (loginForm.get('an').dirty || loginForm.get('an').touched)">
+                                {{ error.message }}
+                            </div>
+                        </ng-container>
                     </div>
                     <div class="form-group row">
                             <label for="perLandmark" class="col-sm-5 col-form-label">Landmark</label>
                             <div class="col-sm-6">
-                            <input type="text" class="form-control" disabled={{result}} id="perLandmark" value="{{landmark}}" placeholder="Enter Landmark">
+                            <input type="text" class="form-control"  id="perLandmark" disabled={{result}} value="{{landmark}}"  placeholder="Enter Landmark">
                             </div>
                     </div>
                     <div class="form-group row">
-                            <label for="perState" class="col-sm-5 col-form-label">State*</label>
+                            <label for="perState" class="col-sm-5 col-form-label">State <span style="color:red" >*</span></label>
                             <div class="col-sm-6">
-                            <input type="text" class="form-control" disabled={{result}} id="perState" value="{{state}}" placeholder="Enter State" required>
+                            <input type="text" class="form-control"  id="perState" disabled={{result}} formControlName="rk" value="{{state}}" placeholder="Enter State" required>
                             </div>
                     </div>
-                    <div class="form-group row">
-                            <label for="perCity" class="col-sm-5 col-form-label">City*</label>
-                            <div class="col-sm-6">
-                            <input type="text" class="form-control" disabled={{result}} id="perCity" value="{{city}}" placeholder="Enter City" required>
+                    <div class="error-messages">
+                        <ng-container *ngFor="let error of error_messages.rk">
+                            <div class="error-message" *ngIf="loginForm.get('rk').hasError(error.type) && (loginForm.get('rk').dirty || loginForm.get('rk').touched)">
+                                {{ error.message }}
                             </div>
+                        </ng-container>
                     </div>
                     <div class="form-group row">
-                            <label for="perCode" class="col-sm-5 col-form-label">Pin Code*</label>
+                            <label for="perCity" class="col-sm-5 col-form-label">City <span style="color:red" >*</span></label>
                             <div class="col-sm-6">
-                            <input type="tel" pattern="[0-9]{6}" disabled={{result}} class="form-control" id="perCode" value="{{code}}" placeholder="Enter Pin Code" required>
+                            <input type="text" class="form-control"  id="perCity" disabled={{result}}  formControlName="aj" value="{{city}}" placeholder="Enter City" required>
                             </div>
+                    </div>
+                    <div class="error-messages">
+                        <ng-container *ngFor="let error of error_messages.aj">
+                            <div class="error-message" *ngIf="loginForm.get('aj').hasError(error.type) && (loginForm.get('aj').dirty || loginForm.get('aj').touched)">
+                                {{ error.message }}
+                            </div>
+                        </ng-container>
+                    </div>
+                    <div class="form-group row">
+                            <label for="perCode" class="col-sm-5 col-form-label">Pin Code <span style="color:red" >*</span></label>
+                            <div class="col-sm-6">
+                            <input type="tel" pattern="[0-9]{6}"  class="form-control" disabled={{result}} id="perCode" value="{{code}}" formControlName="ar"  placeholder="Enter Pin Code" >
+                            </div>
+                    </div>
+                    <div class="error-messages">
+                        <ng-container *ngFor="let error of error_messages.ar">
+                            <div class="error-message" *ngIf="loginForm.get('ar').hasError(error.type) && (loginForm.get('ar').dirty || loginForm.get('ar').touched)">
+                                {{ error.message }}
+                            </div>
+                        </ng-container>
                     </div>
                 </div>
             </div>
@@ -174,18 +281,25 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="title" class="col-sm-5 col-form-label">Occupation Type*</label>
+                        <label for="title" class="col-sm-5 col-form-label">Occupation Type <span style="color:red" >*</span></label>
                         <div class="col-sm-6">
                             <select class="form-control" id="title" required>
-                                <option *ngFor = "let occupation of occupations">{{occupation}} </option>
+                                <option value="Mr."> Profession</option>
+                                <option value="Mrs."> Employment</option>
+                                <option value="Ms."> Business</option>  
                             </select>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="title" class="col-sm-5 col-form-label">Source of Income*</label>
+                        <label for="title" class="col-sm-5 col-form-label">Source of Income <span style="color:red" >*</span></label>
                         <div class="col-sm-6">
                             <select class="form-control" id="title" required>
-                                <option *ngFor = "let source of sources">{{source}} Income </option>
+                                <option value="Mr."> Earned</option>
+                                <option value="Mrs."> Interest</option>
+                                <option value="Ms."> Profit</option>  
+                                <option value="Mr."> Dividend</option>
+                                <option value="Mrs."> Rental</option>
+                                <option value="Ms."> Royality</option>
                             </select>
                         </div>
                     </div>
@@ -193,24 +307,29 @@
                         <label for="title" class="col-sm-5 col-form-label">Gross Annual Income</label>
                         <div class="col-sm-6">
                             <select class="form-control" id="title">
-                                <option *ngFor = "let income of incomes">{{income}}</option>
+                                <option value="Mr."> Less than 5LPA</option>
+                                <option value="Mrs."> 5LPA-10LPA</option>
+                                <option value="Ms."> 10LPA-25LPA</option> 
+                                <option value="Ms."> 25LPA and More</option>   
                             </select>
                         </div>
                     </div>
                     
                     <br>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" required>
+                   <!-- <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"  required>
                         <label class="form-check-label" for="defaultCheck1">
-                            I Agree to all Terms & Conditions*
+                            I Agree to all Terms & Conditions <span style="color:red" >*</span>
                         </label>
-                    </div>
-                    <br>
+                    </div>-->
+                    
+                    
                 </div>
             </div>
         </div>
         <div class="wrapper">
-            <button class="btn btn-primary" type="submit" onclick="validate()" style="margin-bottom: 20px; width: 100px;">Submit</button><br>
+            <button class="btn btn-primary" type="submit" style="margin-bottom: 20px; width: 100px;"  [disabled]="!loginForm.valid">Submit</button><br>
         </div>
     </form>
 </div>    
+

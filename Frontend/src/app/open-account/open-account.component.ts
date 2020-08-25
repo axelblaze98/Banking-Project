@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-open-account',
@@ -6,17 +7,123 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./open-account.component.css']
 })
 export class OpenAccountComponent implements OnInit {
+  loginForm: FormGroup;
+  error_messages = {
+    'fname': [
+      { type: 'required', message: 'First Name is required.' }
+    ],
+    'lname': [
+      { type: 'required', message: 'Last Name is required.' }
+    ],
+    'faname': [
+      { type: 'required', message: 'Father Name is required.' }
+    ],
+    'mo': [
+      { type: 'required', message: 'Mobile Number is required.' },
+      { type: 'required', message: 'Mobile Number Should be of 10 digit' }
+    ],
+    'ad': [
+      { type: 'required', message: 'Aadhar Number is required.' },
+      { type: 'required', message: 'Aadhar Number Should be of 12 digit' }
+    ],
+    'add': [
+      { type: 'required', message: 'Address is required.' }
+    ],
+    'da': [
+      { type: 'required', message: 'Address is required.' }
+    ],
+    'st': [
+      { type: 'required', message: 'State is required.' }
+    ],
+    'ci': [
+      { type: 'required', message: 'City is required.' }
+    ],
+    'pi': [
+      { type: 'required', message: 'Pincode is required.' }
+    ],
+    'ri': [
+      { type: 'required', message: 'Address is required.' }
+    ],
+    'an': [
+      { type: 'required', message: 'Address is required.' }
+    ],
+    'rk': [
+      { type: 'required', message: 'State is required.' }
+    ],
+    'aj': [
+      { type: 'required', message: 'City is required.' }
+    ],
+    'ar': [
+      { type: 'required', message: 'Pincode is required.' }
+    ]
+    
+  
+  }
 
-  constructor() { }
+  constructor(
+    public formBuilder: FormBuilder
+    ) {
+      this.loginForm = this.formBuilder.group({
+        fname: new FormControl('', Validators.compose([
+          Validators.required 
+        ])),
+        lname: new FormControl('', Validators.compose([
+          Validators.required
+        ])),
+        faname: new FormControl('', Validators.compose([
+          Validators.required
+        ])),
+        mo: new FormControl('', Validators.compose([
+          Validators.required,
+          Validators.minLength(10) 
+        ])),
+        ad: new FormControl('', Validators.compose([
+          Validators.required,
+          Validators.minLength(12)
+        ])),
+        add: new FormControl('', Validators.compose([
+          Validators.required
+        ])),
+        da: new FormControl('', Validators.compose([
+          Validators.required
+        ])),
+        st: new FormControl('', Validators.compose([
+          Validators.required
+        ])),
+        ci: new FormControl('', Validators.compose([
+          Validators.required
+        ])),
+        pi: new FormControl('', Validators.compose([
+          Validators.required
+        ]))
+       
+        
+       /* ri: new FormControl('', Validators.compose([
+          Validators.required
+        ])),
+        an: new FormControl('', Validators.compose([
+          Validators.required
+        ])),
+        rk: new FormControl('', Validators.compose([
+          Validators.required
+        ])),
+        aj: new FormControl('', Validators.compose([
+          Validators.required
+        ])),
+        ar: new FormControl('', Validators.compose([
+          Validators.required
+        ]))*/
+      });
+     }
 
   ngOnInit(): void {
   }
 
-  titles = ['Mr.', 'Mrs.' , 'Ms.'];
+  /*titles = ['Mr.', 'Mrs.' , 'Ms.'];
   occupations = ['Profession', 'Employment', 'Business'];
   sources = ['Earned', 'Interest', 'Profit', 'Dividend', 'Rental', 'Royalty' ];
   incomes = ['Less then 5LPA', '5LPA-10LPA', '10LPA-25LPA', '25LPA and More'];
-
+*/
   result = "";
   line1 = "";
   line2 = "";
@@ -24,6 +131,7 @@ export class OpenAccountComponent implements OnInit {
   state = "";
   city = "";
   code = "";
+
     checkAdress() {
       var checkBox = document.getElementById("defaultCheck1");
       if(this.result==""){
