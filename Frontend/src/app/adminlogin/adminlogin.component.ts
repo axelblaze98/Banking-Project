@@ -28,7 +28,7 @@ export class AdminloginComponent{
         alert(data.message);
       }
       else{
-        this.router.navigate(['faqmain']);
+        this.router.navigate(['admindashboard']);
       }
     }
 )
