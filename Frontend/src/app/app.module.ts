@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 
 import { SessionexpiredComponent } from './sessionexpired/sessionexpired.component';
 import { SetnewtransactionpasswordComponent } from './setnewtransactionpassword/setnewtransactionpassword.component';
+import { OffersComponent } from './offers/offers.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SetnewtransactionpasswordComponent } from './setnewtransactionpassword/
     navBarMainComponent,
     navBarLoginComponent,
     navBarAccountComponent,
-    navBarAdminComponent
+    navBarAdminComponent,
+    OffersComponent
      ],
   imports: [
     BrowserModule,
