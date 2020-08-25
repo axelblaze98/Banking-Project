@@ -107,8 +107,8 @@ public class OpenAccount {
 	@Column(length = 20)
 	private String annualSalary;
 	
-	@Column(nullable = true, length = 10)
-	private String approvedByAdmin = "pending...";
+	@Column(nullable = true, length = 20)
+	private String approvedByAdmin = "Waiting for Approval";
 	
 	@Column(nullable = true, length = 50)
 	private String adminRemark;
