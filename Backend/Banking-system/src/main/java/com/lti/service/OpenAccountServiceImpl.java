@@ -43,4 +43,8 @@ public class OpenAccountServiceImpl implements OpenAccountService {
 			repo.save(account);
 		}
 	}
+	@Override
+	public List<OpenAccount> getAllAccounts() {
+		return repo.viewAllRecords();
+	}
 }

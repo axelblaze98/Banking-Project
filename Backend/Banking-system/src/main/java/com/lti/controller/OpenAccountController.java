@@ -42,4 +42,8 @@ public class OpenAccountController {
 			return status;
 		}
 	}
+	@GetMapping(path="/viewAllAccounts")
+	public List<OpenAccount> viewAllAccounts(){
+		return service.getAllAccounts();
+	}
 }
