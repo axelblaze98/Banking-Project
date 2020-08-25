@@ -1,3 +1,6 @@
+import { ForgotuseridComponent } from './forgotuserid/forgotuserid.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { SetnewpasswordComponent } from './setnewpassword/setnewpassword.component';
 import { AccountCreationStatusComponent } from './account-creation-status/account-creation-status.component';
 import { AdminregisterComponent } from './adminregister/adminregister.component';
@@ -19,6 +22,7 @@ import { HomepagemainComponent } from './homepagemain/homepagemain.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+
 const routes: Routes = [
   {path: '', component: HomepagemainComponent},
   {path: 'faqmain', component: FaqmainComponent},
@@ -37,7 +41,10 @@ const routes: Routes = [
   {path: 'logout', component: LogoutComponent},
   {path: 'adminregister', component: AdminregisterComponent},
   {path: 'trackaccount', component: AccountCreationStatusComponent},
-  {path: 'setloginpassword', component: SetnewpasswordComponent}
+  {path: 'setloginpassword', component: SetnewpasswordComponent},
+  {path: 'admindashboard', component: AdminDashboardComponent},
+  {path: 'userprofile', component: UserProfileComponent},
+  {path: 'forgotuserid', component: ForgotuseridComponent}
 ];
 
 @NgModule({
@@ -45,5 +52,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [FaqmainComponent, AccountmainpageComponent, HomepagemainComponent, AboutusComponent, ContactusComponent, LearnmoreComponent, ForgotpasswordComponent, LoginComponent, RegisterComponent, OpenAccountComponent, AdminloginComponent, AddBeneficiaryComponent, FundTransferComponent, TrackapplicationstatusComponent, LogoutComponent, AdminregisterComponent, AccountCreationStatusComponent, SetnewpasswordComponent]
+export const routingComponents = [FaqmainComponent, AccountmainpageComponent, HomepagemainComponent, AboutusComponent, ContactusComponent, LearnmoreComponent, ForgotpasswordComponent, LoginComponent, RegisterComponent, OpenAccountComponent, AdminloginComponent, AddBeneficiaryComponent, FundTransferComponent, TrackapplicationstatusComponent, LogoutComponent, AdminregisterComponent, AccountCreationStatusComponent, SetnewpasswordComponent, AdminDashboardComponent, UserProfileComponent, ForgotuseridComponent]
 

@@ -1,4 +1,4 @@
-import { ConnectionService } from './connection.service';
+import { navBarAdminComponent } from './navbaradmin.component';
 import { navBarAccountComponent } from './navbaraccount.component';
 import { navBarMainComponent } from './navbarmain.component';
 import { navBarLoginComponent } from './navbarlogin.component';
@@ -13,8 +13,7 @@ import { AppComponent } from './app.component';
 
 import { SessionexpiredComponent } from './sessionexpired/sessionexpired.component';
 import { SetnewtransactionpasswordComponent } from './setnewtransactionpassword/setnewtransactionpassword.component';
-import { ForgotuseridComponent } from './forgotuserid/forgotuserid.component';
-import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,8 +23,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     navBarMainComponent,
     navBarLoginComponent,
     navBarAccountComponent,
-    ForgotuseridComponent,
-    AdminDashboardComponent
+    navBarAdminComponent
      ],
   imports: [
     BrowserModule,
