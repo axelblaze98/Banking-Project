@@ -1,5 +1,7 @@
 package com.lti.repository;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -21,33 +23,58 @@ public class OpenAccountRepoImpl implements OpenAccountRepo {
 	}
 
 	@Override
-	public OpenAccount getAccountByAccNumber(int accountNumber) {
+	public OpenAccount getAccountByAccNumber(String accountNumber) {
 		return entityManager.find(OpenAccount.class, accountNumber);
 	}
 	
 	@Override
 	public boolean isAccountPresent(String aadharCard) {
-		return (Long) entityManager.createQuery("select count(t.aadharCard) from OpenAccount t where t.aadharCard = :aadharNumber")
+		return (Long) entityManager.createNamedQuery("checkIfAccountPresent")
 				.setParameter("aadharNumber", aadharCard).getSingleResult()==1 ? true : false;
 	}
 
 	@Override
 	public Long numberOfAccountPresent() {
-		return (Long) entityManager.createQuery("select count(*) from OpenAccount t")
-				.getSingleResult();
-	}
-	
-	@Override
-	public Long maxAccountNumber() {
-		return (Long) entityManager.createQuery("select max(t.accountNumber) from OpenAccount t")
+		return (Long) entityManager.createNamedQuery("countTotalAccounts")
 				.getSingleResult();
 	}
 
 	@Override
-	public Long maxRefId() {
-		return (Long) entityManager.createQuery("select max(t.refernceId) from OpenAccount t")
+	public String maxAccountNumber() {
+		return (String) entityManager.createNamedQuery("checkMaxAccountNumber")
+				.getSingleResult();
+	}
+
+	@Override
+	public String maxRefId() {
+		return (String) entityManager.createNamedQuery("checkMaxRefernceIdNumber")
 				.getSingleResult();
 	}
 	
+	@Override
+	public List<OpenAccount> viewAllRecords() {
+		// TODO Auto-generated method stub
+		List<OpenAccount> allAccounts = entityManager.createNamedQuery("getAllAccounts").getResultList();
+		return allAccounts;
+	}
+
+	@Override
+	public String findAccountNumberByRefId(String refId) {
+		return (String) entityManager.createNamedQuery("getAccountNumberByRefId").setParameter("refId", refId)
+				.getSingleResult();
+	}
+
+	@Override
+	@Transactional
+	public void updateAccountStatus(String adminApproval, String adminRemark, String accNo) {
+		// TODO Auto-generated method stub
+		System.out.println(adminApproval+" "+adminRemark+" "+accNo);
+		entityManager.createNamedQuery("updateAccountStatusByAdmin")
+		.setParameter("status", adminApproval)
+		.setParameter("remark", adminRemark)
+		.setParameter("acc", accNo)
+		.executeUpdate();
+	}
+
 
 }

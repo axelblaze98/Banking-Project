@@ -1,18 +1,11 @@
 package com.lti.repository;
 
-import java.util.List;
+import com.lti.pojo.Admin;
 
-import com.lti.pojo.OpenAccount;
-
-public interface OpenAccountRepo {
+public interface AdminRepository {
 	
-	void save(OpenAccount account);
-	OpenAccount getAccountByAccNumber(String accountNumber);
-	boolean isAccountPresent(String aadharCard);
-	Long numberOfAccountPresent();
-	String maxAccountNumber();
-	String maxRefId();
-	List<OpenAccount> viewAllRecords();
-	String findAccountNumberByRefId(String refId);
-	void updateAccountStatus(String adminApproval, String adminRemark, String accNo);
+	void save(Admin admin);
+	Admin getAdminById(String userId);
+	String getAdminByIdAndPassword(String userId, String password);
+	boolean isAdminAvailable(String userId);
 }
