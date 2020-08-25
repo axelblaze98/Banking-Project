@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
-@NamedQuery(name = "gettingBIdFromAccounts", query = "select b.beneficiaryId from beneficiary b where b.accountNumber = :from and b.beneficiaryAccountNumber = :to")
+//@NamedQuery(name = "gettingBIdFromAccounts", query = "select b.beneficiaryId from beneficiary b where b.accountNumber = :from and b.beneficiaryAccountNumber = :to")
 
 @Entity
 @Table(name = "beneficiary_details")
