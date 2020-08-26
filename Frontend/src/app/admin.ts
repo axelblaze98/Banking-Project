@@ -1,4 +1,4 @@
-export class Admin {
+export class Login {
         "userId":String;
         "password":String;
 }
@@ -10,5 +10,12 @@ export class AccountHolderDetails {
     public refernceId:      number;
     public approvedByAdmin: string;
     public adminRemark:     string;
+}
+
+export class UserRegister{
+    constructor(){}
+    "accNumber" : String;
+    "lgnPassword" : String;
+    "tnPassword": String
 }
 

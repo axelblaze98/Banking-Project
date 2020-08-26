@@ -6,11 +6,11 @@
 	  <div class="card" style="width:80%">
 		  
   
-		  <form [formGroup]="loginForm">
+		  <form [formGroup]="loginForm" (ngSubmit)="Registration()">
 			  <div class="form-group row">
 		  <label for="staticEmail" class="col-sm-4 col-form-label">Enter Account Number <span style="color:red" >*</span></label>
 		  <div class="col-sm-6">
-				  <input class="form-control" formControlName="fname" type="text" placeholder="Enter Account Number" />
+				  <input class="form-control" formControlName="fname" type="text" placeholder="Enter Account Number" [(ngModel)]="user.accNumber"/>
 		</div>
 	  </div>
 			  <div class="error-messages">
@@ -28,7 +28,7 @@
 		  <label for="inputPassword" class="col-sm-4 col-form-label">  Set Login Password <span style="color:red" >*</span></label>
 			
 		  <div class="col-sm-6">
-				  <input class="form-control" formControlName="password" type="password" placeholder="Enter Login Password" />
+				  <input class="form-control" formControlName="password" type="password" placeholder="Enter Login Password" [(ngModel)]="user.lgnPassword"/>
 		</div>
 	  </div>
 			  <div class="error-messages">
@@ -61,7 +61,7 @@
 		  <label for="inputPassword" class="col-sm-4 col-form-label">  Set Transaction Password <span style="color:red" >*</span></label>
 			
 		  <div class="col-sm-6">
-				  <input class="form-control" formControlName="tpassword" type="password" placeholder="Enter Transaction Password"/>
+				  <input class="form-control" formControlName="tpassword" type="password" placeholder="Enter Transaction Password" [(ngModel)]="user.tnPassword"/>
 		</div>
 	  </div>
 			  <div class="error-messages">
