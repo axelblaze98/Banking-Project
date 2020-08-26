@@ -7,6 +7,7 @@ import org.springframework.dao.InvalidDataAccessApiUsageException;
 import org.springframework.stereotype.Service;
 
 import com.lti.dto.CreateAccountStatus;
+import com.lti.dto.ViewUserDetailsDto;
 import com.lti.exception.ServiceException;
 import com.lti.pojo.OpenAccount;
 import com.lti.repository.OpenAccountRepo;
@@ -71,5 +72,24 @@ public class OpenAccountServiceImpl implements OpenAccountService {
 		catch (InvalidDataAccessApiUsageException e) {
 			throw new ServiceException("Error !!!");
 		}
+	}
+	@Override
+	public ViewUserDetailsDto userDetails(String accNo) {
+		OpenAccount account = repo.getAccountByAccNumber(accNo);
+		ViewUserDetailsDto details = new ViewUserDetailsDto();
+		details.setAadharCard(account.getAadharCard());
+		details.setDob(account.getDob());
+		details.setEmail(account.getEmail());
+		details.setFirstName(account.getFirstName());
+		details.setLastName(account.getLastName());
+		details.setMiddleName(account.getMiddleName());
+		details.setMobileNumber(account.getMobileNumber());
+		details.setResAddress1(account.getResAddress1());
+		details.setResAddress2(account.getResAddress2());
+		details.setResCity(account.getResCity());
+		details.setResLandMark(account.getResLandMark());
+		details.setResPincode(account.getResPincode());
+		details.setResState(account.getResState());
+		return details;
 	}
 }
