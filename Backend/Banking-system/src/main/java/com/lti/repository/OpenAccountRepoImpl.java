@@ -82,6 +82,19 @@ public class OpenAccountRepoImpl implements OpenAccountRepo {
 				.setParameter("accNo", acNo).getSingleResult()>0 ? true : false;
 	}
 
+	@Override
+	public int getBalance(String accNumber) {
+		return (Integer)entityManager.createNamedQuery("getBalance").setParameter("accNumber",accNumber)
+				.getSingleResult();
+	}
 
-
+	@Override
+	@Transactional
+	public void updateBalance(String accNumber, int balance) {
+		// TODO Auto-generated method stub
+		entityManager.createNamedQuery("updateBalance")
+		.setParameter("balance", balance)
+		.setParameter("accNumber",accNumber)
+		.executeUpdate();
+	}
 }
