@@ -18,6 +18,11 @@ public class BeneficiaryServiceImpl implements BeneficiaryService{
 	OpenAccountRepo accountRepo;
 
 	@Override
+	public List<viewBeneficiary> getBeneficiaryNameAndAccNo(String fromAcc) {
+		 return repo.getBeneficiary(fromAcc);
+	}
+
+	@Override
 	public void addBeneficiary(BeneficiaryDto benf) {
 		// TODO Auto-generated method stub
 		System.out.println(benf);

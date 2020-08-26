@@ -15,13 +15,11 @@ public class BeneficiaryRepoImpl implements BeneficiaryRepo {
 	EntityManager entityManager;
 	
 	@Override
-	public Beneficiary getBeneficiaryById(int bId) {
-		return entityManager.find(Beneficiary.class, bId);
-	}
-
-	@Override
-	public int getIdByAccNumber(String fromAcc, String toAcc) {
-		return (int) entityManager.createNamedQuery("gettingBenefIdFromAccounts").setParameter("from", fromAcc).setParameter("to", toAcc).getSingleResult();
+	public List<viewBeneficiary> getBeneficiary(String accNo){
+		
+		List<viewBeneficiary> beneficiaryList = entityManager.createQuery("getNameAndAccountNumber")
+				.setParameter("acno", accNo).getResultList();
+		return beneficiaryList;
 	}
 
 	@Override

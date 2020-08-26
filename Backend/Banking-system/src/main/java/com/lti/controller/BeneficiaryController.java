@@ -18,6 +18,11 @@ public class BeneficiaryController {
 
 	@Autowired
 	BeneficiaryServiceImpl service;
+
+	@GetMapping("/getBeneficiaryNameAndAccountNo/{fromAcc}")
+	public List<viewBeneficiary> getName(@PathVariable String fromAcc) {
+		return service.getBeneficiaryNameAndAccNo(fromAcc);
+	}
 	
 	@PostMapping(path = "/addBeneficiary")
 	public Status addNewBeneficiary(@RequestBody BeneficiaryDto benf) {
