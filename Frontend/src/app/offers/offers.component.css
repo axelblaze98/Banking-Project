@@ -1,0 +1,18 @@
+.faq{
+    font-style: verdana;
+    background-color: lightgrey;
+    margin-top: 10px;
+  }
+  .color1{
+    color: rebeccapurple;
+    font-variant-caps: all-petite-caps;
+  }
+  .color2{
+    color: royalblue;
+  }
+  .color3{
+      color: palevioletred;
+  }
+  .color5{
+      color: lightslategray;
+  }

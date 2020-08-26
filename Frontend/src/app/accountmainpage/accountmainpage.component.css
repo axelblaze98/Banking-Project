@@ -4,3 +4,17 @@
     font-size: larger;
     font-style: italic;
   }
+
+  .mb-0{
+    font-style: italic;
+  }
+  .card-text mb-auto{
+    font-style: italic;
+    color: palevioletred;
+  }
+  .mb-auto{
+    font-style: italic;
+  }
+  .row{
+    margin-top: 10px;
+  }
