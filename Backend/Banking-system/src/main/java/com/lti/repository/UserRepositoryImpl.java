@@ -87,5 +87,14 @@ public class UserRepositoryImpl implements UserRepository {
 		.setParameter("id", userId)
 		.executeUpdate();
 	}
+	
+	@Override
+	@Transactional
+	public void resetPassword(String userId, String updatedPassword) {
+		em.createNamedQuery("changePassword")
+		.setParameter("id",userId)
+		.setParameter("password",updatedPassword)
+		.executeUpdate();
+	}
 }
 	

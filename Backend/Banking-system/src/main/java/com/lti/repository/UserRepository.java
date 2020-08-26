@@ -14,4 +14,5 @@ public interface UserRepository {
 	boolean isUserValid(String userId);
 	int getNoOfInvalidAttempts(String userId);
 	void setNoOfInvalidAttempts(String userId, int attempts);
+	void resetPassword(String userId,String updatedPassword);
 }

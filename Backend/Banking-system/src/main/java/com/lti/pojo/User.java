@@ -17,6 +17,7 @@ import javax.persistence.Table;
 @NamedQuery(name="userIdCheck",query="select count(u.userId) from User u where u.userId=:id")
 @NamedQuery(name="updateInvalidAttempts",query="update User set numberOfInvalidAttempts=:attempts where userId=:id")
 @NamedQuery(name="getInvalidAttempts",query="select u.numberOfInvalidAttempts from User u where u.userId=:id")
+@NamedQuery(name="changePassword",query="update User set loginPassword=:password where userId=:id")
 
 public class User {
 	@Id

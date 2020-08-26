@@ -10,6 +10,7 @@ import com.lti.exception.ServiceException;
 import com.lti.pojo.OpenAccount;
 import com.lti.pojo.User;
 import com.lti.service.UserService;
+import com.lti.status.ForgetPasswordStatus;
 import com.lti.status.Status;
 import com.lti.status.Status.StatusType;
 import com.lti.status.UserLoginStatus;
@@ -82,6 +83,27 @@ public class UserController {
 			return loginStatus;
 		}
 	}
+	}
+	@PostMapping(path="/forgetPassword")
+	private Status forgetPassword(@RequestBody UserLoginForgotPasswordDataDTO forgetPassword) {
+		ForgetPasswordStatus forgetPasswordStatus = new ForgetPasswordStatus();
+		try {
+		String newPassword= service.resetPassword(forgetPassword.getUserId(),forgetPassword.getPassword());
+		
+		forgetPasswordStatus.setPassword(newPassword);
+		forgetPasswordStatus.setStatus(StatusType.SUCCESS);
+		forgetPasswordStatus.setMessage("Password Change Successful");
+		
+		return forgetPasswordStatus;
+		}
+		catch(ServiceException e) {
+			Status status= new Status();
+			
+			status.setStatus(StatusType.FAILURE);
+			status.setMessage(e.getMessage());
+			
+			return status;
+		}
+	}
 
-}
 }

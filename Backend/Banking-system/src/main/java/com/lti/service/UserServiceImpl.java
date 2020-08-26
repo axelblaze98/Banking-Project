@@ -76,4 +76,16 @@ public class UserServiceImpl implements UserService {
 			System.out.println("Parth");
 			return repo.getNoOfInvalidAttempts(userId);
 		}
+		
+		@Override
+		public String resetPassword(String userId, String updatedPassword) {
+			// TODO Auto-generated method stub
+			if(!repo.isUserValid(userId))
+			{	
+				throw new ServiceException("User Doesn't Exist");
+			}
+			repo.setNoOfInvalidAttempts(userId, 0);
+			repo.resetPassword(userId,updatedPassword);
+			return updatedPassword;
+		}
 }
