@@ -22,10 +22,26 @@ export class LoginComponent implements OnInit {
       data => {console.log(data)
       if (data.status=="FAILURE")
       {
-        alert(data.message); //implement account block after api runs
+        if(data.message =="User Doesn't Exist")
+        {
+          alert("User does not Exist, Register before login")
+          this.router.navigate(['register']);
+        }
+        else if(data.message =="Account Blocked")
+        {
+          alert("Your account has been blocked, change password and try again")
+          this.router.navigate(['forgotpassword']);
+        }
+        else
+        {
+          alert(data.message)
+          this.router.navigate(['login']);
+        }
       }
       else{
         alert("Welcome Dear Customer");
+        sessionStorage.setItem('AccountNumber', data.accountNumber);
+        console.log(data.accountNumber)
         this.router.navigate(['accountmainpage']);
       }
     }
@@ -68,7 +84,7 @@ export class LoginComponent implements OnInit {
       password: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(6),
-        Validators.maxLength(30),
+        Validators.maxLength(15),
         Validators.pattern('(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}')
       ])),
       
