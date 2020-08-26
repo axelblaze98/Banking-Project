@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class TrackapplicationstatusComponent implements OnInit {
   
   loginForm: FormGroup;
-  public refId:String;
+  public refId:string;
   public account;
 
   error_messages = {
@@ -37,8 +37,12 @@ export class TrackapplicationstatusComponent implements OnInit {
     this.http.get<any>("http://localhost:8086/viewAccountByRefId/"+this.refId)
       .subscribe(data=>{
         this.account = data;
+        sessionStorage.setItem('referenceId', this.refId)
+        sessionStorage.setItem('adminApproved', this.account.approvedByAdmin)
+        sessionStorage.setItem('adminRemark', this.account.adminRemark)
+        sessionStorage.setItem('accNumber', this.account.accountNumber)
         this.router.navigate(['trackaccount'])
       })
     }
-
+    
 }
