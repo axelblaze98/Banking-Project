@@ -62,7 +62,7 @@ export class RegisterComponent implements OnInit {
     ],
     'tpassword': [
       { type: 'required', message: 'password is required' },
-      { type: 'required', message: 'password length must be of 6 char' },
+      { type: 'required', message: 'password length must be of 4 char' },
       { type: 'minlength', message: 'password length.' },
       { type: 'maxlength', message: 'password length.' },
       { type: 'pattern', message:'password must consist one special character,one alphabet and one numeric'}
@@ -93,26 +93,26 @@ export class RegisterComponent implements OnInit {
       password: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(6),
-        Validators.maxLength(30),
+        Validators.maxLength(15),
         Validators.pattern('(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}')
       ])),
       confirmpassword: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(6),
-        Validators.maxLength(30),
+        Validators.maxLength(15),
         Validators.pattern('(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}')
       ])),
       tpassword: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.minLength(6),
-        Validators.maxLength(30),
-        Validators.pattern('(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}')
+        Validators.minLength(4),
+        Validators.maxLength(4),
+        Validators.pattern(/^-?(0|[1-9]\d*)?$/)
       ])),
       tcconfirmpassword: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.minLength(6),
-        Validators.maxLength(30),
-        Validators.pattern('(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}')
+        Validators.minLength(4),
+        Validators.maxLength(4),
+        Validators.pattern(/^-?(0|[1-9]\d*)?$/)
       ])),
     }, { 
       validators: this.password.bind(this)
