@@ -18,7 +18,7 @@ export class AdminloginComponent{
 
   AdminLogin()
   {
-
+    
     console.log(this.user);
     this.http.post<any>("http://localhost:8086/loginAdmin", this.user)
     .subscribe(
