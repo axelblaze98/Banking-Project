@@ -12,4 +12,10 @@ export class AccountCreationStatusComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  ref = sessionStorage.getItem('referenceId')
+  approval = sessionStorage.getItem('adminApproved')
+  remark = sessionStorage.getItem('adminRemark')
+  accNo = sessionStorage.getItem('accNumber')
+  
+
 }

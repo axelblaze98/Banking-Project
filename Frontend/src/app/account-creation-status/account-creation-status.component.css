@@ -3,7 +3,7 @@
     text-align: center;
 }
 .table thead{
-    background-color: darkblue;
+    background-color: rgb(54, 54, 58);
     color: white;
     text-align:center;
 }
@@ -15,5 +15,5 @@
     justify-content: center;
 }
 .btn-primary{
-    background-color: darkblue;
+    background-color: rgb(54, 54, 58);
 }
