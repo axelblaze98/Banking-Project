@@ -14,6 +14,22 @@ public class ViewUserDetailsDto {
 	private String resState;
 	private String resCity;
 	private String resPincode;
+	private int accountBalance;
+	private String occupation;
+	
+	
+	public int getAccountBalance() {
+		return accountBalance;
+	}
+	public void setAccountBalance(int accountBalance) {
+		this.accountBalance = accountBalance;
+	}
+	public String getOccupation() {
+		return occupation;
+	}
+	public void setOccupation(String occupation) {
+		this.occupation = occupation;
+	}
 	public String getFirstName() {
 		return firstName;
 	}

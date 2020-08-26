@@ -61,3 +61,23 @@ export class OpenAccount{
     public sourceOfIncome :string;
     public annualSalary :string;
 }
+
+export class userDetails{
+    
+    public firstName :string;
+    public middleName :string;
+    public lastName  :string;
+    public mobileNumber :string;
+    public email :string;
+    public aadharCard :string;
+    public dob :string;
+    public resAddress1 :string;
+    public resAddress2 :string;
+    public resLandMark  :string;
+    public resState :string;
+    public resCity :string;
+    public resPincode :string;
+    public acntBalance : string;
+    public occupation :string;
+
+}

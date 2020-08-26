@@ -21,31 +21,31 @@ import javax.persistence.Table;
 public class OpenAccount {
 	
 	@Id
-	@Column(length = 9)
+	@Column(length = 9, nullable = false)
 	private String accountNumber;
 	
-	@Column(length = 6)
+	@Column(length = 6, nullable = false)
 	private String refernceId;
 
-	@Column(length = 20)
+	@Column(length = 20, nullable = false)
 	private int accountBalance = 5000;
 
 	@Column(length = 5)
 	private String title;
 	
-	@Column(length = 20)
+	@Column(length = 20, nullable = false)
 	private String firstName;
 	
 	@Column(length = 20, nullable = true)
 	private String middleName;
 	
-	@Column(length = 20)
+	@Column(length = 20, nullable = false)
 	private String lastName;
 	
-	@Column(length = 10)
+	@Column(length = 10, nullable = false)
 	private String mobileNumber;
 	
-	@Column(length = 30)
+	@Column(length = 30, nullable = false)
 	private String email;
 	
 	@Column(length = 20)
@@ -54,52 +54,52 @@ public class OpenAccount {
 	@Column(length = 20)
 	private String motherName;
 	
-	@Column(unique = true, length = 12)
+	@Column(unique = true, length = 12, nullable = false)
 	private String aadharCard;
 	
-	@Column(length = 20)
+	@Column(length = 20, nullable = false)
 	private String dob;
 	
 
-	@Column(length = 20)
+	@Column(length = 20, nullable = false)
 	private String resAddress1;
 
-	@Column(length = 20)
+	@Column(length = 20, nullable = false)
 	private String resAddress2;
 
-	@Column(length = 15)
+	@Column(length = 15, nullable = false)
 	private String resLandMark;
 
-	@Column(length = 15)
+	@Column(length = 15, nullable = false)
 	private String resState;
 
-	@Column(length = 15)
+	@Column(length = 15, nullable = false)
 	private String resCity;
 
-	@Column(length = 6)
+	@Column(length = 6, nullable = false)
 	private String resPincode;
 	
 
-	@Column(length = 20)
+	@Column(length = 20, nullable = false)
 	private String perAddress1;
 
-	@Column(length = 20)
+	@Column(length = 20, nullable = false)
 	private String perAddress2;
 
-	@Column(length = 15)
+	@Column(length = 15, nullable = false)
 	private String perLandMark;
 
-	@Column(length = 15)
+	@Column(length = 15, nullable = false)
 	private String perState;
 
-	@Column(length = 15)
+	@Column(length = 15, nullable = false)
 	private String perCity;
 
-	@Column(length = 6)
+	@Column(length = 6, nullable = false)
 	private String perPincode;
 	
 
-	@Column(length = 20)
+	@Column(length = 20, nullable = false)
 	private String occupation;
 
 	@Column(length = 20)
@@ -112,7 +112,7 @@ public class OpenAccount {
 	private String approvedByAdmin = "Waiting for Approval";
 	
 	@Column(nullable = true, length = 50)
-	private String adminRemark;
+	private String adminRemark = "NA";
 	
 	
 	
