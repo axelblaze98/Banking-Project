@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { Login } from './../admin';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +11,32 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 })
 export class LoginComponent implements OnInit {
 
-  
+  user =new Login();
+
+  UserLogin()
+  {
+
+    console.log(this.user);
+    this.http.post<any>("http://localhost:8086/userLogin", this.user)
+    .subscribe(
+      data => {console.log(data)
+      if (data.status=="FAILURE")
+      {
+        alert(data.message); //implement account block after api runs
+      }
+      else{
+        alert("Welcome Dear Customer");
+        this.router.navigate(['accountmainpage']);
+      }
+    }
+)
+  }
+
+
+
+
+
+
   loginForm: FormGroup;
   
 
@@ -28,7 +56,7 @@ export class LoginComponent implements OnInit {
   }
 
   constructor(
-    public formBuilder: FormBuilder
+    public formBuilder: FormBuilder, private http: HttpClient,private router: Router
   ) {
     this.loginForm = this.formBuilder.group({
       fname: new FormControl('', Validators.compose([

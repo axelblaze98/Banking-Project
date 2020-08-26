@@ -14,8 +14,8 @@ import javax.persistence.Table;
 @NamedQuery(name="getAccountNumberByRefId", query="select t.accountNumber from OpenAccount t where t.refernceId = :refId") 
 @NamedQuery(name="updateAccountStatusByAdmin", query="update OpenAccount set approvedByAdmin = :status, adminRemark = :remark where accountNumber = :acc ") 
 @NamedQuery(name="checkIfAccountActive", query="select count(t.accountNumber) from OpenAccount t where t.accountNumber = :accNo") 
-
-
+@NamedQuery(name="getBalance",query="select u.accountBalance from OpenAccount u where u.accountNumber=:accNumber")
+@NamedQuery(name="updateBalance",query="update OpenAccount set accountBalance=:balance where accountNumber=:accNumber")
 @Entity
 @Table(name="account_details")
 public class OpenAccount {

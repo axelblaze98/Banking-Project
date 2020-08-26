@@ -105,5 +105,26 @@ public class UserController {
 			return status;
 		}
 	}
+	
+	@PostMapping(path="/getUserId")
+	private Status getUserID(@RequestBody GetUserIdDTO getUserId) {
+		try {
+		Status status = new Status();
+		
+		String userId=service.getUserId(getUserId.getAccNumber());
+		
+		status.setStatus(StatusType.SUCCESS);
+		status.setMessage("Your User Id is "+userId);
+		return status;
+		}
+		catch(ServiceException e) {
+			Status userIdStatus = new Status();
+			
+			userIdStatus.setStatus(StatusType.FAILURE);
+			userIdStatus.setMessage(e.getMessage());
+			
+			return userIdStatus;
+		}
+	}
 
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lti.dto.CreateAccountStatus;
+import com.lti.dto.ViewUserDetailsDto;
 import com.lti.exception.ServiceException;
 import com.lti.pojo.OpenAccount;
 import com.lti.service.OpenAccountService;
@@ -95,5 +96,10 @@ public class OpenAccountController {
 			status.setStatus(StatusType.FAILURE);
 			return status;
 		}
+	}
+	
+	@GetMapping(path = "/viewUserDetails/{accNumber}")
+	public ViewUserDetailsDto getUserDetails(@PathVariable(value = "accNumber") String accNumber) {
+		return service.userDetails(accNumber);
 	}
 }

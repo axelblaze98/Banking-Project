@@ -2,13 +2,15 @@ import { Component,OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { AdminRegister } from './../admin';
+
 @Component({
   selector: 'app-adminregister',
   templateUrl: './adminregister.component.html',
   styleUrls: ['./adminregister.component.css']
 })
 export class AdminregisterComponent implements OnInit {
-    user:Admin=new Admin();
+    user:AdminRegister=new AdminRegister();
   
   loginForm: FormGroup;
   
@@ -98,9 +100,5 @@ view(){
     })
 }
 }
-class Admin{
-  public adminUserID:string;
-   public adminPassword:string;
-   public adminName:string;
-}
+
 

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { OpenAccount } from '../admin';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-open-account',
@@ -7,6 +9,7 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
   styleUrls: ['./open-account.component.css']
 })
 export class OpenAccountComponent implements OnInit {
+  newAccount:OpenAccount = new OpenAccount();
   loginForm: FormGroup;
   error_messages = {
     'fname': [
@@ -64,6 +67,7 @@ export class OpenAccountComponent implements OnInit {
   }
 
   constructor(
+    private http: HttpClient,
     public formBuilder: FormBuilder
     ) {
       this.loginForm = this.formBuilder.group({
@@ -165,4 +169,16 @@ export class OpenAccountComponent implements OnInit {
         this.code = "";
       }
     }
+
+    view(){
+      console.log(this.newAccount)
+      this.http.post<any>("http://localhost:8086/openAccount",this.newAccount)
+        .subscribe(data=>{
+          if(data.status=='FAILURE'){
+            alert(data.message);
+          }else{
+            alert(data.message);
+          }
+        })
+      }
 }

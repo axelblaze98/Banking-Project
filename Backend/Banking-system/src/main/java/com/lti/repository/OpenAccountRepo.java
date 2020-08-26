@@ -16,5 +16,6 @@ public interface OpenAccountRepo {
 	String findAccountNumberByRefId(String refId);
 	void updateAccountStatus(String adminApproval, String adminRemark, String accNo);
 	boolean isAccountActive(String acNo);
-	
+	int getBalance(String accNumber);
+	void updateBalance(String accNumber,int balance);
 }

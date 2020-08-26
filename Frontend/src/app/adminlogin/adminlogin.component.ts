@@ -1,4 +1,4 @@
-import { Admin } from './../admin';
+import { Login } from './../admin';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
@@ -14,11 +14,11 @@ export class AdminloginComponent{
   ngOnInit(): void {
   }
 
-  user = new Admin();
+  user = new Login();
 
   AdminLogin()
   {
-
+    
     console.log(this.user);
     this.http.post<any>("http://localhost:8086/loginAdmin", this.user)
     .subscribe(

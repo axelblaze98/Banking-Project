@@ -1,6 +1,7 @@
 package com.lti.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 
 import com.lti.pojo.OpenAccount;
 import org.springframework.stereotype.Service;
@@ -87,5 +88,16 @@ public class UserServiceImpl implements UserService {
 			repo.setNoOfInvalidAttempts(userId, 0);
 			repo.resetPassword(userId,updatedPassword);
 			return updatedPassword;
+		}
+		
+		@Override
+		public String getUserId(String accNumber) {
+			// TODO Auto-generated method stub
+			try {
+			return repo.getUserByAccNumber(accNumber);
+			}
+			catch(EmptyResultDataAccessException e) {
+				throw new ServiceException("Please Register First");
+			}
 		}
 }
