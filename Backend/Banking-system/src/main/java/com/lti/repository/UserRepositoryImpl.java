@@ -96,5 +96,11 @@ public class UserRepositoryImpl implements UserRepository {
 		.setParameter("password",updatedPassword)
 		.executeUpdate();
 	}
+	@Override
+	public String getUserByAccNumber(String accNumber) {
+		// TODO Auto-generated method stub
+		return (String)em.createNamedQuery("getIdByAccNumber")
+				.setParameter("accNumber",accNumber).getSingleResult();
+	}
 }
 	
