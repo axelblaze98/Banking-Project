@@ -1,7 +1,10 @@
+<navbarlogin></navbarlogin>
+
 <div class="text">
     <h3>
        Account Creation Status
     </h3>
+
     </div>
 
         <table class="table table-bordered">
@@ -10,16 +13,19 @@
                 <th scope="col">Reference ID</th>
                 <th scope="col">Status</th>
                 <th scope="col">Remark</th>
+                <th scope="col">Account Number</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>R12345</td>
-                <td>Declined</td>
-                <td>Invalid Address</td>
+                <td>{{ref}}</td>
+                <td>{{approval}}</td>
+                <td>{{remark}}</td>
+                <td>{{accNo}}</td>
               </tr>
             </tbody>
         </table>
       <div id="wrapper">
-        <button type="button" class="btn btn-primary">Update User Details</button>
+        <button type="button"  class="btn btn-primary">Update User Details</button>
+        
       </div>
