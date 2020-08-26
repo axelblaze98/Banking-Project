@@ -1,5 +1,8 @@
-//package com.lti.service;
-//
-//public interface BeneficiaryService {
-//	String getBeneficiaryName(String fromAcc, String toAcc);
-//}
+package com.lti.service;
+
+import com.lti.dto.BeneficiaryDto;
+
+public interface BeneficiaryService {
+	
+	void addBeneficiary(BeneficiaryDto benf);
+}
