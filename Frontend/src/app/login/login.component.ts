@@ -22,10 +22,26 @@ export class LoginComponent implements OnInit {
       data => {console.log(data)
       if (data.status=="FAILURE")
       {
-        alert(data.message); //implement account block after api runs
+        if(data.message =="User Doesn't Exist")
+        {
+          alert("User does not Exist, Register before login")
+          this.router.navigate(['register']);
+        }
+        else if(data.message =="Account Blocked")
+        {
+          alert("Your account has been blocked, change password and try again")
+          this.router.navigate(['forgotpassword']);
+        }
+        else
+        {
+          alert(data.message)
+          this.router.navigate(['login']);
+        }
       }
       else{
         alert("Welcome Dear Customer");
+        sessionStorage.setItem('AccountNumber', data.accountNumber);
+        console.log(data.accountNumber)
         this.router.navigate(['accountmainpage']);
       }
     }
