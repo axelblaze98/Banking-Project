@@ -11,5 +11,5 @@ export class AccountmainpageComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-}
+  accountNumber=sessionStorage.getItem('AccountNumber')
+;}

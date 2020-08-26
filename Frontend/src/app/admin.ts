@@ -17,8 +17,7 @@ export class Forgotpassword {
 }
 
 export class Forgotuserid {
-    "userId": string;
-    "password": string;
+    "accNumber":string;
 }
 
 export class UserRegister{

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-//import { Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Forgotuserid } from './../admin';
 
 @Component({
@@ -33,21 +33,21 @@ export class ForgotuseridComponent implements OnInit {
 
   constructor(
     public formBuilder: FormBuilder,
-     private http: HttpClient
-    //private router: Router
+     private http: HttpClient,
+    private router: Router
   ) {
     this.loginForm = this.formBuilder.group({
       fname: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.minLength(9),
-        Validators.maxLength(9)
+        Validators.minLength(8),
+        Validators.maxLength(8)
         
       ])),
       
       password: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(3),
-        Validators.maxLength(30),
+        Validators.maxLength(6),
         
       ])),
       
@@ -65,9 +65,10 @@ export class ForgotuseridComponent implements OnInit {
       .subscribe(data=>{
         if(data.status=='FAILURE'){
           alert(data.message);
+          this.router.navigate(['register'])
         }else{
-          alert("Done!");
-         // this.router.navigate(['setloginpassword'])
+          alert(data.message);
+         this.router.navigate(['login'])
         }
       })
   }

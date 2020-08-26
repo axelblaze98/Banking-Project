@@ -20,11 +20,18 @@ export class RegisterComponent implements OnInit {
     .subscribe(
       data => {console.log(data)
       if (data.status=="FAILURE")
-      {
-        alert(data.message);
+      { 
+        if(data.message=="Account Not Found"){
+        alert("Please create Account Before Registration");
+        this.router.navigate(['openaccount']);
+        }
+        else{
+          alert("User Already Exists")
+          this.router.navigate(['login'])
+        }
       }
       else{
-        alert("User Registered"); //alert userid once implemented
+        alert("User Registered"+data.userId); //alert userid once implemented
         this.router.navigate(['login']);
       }
     }
@@ -40,7 +47,7 @@ export class RegisterComponent implements OnInit {
   error_messages = {
     'fname': [
       { type: 'required', message: 'Account Number is required.' },
-      { type: 'required', message: 'Account Number must be of 9 digit' }
+      { type: 'required', message: 'Account Number must be of 8 digit' }
     ],
 
     'lname': [
@@ -82,8 +89,8 @@ export class RegisterComponent implements OnInit {
     this.loginForm = this.formBuilder.group({
       fname: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.minLength(9),
-        Validators.maxLength(9)
+        Validators.minLength(8),
+        Validators.maxLength(8)
         
       ])),
       lname: new FormControl('', Validators.compose([
