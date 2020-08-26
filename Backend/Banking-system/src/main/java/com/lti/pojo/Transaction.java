@@ -6,12 +6,12 @@ import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
-import com.sun.istack.NotNull;
 
 @Entity
 @Table(name="account_transactions")
 @NamedQuery(name = "isTableEmpty", query = "select count(*) from Transaction")
 @NamedQuery(name = "getTransactionId", query = "select max(u.transactionId) from Transaction u")
+@NamedQuery(name="getMiniStatement",query="select t from Transaction t where t.fromAccountNumber=:accNumber or t.toAccountNumber=:accNumber")
 public class Transaction {
 	@Id
 	@Column(name="transactionId")

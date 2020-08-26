@@ -1,5 +1,7 @@
 package com.lti.service;
-import java.time.format.DateTimeFormatter;  
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 import java.time.LocalDateTime;   
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +43,7 @@ public class TransactionServiceImpl implements TransactionService {
 		transaction.setTransactionMode(transactionDetails.getTransactionMode());
 		transaction.setTransactionAmount(transactionDetails.getTransactionBalance());
 		
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");  
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");  
 		LocalDateTime now = LocalDateTime.now();
 		
 		transaction.setTransactionDate(dtf.format(now));
@@ -74,6 +76,24 @@ public class TransactionServiceImpl implements TransactionService {
 		}
 		curBalance-=transactionBalance;
 		balancerepo.updateBalance(fromAccount, curBalance);
+	}
+
+	@Override
+	public List<Transaction> getMiniStatement(String accNumber) {
+		// TODO Auto-generated method stub
+		List<Transaction> transactions=repo.getAllRecords(accNumber);
+		int size = transactions.size();
+		if(size<=5) {
+			return transactions;
+		}
+		else {
+		List<Transaction> last5Transactions = new ArrayList<Transaction>();
+		
+		for(int i=size-1;i>=(size-5);i--) {
+			last5Transactions.add(transactions.get(i));
+		}
+		return  last5Transactions;
+		}
 	}
 	
 	

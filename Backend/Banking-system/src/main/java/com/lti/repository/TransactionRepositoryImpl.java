@@ -1,5 +1,7 @@
 package com.lti.repository;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -30,6 +32,11 @@ public class TransactionRepositoryImpl implements TransactionRepository {
 		// TODO Auto-generated method stub
 		return (Integer)em.createNamedQuery("getTransactionId")
 				.getSingleResult();
+	}
+	@Override
+	public List<Transaction> getAllRecords(String accNumber) {
+		// TODO Auto-generated method stub
+		return em.createNamedQuery("getMiniStatement").setParameter("accNumber",accNumber).getResultList();
 	}
 
 }
