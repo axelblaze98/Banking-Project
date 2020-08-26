@@ -9,7 +9,7 @@
   
   <div>
     
-    <form class="form" [formGroup]="loginForm">
+    <form class="form" [formGroup]="loginForm" (ngSubmit) = "view()">
         
     <div class="form-group row">
       
@@ -17,25 +17,28 @@
     
     <div class="col-sm-6">
       
-     <input type="text" class="form-control" formControlName="fname" id="start" placeholder="" required>
+     <input [(ngModel)] = "refId" type="text" class="form-control" formControlName="fname" id="start" placeholder="" required>
       
     </div>
          
    </div>
-  </form>
    <div class="error-messages">
     <ng-container *ngFor="let error of error_messages.fname">
       <div class="error-message" *ngIf="loginForm.get('fname').hasError(error.type) && (loginForm.get('fname').dirty || loginForm.get('fname').touched)">
         {{ error.message }}
       </div>
     </ng-container>
-  </div>     
-  </div>
-  <div class="wrapper">
+  </div>    
+   <div class="wrapper">
       
-    <a routerLink="/trackaccount"><button type="submit" class="btn btn-primary" style="margin-bottom: 20px; width: 100px;" [disabled]="!loginForm.valid">Submit</button></a>
+    
+    <button type="submit" class="btn btn-primary" style="margin-bottom: 20px; width: 100px;" [disabled]="!loginForm.valid">Submit</button>
     
     </div>
+  </form>
+   
+  </div>
+    
   
   </div>
   </div>

@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./open-account.component.css']
 })
 export class OpenAccountComponent implements OnInit {
-  newAccount:OpenAccount = new OpenAccount();
+  newAccount : OpenAccount = new OpenAccount();
   loginForm: FormGroup;
   error_messages = {
     'fname': [
