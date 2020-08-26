@@ -1,14 +1,14 @@
 package com.lti.dto;
 
 public class UserDataDTO {
-	private long accNumber;
+	private String accNumber;
 	private String lgnPassword;
 	private String tnPassword;
 	
-	public long getAccNumber() {
+	public String getAccNumber() {
 		return accNumber;
 	}
-	public void setAccNumber(long accNumber) {
+	public void setAccNumber(String accNumber) {
 		this.accNumber = accNumber;
 	}
 	public String getLgnPassword() {

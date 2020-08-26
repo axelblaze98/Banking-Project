@@ -44,4 +44,44 @@ public class UserController {
 		return registerStatus;
 		}
 	}
+	
+	@PostMapping(path="/userLogin")
+	private Status loginUser(@RequestBody UserLoginForgotPasswordDataDTO loginuser) {
+		
+		OpenAccount acc;
+		
+	try {
+		User user = service.loginUser(loginuser.getUserId(),loginuser.getPassword());
+		acc=user.getAccountNumber();
+		
+		UserLoginStatus loginStatus = new UserLoginStatus();
+		
+		loginStatus.setStatus(StatusType.SUCCESS);
+		loginStatus.setInvalidLogins(user.getNumberOfInvalidAttempts());
+		loginStatus.setAccountNumber(acc.getAccountNumber());
+		loginStatus.setMessage("Login Successful");
+		
+		return loginStatus;
+	}
+	catch(ServiceException e) {
+		
+		UserLoginStatus loginStatus = new UserLoginStatus();
+		if(e.getMessage().equals("User Doesn't Exist")) {
+			
+			loginStatus.setStatus(StatusType.FAILURE);
+			loginStatus.setMessage(e.getMessage());
+				
+			return loginStatus;
+		}
+		else {
+			
+			loginStatus.setInvalidLogins(service.getInvalidAttempts(loginuser.getUserId()));
+			loginStatus.setStatus(StatusType.FAILURE);
+			loginStatus.setMessage(e.getMessage());
+				
+			return loginStatus;
+		}
+	}
+
+}
 }

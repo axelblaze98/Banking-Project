@@ -7,8 +7,8 @@ public interface UserRepository {
 	void save(User user);
 	boolean isUserPresent();
 	String getUserId();
-	OpenAccount findbyId(long id);
-	boolean isAccountRegistered(long accNumber);
+	OpenAccount findbyId(String id);
+	boolean isAccountRegistered(String accNumber);
 	boolean validUserIdPassword(String userId, String password);
 	User findUserById(String userId);
 	boolean isUserValid(String userId);

@@ -75,6 +75,13 @@ public class OpenAccountRepoImpl implements OpenAccountRepo {
 		.setParameter("acc", accNo)
 		.executeUpdate();
 	}
+	
+	@Override
+	public boolean isAccountActive(String acNo) {
+		return (Long) entityManager.createNamedQuery("checkIfAccountActive")
+				.setParameter("accNo", acNo).getSingleResult()>0 ? true : false;
+	}
+
 
 
 }

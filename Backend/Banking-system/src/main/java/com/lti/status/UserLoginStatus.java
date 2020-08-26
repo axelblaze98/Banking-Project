@@ -2,11 +2,11 @@ package com.lti.status;
 
 public class UserLoginStatus extends Status {
 	int invalidLogins;
-	long accountNumber;
-	public long getAccountNumber() {
+	String accountNumber;
+	public String getAccountNumber() {
 		return accountNumber;
 	}
-	public void setAccountNumber(long accountNumber) {
+	public void setAccountNumber(String accountNumber) {
 		this.accountNumber = accountNumber;
 	}
 	public int getInvalidLogins() {

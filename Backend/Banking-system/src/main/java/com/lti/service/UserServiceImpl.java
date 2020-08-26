@@ -50,17 +50,19 @@ public class UserServiceImpl implements UserService {
 		@Override
 		public User loginUser(String userId, String password) {
 			
-			int attempts = repo.getNoOfInvalidAttempts(userId);
-			
 			if(!repo.isUserValid(userId))
 			{	
+				System.out.println("yash");
 				throw new ServiceException("User Doesn't Exist");
 			}
-			else if(attempts>3){
-				throw new ServiceException("Account Blocked");
-			}
 			else {
-				if(!repo.validUserIdPassword(userId, password)) {
+				System.out.println("Parth");
+				int attempts = repo.getNoOfInvalidAttempts(userId);
+				
+				if(attempts>3){
+					throw new ServiceException("Account Blocked");				
+					}
+				else if(!repo.validUserIdPassword(userId, password)) {
 					repo.setNoOfInvalidAttempts(userId, attempts+1);
 					throw new ServiceException("Invalid Credentials");
 				}
@@ -71,7 +73,7 @@ public class UserServiceImpl implements UserService {
 		}
 		
 		public int getInvalidAttempts(String userId) {
+			System.out.println("Parth");
 			return repo.getNoOfInvalidAttempts(userId);
 		}
-
 }
