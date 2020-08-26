@@ -10,51 +10,54 @@ export class OpenAccountComponent implements OnInit {
   loginForm: FormGroup;
   error_messages = {
     'fname': [
-      { type: 'required', message: 'First Name is required.' }
+      { type: 'required', message: 'First Name is required.' },
     ],
     'lname': [
-      { type: 'required', message: 'Last Name is required.' }
+      { type: 'required', message: 'Last Name is required.' },
     ],
     'faname': [
-      { type: 'required', message: 'Father Name is required.' }
+      { type: 'required', message: 'Father Name is required.' },
+    ],
+    'maname': [
+      { type: 'required', message: 'Father Name is required.' },
     ],
     'mo': [
       { type: 'required', message: 'Mobile Number is required.' },
-      { type: 'required', message: 'Mobile Number Should be of 10 digit' }
+      { type: 'required', message: 'Mobile Number Should be of 10 digit' },
     ],
     'ad': [
       { type: 'required', message: 'Aadhar Number is required.' },
-      { type: 'required', message: 'Aadhar Number Should be of 12 digit' }
+      { type: 'required', message: 'Aadhar Number Should be of 12 digit' },
     ],
     'add': [
-      { type: 'required', message: 'Address is required.' }
+      { type: 'required', message: 'Address is required.' },
     ],
     'da': [
-      { type: 'required', message: 'Address is required.' }
+      { type: 'required', message: 'Address is required.' },
     ],
     'st': [
-      { type: 'required', message: 'State is required.' }
+      { type: 'required', message: 'State is required.' },
     ],
     'ci': [
-      { type: 'required', message: 'City is required.' }
+      { type: 'required', message: 'City is required.' },
     ],
     'pi': [
-      { type: 'required', message: 'Pincode is required.' }
+      { type: 'required', message: 'Pincode is required.' },
     ],
     'ri': [
-      { type: 'required', message: 'Address is required.' }
+      { type: 'required', message: 'Address is required.' },
     ],
     'an': [
-      { type: 'required', message: 'Address is required.' }
+      { type: 'required', message: 'Address is required.' },
     ],
     'rk': [
-      { type: 'required', message: 'State is required.' }
+      { type: 'required', message: 'State is required.' },
     ],
     'aj': [
-      { type: 'required', message: 'City is required.' }
+      { type: 'required', message: 'City is required.' },
     ],
     'ar': [
-      { type: 'required', message: 'Pincode is required.' }
+      { type: 'required', message: 'Pincode is required.' },
     ]
     
   
@@ -73,13 +76,20 @@ export class OpenAccountComponent implements OnInit {
         faname: new FormControl('', Validators.compose([
           Validators.required
         ])),
+        maname: new FormControl('', Validators.compose([
+          Validators.required
+        ])),
         mo: new FormControl('', Validators.compose([
           Validators.required,
-          Validators.minLength(10) 
+          Validators.minLength(10),
+          Validators.maxLength(10)
+          
         ])),
+       
         ad: new FormControl('', Validators.compose([
           Validators.required,
-          Validators.minLength(12)
+          Validators.minLength(12),
+          Validators.maxLength(12)
         ])),
         add: new FormControl('', Validators.compose([
           Validators.required
@@ -94,7 +104,9 @@ export class OpenAccountComponent implements OnInit {
           Validators.required
         ])),
         pi: new FormControl('', Validators.compose([
-          Validators.required
+          Validators.required,
+          Validators.minLength(6),
+          Validators.maxLength(6)
         ]))
        
         

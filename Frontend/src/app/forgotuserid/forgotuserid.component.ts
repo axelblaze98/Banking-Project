@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-
+import { HttpClient } from '@angular/common/http';
+//import { Router } from '@angular/router';
+import { Forgotuserid } from './../admin';
 
 @Component({
   selector: 'app-forgotuserid',
@@ -8,7 +10,8 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
   styleUrls: ['./forgotuserid.component.css']
 })
 export class ForgotuseridComponent implements OnInit {
-
+    
+  user:Forgotuserid = new Forgotuserid();
   
   loginForm: FormGroup;
   
@@ -29,7 +32,9 @@ export class ForgotuseridComponent implements OnInit {
   }
 
   constructor(
-    public formBuilder: FormBuilder
+    public formBuilder: FormBuilder,
+     private http: HttpClient
+    //private router: Router
   ) {
     this.loginForm = this.formBuilder.group({
       fname: new FormControl('', Validators.compose([
@@ -54,7 +59,18 @@ export class ForgotuseridComponent implements OnInit {
   ngOnInit() {
   }
 
-  
+  view(){
+    console.log(this.user)
+    this.http.post<any>("http://localhost:8086/getUserId",this.user)
+      .subscribe(data=>{
+        if(data.status=='FAILURE'){
+          alert(data.message);
+        }else{
+          alert("Done!");
+         // this.router.navigate(['setloginpassword'])
+        }
+      })
+  }
 
 }
 

@@ -1,12 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { Forgotpassword } from './../admin';
 @Component({
   selector: 'app-forgotpassword',
   templateUrl: './forgotpassword.component.html',
   styleUrls: ['./forgotpassword.component.css']
 })
 export class ForgotpasswordComponent implements OnInit {
-
+    
+  user:Forgotpassword = new Forgotpassword();
   
   loginForm: FormGroup;
   
@@ -27,7 +31,8 @@ export class ForgotpasswordComponent implements OnInit {
   }
 
   constructor(
-    public formBuilder: FormBuilder
+    public formBuilder: FormBuilder,
+    private http: HttpClient,private router: Router
   ) {
     this.loginForm = this.formBuilder.group({
       fname: new FormControl('', Validators.compose([
@@ -51,6 +56,17 @@ export class ForgotpasswordComponent implements OnInit {
   ngOnInit() {
   }
 
-  
+  view(){
+    console.log(this.user)
+    this.http.post<any>("http://localhost:8086/forgetPassword",this.user)
+      .subscribe(data=>{
+        if(data.status=='FAILURE'){
+          alert(data.message);
+        }else{
+          alert("Suscessful");
+          this.router.navigate(['setloginpassword'])
+        }
+      })
+  }
 
 }
