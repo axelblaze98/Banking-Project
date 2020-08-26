@@ -21,9 +21,9 @@
         <div class="col p-4 d-flex flex-column position-static">
           <h5 class="mb-0">Viewing Your Account Details:</h5>
           <br/>
-          <p class="mb-auto">Account Holder Name</p>
+          <p class="mb-auto">Account Holder Name: {{accountHolderName}}</p>
           <p class="mb-auto">Account Number: {{accountNumber}}</p>
-          <p class="mb-auto">Account Balance: 156753782.00</p>
+          <p class="mb-auto">Account Balance: {{accountBalance}}</p>
         </div>
         <div class="col-auto d-none d-lg-block">
           <img src="/assets/IMAGES/accounticons.png" width="200" height="250" alt="">
@@ -49,50 +49,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>123</td>
-            <td>123456</td>
-            <td>567896</td>
-            <td>15000</td>
-            <td>+Debited</td>
-            <td>NEFT</td>
-            <td>21sep</td>
-          </tr>
-          <tr>
-            <td>123</td>
-            <td>123456</td>
-            <td>567896</td>
-            <td>15000</td>
-            <td>+Debited</td>
-            <td>NEFT</td>
-            <td>21sep</td>
-          </tr>
-          <tr>
-            <td>123</td>
-            <td>123456</td>
-            <td>567896</td>
-            <td>15000</td>
-            <td>+Debited</td>
-            <td>NEFT</td>
-            <td>21sep</td>
-          </tr>
-          <tr>
-            <td>123</td>
-            <td>123456</td>
-            <td>567896</td>
-            <td>15000</td>
-            <td>+Debited</td>
-            <td>NEFT</td>
-            <td>21sep</td>
-          </tr>
-          <tr>
-            <td>123</td>
-            <td>123456</td>
-            <td>567896</td>
-            <td>15000</td>
-            <td>+Debited</td>
-            <td>NEFT</td>
-            <td>21sep</td>
+          <tr *ngFor = "let transaction of miniStatement">
+            <td>transaction.transactionId</td>
+            <td>transaction.fromAccountNumber</td>
+            <td>transaction.toAccountNumber</td>
+            <td>transaction.transactionAmount</td>
+            <td>Debit</td>
+            <td>transaction.transactionMode</td>
+            <td>transaction.transactionDate</td>
           </tr>
         </tbody>
       </table>

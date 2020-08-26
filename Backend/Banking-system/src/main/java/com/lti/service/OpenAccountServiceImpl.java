@@ -90,6 +90,8 @@ public class OpenAccountServiceImpl implements OpenAccountService {
 		details.setResLandMark(account.getResLandMark());
 		details.setResPincode(account.getResPincode());
 		details.setResState(account.getResState());
+		details.setOccupation(account.getOccupation());
+		details.setAccountBalance(account.getAccountBalance());
 		return details;
 	}
 }
