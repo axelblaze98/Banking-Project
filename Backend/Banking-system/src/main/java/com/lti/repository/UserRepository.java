@@ -15,4 +15,5 @@ public interface UserRepository {
 	int getNoOfInvalidAttempts(String userId);
 	void setNoOfInvalidAttempts(String userId, int attempts);
 	void resetPassword(String userId,String updatedPassword);
+	String getUserByAccNumber(String accNumber);
 }

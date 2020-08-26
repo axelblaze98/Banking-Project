@@ -18,7 +18,7 @@ import javax.persistence.Table;
 @NamedQuery(name="updateInvalidAttempts",query="update User set numberOfInvalidAttempts=:attempts where userId=:id")
 @NamedQuery(name="getInvalidAttempts",query="select u.numberOfInvalidAttempts from User u where u.userId=:id")
 @NamedQuery(name="changePassword",query="update User set loginPassword=:password where userId=:id")
-
+@NamedQuery(name="getIdByAccNumber",query="select u.userId from User u where u.accountNumber.accountNumber =:accNumber")
 public class User {
 	@Id
 	@Column(name="userId",length=6)
