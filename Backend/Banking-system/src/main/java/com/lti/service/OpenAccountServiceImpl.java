@@ -61,4 +61,15 @@ public class OpenAccountServiceImpl implements OpenAccountService {
 			throw new ServiceException();
 		}
 	}
+	
+	@Override
+	public void addAccountStatus(CreateAccountStatus status) {
+		try {
+			System.out.println(status);
+			repo.updateAccountStatus(status.getApprovedByAdmin(), status.getAdminRemark(), status.getAccountNumber());
+		}
+		catch (InvalidDataAccessApiUsageException e) {
+			throw new ServiceException("Error !!!");
+		}
+	}
 }

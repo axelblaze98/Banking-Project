@@ -74,4 +74,26 @@ public class OpenAccountController {
 			return status;
 		}
 	}
+	
+	@PostMapping(path="/adminApproval")
+	public Status adminApproval(@RequestBody CreateAccountStatus result) 
+	{
+		System.out.println(result);
+		try 
+		{
+			service.addAccountStatus(result);
+			Status status = new Status();
+			status.setMessage("Updated Successfully");
+			status.setStatus(StatusType.SUCCESS);
+			return status;
+		}
+		catch (ServiceException e) 
+		{
+			// TODO: handle exception
+			Status status = new Status();
+			status.setMessage(e.getMessage());
+			status.setStatus(StatusType.FAILURE);
+			return status;
+		}
+	}
 }

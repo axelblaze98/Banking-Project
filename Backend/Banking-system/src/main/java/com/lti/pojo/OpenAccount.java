@@ -13,6 +13,7 @@ import javax.persistence.Table;
 @NamedQuery(name="getAllAccounts", query="from OpenAccount t") 
 @NamedQuery(name="getAccountNumberByRefId", query="select t.accountNumber from OpenAccount t where t.refernceId = :refId") 
 @NamedQuery(name="updateAccountStatusByAdmin", query="update OpenAccount set approvedByAdmin = :status, adminRemark = :remark where accountNumber = :acc ") 
+@NamedQuery(name="checkIfAccountActive", query="select count(t.accountNumber) from OpenAccount t where t.accountNumber = :accNo") 
 
 
 @Entity

@@ -79,7 +79,7 @@ public class OpenAccountRepoImpl implements OpenAccountRepo {
 	@Override
 	public boolean isAccountActive(String acNo) {
 		return (Long) entityManager.createNamedQuery("checkIfAccountActive")
-				.setParameter("accNo", acNo).getSingleResult()==1 ? true : false;
+				.setParameter("accNo", acNo).getSingleResult()>0 ? true : false;
 	}
 
 
