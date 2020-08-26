@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { UserRegister } from './../admin';
 
 @Component({
   selector: 'app-register',
@@ -8,7 +11,29 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 })
 export class RegisterComponent implements OnInit {
 
-  
+  user = new UserRegister();
+
+  Registration()
+  {
+    console.log(this.user);
+    this.http.post<any>("http://localhost:8086/userRegister", this.user)
+    .subscribe(
+      data => {console.log(data)
+      if (data.status=="FAILURE")
+      {
+        alert(data.message);
+      }
+      else{
+        alert("User Registered"); //alert userid once implemented
+        this.router.navigate(['login']);
+      }
+    }
+)
+  }
+
+
+
+
   loginForm: FormGroup;
   
 
@@ -51,7 +76,8 @@ export class RegisterComponent implements OnInit {
   }
 
   constructor(
-    public formBuilder: FormBuilder
+    public formBuilder: FormBuilder, private http: HttpClient,private router: Router
+
   ) {
     this.loginForm = this.formBuilder.group({
       fname: new FormControl('', Validators.compose([
