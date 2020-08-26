@@ -35,15 +35,15 @@ export class SetnewtransactionpasswordComponent implements OnInit {
       
       password: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.minLength(6),
-        Validators.maxLength(30),
-        Validators.pattern('(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}')
+        Validators.minLength(4),
+        Validators.maxLength(4),
+        Validators.pattern(/^-?(0|[1-9]\d*)?$/)
       ])),
       confirmpassword: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.minLength(6),
-        Validators.maxLength(30),
-        Validators.pattern('(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}')
+        Validators.minLength(4),
+        Validators.maxLength(4),
+        Validators.pattern(/^-?(0|[1-9]\d*)?$/)
       ])),
     }, { 
       validators: this.password.bind(this)
