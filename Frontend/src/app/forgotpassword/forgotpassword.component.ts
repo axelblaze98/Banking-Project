@@ -31,7 +31,8 @@ export class ForgotpasswordComponent implements OnInit {
   ) {
     this.loginForm = this.formBuilder.group({
       fname: new FormControl('', Validators.compose([
-        Validators.required
+        Validators.required,
+        Validators.maxLength(6)
       ])),
       
       
