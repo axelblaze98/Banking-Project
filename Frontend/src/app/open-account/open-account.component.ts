@@ -22,11 +22,14 @@ export class OpenAccountComponent implements OnInit {
       { type: 'required', message: 'Father Name is required.' },
     ],
     'maname': [
-      { type: 'required', message: 'Father Name is required.' },
+      { type: 'required', message: 'Mother Name is required.' },
     ],
     'mo': [
       { type: 'required', message: 'Mobile Number is required.' },
       { type: 'required', message: 'Mobile Number Should be of 10 digit' },
+    ],
+    'em': [
+      { type: 'required', message: 'Email is required.' },
     ],
     'ad': [
       { type: 'required', message: 'Aadhar Number is required.' },
@@ -88,6 +91,9 @@ export class OpenAccountComponent implements OnInit {
           Validators.minLength(10),
           Validators.maxLength(10)
           
+        ])),
+        em: new FormControl('', Validators.compose([
+          Validators.required
         ])),
        
         ad: new FormControl('', Validators.compose([
