@@ -1,7 +1,9 @@
-//import { AccountHolderDetails } from './admin';
+
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { AccountHolderDetails } from './admin';
 
 
 @Injectable({
@@ -9,19 +11,19 @@ import { Observable } from 'rxjs';
 })
 export class ConnectionService {
 
-  constructor(private http: HttpClient) { }
- 
+  constructor(private http: HttpClient,private router: Router) { }
+  accountCreationStatus:AccountHolderDetails;
   ngOnInit(): void {
   }
 
-  getAccountDetails(refId): Observable<any>
+  getAccountStatusDetails(refId): Observable<any>
   {
-    return this.http.get<any>("http://localhost:8086/viewAccountByRefId/"+refId) //refID
-
+    return this.http.get<any>("http://localhost:8086/viewAccountByRefId/"+refId)
   }
-
-
-
+  setApplicationStatus(data){
+    this.accountCreationStatus = data;
+    this.router.navigate(['trackaccount']);
+  }
 }
   
 

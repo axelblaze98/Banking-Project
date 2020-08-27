@@ -12,6 +12,7 @@ import javax.persistence.Table;
 @NamedQuery(name = "isTableEmpty", query = "select count(*) from Transaction")
 @NamedQuery(name = "getTransactionId", query = "select max(u.transactionId) from Transaction u")
 @NamedQuery(name="getMiniStatement",query="select t from Transaction t where t.fromAccountNumber=:accNumber or t.toAccountNumber=:accNumber")
+@NamedQuery(name="transactionHistory",query="select t from Transaction t where (t.fromAccountNumber=:accNumber or t.toAccountNumber=:accNumber) and t.transactionDate between :fromDate and :toDate")
 public class Transaction {
 	@Id
 	@Column(name="transactionId")

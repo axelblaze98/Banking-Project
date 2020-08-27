@@ -11,6 +11,11 @@ import { Router } from '@angular/router';
 export class FundTransferComponent implements OnInit {
   loginForm: FormGroup;
   error_messages = {
+    'tpassword': [
+      { type: 'required', message: 'Transaction Password is required.' }
+      
+    ],
+  
     'fname': [
       { type: 'required', message: 'Account Number is required.' },
     ],
@@ -39,9 +44,16 @@ export class FundTransferComponent implements OnInit {
       ])),
       rname: new FormControl('', Validators.compose([
         Validators.required
+      ])),
+      tpassword: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.minLength(4),
+        Validators.maxLength(4),
+        Validators.pattern(/^-?(0|[1-9]\d*)?$/)
+        
       ]))
     });
-  }
+   }
   add
   AccNo=sessionStorage.getItem('AccountNumber');
   ngOnInit(): void {

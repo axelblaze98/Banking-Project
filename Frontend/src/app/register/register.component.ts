@@ -90,11 +90,15 @@ export class RegisterComponent implements OnInit {
       fname: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(8),
-        Validators.maxLength(8)
+        Validators.maxLength(8),
+        Validators.pattern(/^-?(0|[1-9]\d*)?$/)
         
       ])),
       lname: new FormControl('', Validators.compose([
         Validators.required,
+        Validators.minLength(4),
+        Validators.maxLength(4),
+        Validators.pattern(/^-?(0|[1-9]\d*)?$/)
       ])),
       
       password: new FormControl('', Validators.compose([

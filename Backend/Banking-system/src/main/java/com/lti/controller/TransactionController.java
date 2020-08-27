@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lti.dto.TransactionDetailsDto;
+import com.lti.dto.TransactionHistoryDto;
 import com.lti.exception.ServiceException;
 import com.lti.service.TransactionService;
 import com.lti.status.Status;
@@ -47,5 +48,11 @@ public class TransactionController {
 		return service.getMiniStatement(accNumber);
 	}
 	
+	@PostMapping(path="/transactionHistory")
+	public List<Transaction> getTransactionHistory(@RequestBody TransactionHistoryDto transdetails){
+		String fromDate= service.changeDateFormat(transdetails.getFromDate());
+		String toDate= service.changeDateFormat(transdetails.getFromDate());
+		return service.getTransactionHistory(fromDate, toDate, transdetails.getAccountNumber());
+	}
 	
 }

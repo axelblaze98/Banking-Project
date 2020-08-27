@@ -24,9 +24,9 @@ export class ForgotuseridComponent implements OnInit {
 
     'password': [
       { type: 'required', message: 'OTP is required.' },
-      { type: 'minlength', message: 'password length.' },
-      { type: 'maxlength', message: 'password length.' },
-      { type: 'pattern', message:'password must consist one special character,one alphabet and one numric'}
+      { type: 'minlength', message: 'OTP length.' },
+      { type: 'maxlength', message: 'OTP length.' }
+     
     ],
     
   }
@@ -40,14 +40,16 @@ export class ForgotuseridComponent implements OnInit {
       fname: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(8),
-        Validators.maxLength(8)
+        Validators.maxLength(8),
+        Validators.pattern(/^-?(0|[1-9]\d*)?$/)
         
       ])),
       
       password: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.minLength(3),
-        Validators.maxLength(6),
+        Validators.minLength(4),
+        Validators.maxLength(4),
+        Validators.pattern(/^-?(0|[1-9]\d*)?$/)
         
       ])),
       
