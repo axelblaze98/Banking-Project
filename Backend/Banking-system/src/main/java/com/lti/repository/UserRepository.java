@@ -18,4 +18,5 @@ public interface UserRepository {
 	String getUserByAccNumber(String accNumber);
 	String getTransactionPassword(String fromAccNumber);
 	void savelastLogin(String userId,String date);
+	void resetTransactionPassword(String userId,String updatedPassword);
 }

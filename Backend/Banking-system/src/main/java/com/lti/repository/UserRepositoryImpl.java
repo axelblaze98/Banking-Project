@@ -109,11 +109,23 @@ public class UserRepositoryImpl implements UserRepository {
 				.setParameter("accNumber",fromAccNumber).getSingleResult();
 	}
 	@Override
+	@Transactional
 	public void savelastLogin(String userId,String date) {
 		// TODO Auto-generated method stub
 		em.createNamedQuery("setLastLoginDate")
 		.setParameter("id",userId)
 		.setParameter("dateTime",date)
+		.executeUpdate();
+	}
+
+	@Override
+	@Transactional
+	public void resetTransactionPassword(String userId, String updatedPassword) {
+		System.out.println(userId);
+		System.out.println(updatedPassword);
+		em.createNamedQuery("changeTransactionPassword")
+		.setParameter("id",userId)
+		.setParameter("password",updatedPassword)
 		.executeUpdate();
 	}
 }
