@@ -1,3 +1,4 @@
+import { ConnectionService } from './connection.service';
 import { navBarAdminComponent } from './navbaradmin.component';
 import { navBarAccountComponent } from './navbaraccount.component';
 import { navBarMainComponent } from './navbarmain.component';
@@ -30,7 +31,7 @@ import { SessionexpiredComponent } from './sessionexpired/sessionexpired.compone
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ConnectionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

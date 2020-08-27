@@ -18,10 +18,10 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.user);
-    this.http.get<any>("http://localhost:8086/viewUserDetails/"+this.accNumber) //fetching account number for current session
+    this.http.get<any>("http://localhost:8086/viewUserDetails/"+this.accNumber) //fetching account number for current sezzzzzzzzzzzzzzzzzzzzzzzzz
     .subscribe(
       data => {console.log(data)
-        this.user = data; //data stored in user obj
+        alert(data.message);
       }
       
 )

@@ -1,4 +1,4 @@
-import { Admin } from './admin';
+//import { AccountHolderDetails } from './admin';
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -10,14 +10,17 @@ import { Observable } from 'rxjs';
 export class ConnectionService {
 
   constructor(private http: HttpClient) { }
-  password:String;
+ 
   ngOnInit(): void {
   }
 
-  public loginAdmin(user: Admin):Observable<any>
+  getAccountDetails(refId): Observable<any>
   {
-    return this.http.post<any>("http://localhost:8060/loginAdmin", user);
+    return this.http.get<any>("http://localhost:8086/viewAccountByRefId/"+refId) //refID
+
   }
+
+
 
 }
   
