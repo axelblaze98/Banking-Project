@@ -88,5 +88,3 @@ export class AddBeneficiary{
 	  name: string;
 	  nickName: string;
 }
-
-export class userprofiles

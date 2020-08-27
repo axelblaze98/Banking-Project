@@ -20,8 +20,8 @@ import { Component } from '@angular/core';
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Change Password</a>
                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                       <a class="dropdown-item" routerLink="/setloginpassword">Change Login Password</a>
-                       <a class="dropdown-item" routerLink="/settransactionpassword">Change Transaction Password</a>
+                      <a class="dropdown-item" routerLink="/setloginpassword">Change Login Password</a>
+                      <a class="dropdown-item" routerLink="/settransactionpassword">Change Transaction Password</a>
                    </div>
               </li>
               <li class="nav-list">

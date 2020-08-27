@@ -1,3 +1,4 @@
+<navbaraccount></navbaraccount>
 <div class="text">
   <h3>
       Fund Transfer
@@ -9,7 +10,7 @@
     <div class="form-group row">
       <label for="From_Account" class="col-sm-4 col-form-label">From Account <span style="color:red" >*</span></label>
       <div class="col-sm3">
-        <input type="text" class="form-control" id="To_Account" formControlName="fname" value="123456" disabled>
+        <input type="text" class="form-control" id="To_Account"  [value]="AccNo" disabled>
       </div>
     </div>
     <div class="error-messages">
@@ -23,7 +24,7 @@
       <label for="To_Account" class="col-sm-4 col-form-label">To Account <span style="color:red" >*</span></label>
       <div class="btn-group">
         <select class="form-control" id="title">
-          <option *ngFor = "let addto of Add">{{addto}}</option>
+          <option *ngFor = "let addto of add">{{addto[0]}}</option>
       </select>
         <!--<button type="submit"  aria-haspopup="true" aria-expanded="false">Select Beneficiary</button>
         <div class="dropdown-menu">

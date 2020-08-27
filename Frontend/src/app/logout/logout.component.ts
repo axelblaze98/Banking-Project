@@ -1,3 +1,4 @@
+import { ConnectionService } from './../connection.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _connservice : ConnectionService) { }
 
   ngOnInit(): void {
+    this._connservice.getNames().subscribe(data=> this.names = data)
   }
-
+public names=[];
 }

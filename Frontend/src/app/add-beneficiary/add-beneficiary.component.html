@@ -5,27 +5,23 @@
 <div>
     <form class="form" [formGroup]="loginForm" (ngSubmit)="AddBenef()">
         <div class="wrapper">
-            <div class="card" style="width:50%">
+            <div class="card" style="width:70%">
                 <div>
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-5 col-form-label" style="font-size: large;"><b>Personal Details: </b></label>
                     </div>
 
                     <div class="form-group row">
-                        <label for="title" class="col-sm-5 col-form-label">Title <span style="color:red" >*</span></label>
+                        <label for="title" class="col-sm-5 col-form-label">Account Number<span style="color:red" >*</span></label>
                         <div class="col-sm-6">
-                            <select class="form-control" id="title">
-                                <option value="Mr."> Mr.</option>
-                                <option value="Mrs."> Mrs.</option>
-                                <option value="Ms."> Ms.</option>
-                            </select>
+                            <input type="text" class="form-control" id="bName"  [value]="AccNo" disabled> 
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="bName" class="col-sm-5 col-form-label">Beneficiary Name <span style="color:red" >*</span></label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="bName" name ="bName" formControlName="fname" placeholder="Enter Beneficiary Name" name="name" [(ngModel)]="user.name" >
+                            <input type="text" class="form-control" id="bName" name ="bName" formControlName="fname" placeholder="Enter Beneficiary Name" [(ngModel)]="user.name" >
                         </div>
                     </div>
                     <div class="error-messages">
@@ -35,11 +31,19 @@
                             </div>
                         </ng-container>
                     </div>
+
                     <div class="form-group row">
-                        <label for="bNickName" class="col-sm-5 col-form-label">Enter Nick Name</label>
+                        <label for="bName" class="col-sm-5 col-form-label">Beneficiary Nickname <span style="color:red" >*</span></label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="bNickName" placeholder="Enter Nick Name" name="nickName" [(ngModel)]="user.nickName">
+                            <input type="text" class="form-control" id="bName" name ="bName" formControlName="bename" placeholder="Enter Beneficiary Name" [(ngModel)]="user.nickName" >
                         </div>
+                    </div>
+                    <div class="error-messages">
+                        <ng-container *ngFor="let error of error_messages.bename">
+                            <div class="error-message" *ngIf="loginForm.get('bename').hasError(error.type) && (loginForm.get('bename').dirty || loginForm.get('bename').touched)">
+                                {{ error.message }}
+                            </div>
+                        </ng-container>
                     </div>
                     <div class="form-group row">
                         <label for="bAccountNumber" class="col-sm-5 col-form-label">Enter Beneficiary Account Number <span style="color:red" >*</span></label>
