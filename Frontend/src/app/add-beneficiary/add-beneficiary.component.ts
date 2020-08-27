@@ -70,12 +70,17 @@ export class AddBeneficiaryComponent implements OnInit {
       ])),
       password: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.minLength(8)
+        Validators.minLength(8),
+        Validators.maxLength(8),
+        Validators.pattern(/^-?(0|[1-9]\d*)?$/)
+       
       
       ])),
       confirmpassword: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.minLength(8)
+        Validators.minLength(8),
+        Validators.maxLength(8),
+        Validators.pattern(/^-?(0|[1-9]\d*)?$/)
       ])),
     }, { 
       validators: this.password.bind(this)

@@ -65,7 +65,7 @@
 		</div>
 	  </div>
 			  <div class="error-messages">
-				  <ng-container *ngFor="let error of error_messages.password">
+				  <ng-container *ngFor="let error of error_messages.tpassword">
 					  <div class="error-message" *ngIf="loginForm.get('tpassword').hasError(error.type) && (loginForm.get('tpassword').dirty || loginForm.get('tpassword').touched)">
 			  {{ error.message }}
 			  
