@@ -1,26 +1,151 @@
-<navbaraccount></navbaraccount>
+<!-- <navbaraccount></navbaraccount>
 <div class="text">
   <h3>
       Fund Transfer
   </h3>
 </div>
 <div class="wrapper">
-<<<<<<< HEAD
   <div class="card" style="width:50%">
     <form class="form" [formGroup]="loginForm">
+      
       <div class="form-group row">
         <label for="From_Account" class="col-sm-4 col-form-label">From Account</label>
-        <div class="col-sm3">
-          <input type="text" class="form-control" id="To_Account" value="123456" disabled>
+          <div class="col-sm3">
+            <input type="text" class="form-control" id="To_Account" value="123456" disabled>
+          </div>
+      </div>
+
+<div class="card" style="width:60%">
+  <form class="form" [formGroup]="loginForm">
+    
+    <div class="form-group row">
+      <label for="From_Account" class="col-sm-4 col-form-label">From Account <span style="color:red" >*</span></label>
+      <div class="col-sm3">
+        <input type="text" class="form-control" id="To_Account"  [value]="AccNo" disabled>
+      </div>
+    </div> 
+
+      <div class="error-messages">
+        <ng-container *ngFor="let error of error_messages.fname">
+            <div class="error-message" *ngIf="loginForm.get('fname').hasError(error.type) && (loginForm.get('fname').dirty || loginForm.get('fname').touched)">
+                {{ error.message }}
+            </div>
+        </ng-container>
+      </div>
+
+    <div class="form-group row">
+      <label for="To_Account" class="col-sm-4 col-form-label">To Account <span style="color:red" >*</span></label>
+      <div class="btn-group">
+        <select class="form-control" id="title">
+          <option *ngFor = "let addto of add">{{addto[0]}}</option>
+      </select>
+        <button type="submit"  aria-haspopup="true" aria-expanded="false">Select Beneficiary</button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" >Parth</a>
+          <a class="dropdown-item" >Isha</a>
+          <a class="dropdown-item" >Yash</a>
         </div>
-=======
+        <select class="form-control" style="margin-left:20px">
+          <option value="Parth"> Parth</option>
+          <option value="Isha">Isha</option>
+          <option value="Yash"> Yash</option>
+          <option value="Ankit"> Ankit</option>
+      </select>
+      </div>
+      <div style="margin-left:10px">
+        <button type="submit" class="btn btn-primary" >Add Beneficiary </button>
+      </div>
+    </div>
+      <div class="form-group row">
+        <label for="Amount" class="col-sm-4 col-form-label">Amount <span style="color:red" >*</span></label>
+          <div class="col-sm3">
+            <input type="number" class="form-control" id="Amount" formControlName="lname" placeholder="Enter The Amount">
+          </div>
+      </div>
+      <div class="error-messages">
+        <ng-container *ngFor="let error of error_messages.lname">
+          <div class="error-message" *ngIf="loginForm.get('lname').hasError(error.type) && (loginForm.get('lname').dirty || loginForm.get('lname').touched)">
+              {{ error.message }}
+          </div>
+      </div>
+
+      <div class="form-group row">
+      <label for="Remarks" class="col-sm-4 col-form-label">Transaction Password</label>
+          <div class="col-sm3">
+              <input type="password" class="form-control" id="Remarks" formControlName="tpassword" placeholder="Enter Transaction Password">
+          </div>
+      </div>
+      <div class="error-messages">
+        <ng-container *ngFor="let error of error_messages.tpassword">
+          <div class="error-message" *ngIf="loginForm.get('tpassword').hasError(error.type) && (loginForm.get('tpassword').dirty || loginForm.get('tpassword').touched)">
+      {{ error.message }}
+      
+          </div>
+        </ng-container>
+      </div>
+      <div id="mydiv">
+        <button type="submit" class="btn btn-primary">Transfer</button>
+      </div>
+      </ng-container>
+    </form>
+  </div> -->
+
+<!--   
+    <div class="form-group row">
+        <label class="col-sm-4 col-form-label">Transaction Type <span style="color:red" >*</span></label>
+        <div class="btn-group">
+          <select class="form-control" id="title">
+            <option *ngFor = "let type of types">{{type}}</option>
+        </select>
+          //<button type="submit" aria-haspopup="true" aria-expanded="false">
+              Select Type
+          </button>
+            <div class="dropdown-menu">
+            <a class="dropdown-item">NEFT</a>
+            <a class="dropdown-item">IMPS</a>
+            <a class="dropdown-item">RTGS</a>
+          </div>
+          //<select class="form-control" style="margin-left:20px">
+            <option value="NEFT"> NEFT</option>
+            <option value="IMPS">IMPS</option>
+            <option value="RTGS"> RTGS</option>
+        </select>
+        </div>
+    </div>
+    <div class="form-group row">
+    <label for="Remarks" class="col-sm-4 col-form-label">Transaction Password<span style="color:red" >*</span></label>
+        <div class="col-sm3">
+            <input type="text" class="form-control" id="Remarks" formControlName="rname"  placeholder="Enter Remarks">
+        </div>
+    </div>
+    <div class="error-messages">
+      <ng-container *ngFor="let error of error_messages.rname">
+          <div class="error-message" *ngIf="loginForm.get('rname').hasError(error.type) && (loginForm.get('rname').dirty || loginForm.get('rname').touched)">
+              {{ error.message }}
+          </div>
+      </ng-container>
+  </div>
+  </form>
+    <div id="mydiv">
+      <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Transfer</button>
+    </div>
+</div>
+</div> -->
+
+
+
+<div class="text">
+  <h3>
+      Fund Transfer
+  </h3>
+</div>
+<div class="wrapper">
 <div class="card" style="width:60%">
   <form class="form" [formGroup]="loginForm">
     <div class="form-group row">
       <label for="From_Account" class="col-sm-4 col-form-label">From Account <span style="color:red" >*</span></label>
       <div class="col-sm3">
-        <input type="text" class="form-control" id="To_Account"  [value]="AccNo" disabled>
->>>>>>> ce1e351fc4ee95a49ea13a62020ab17aa7e9b57b
+        <input type="text" class="form-control" id="To_Account" formControlName="fname" [value]="AccNo" disabled>
       </div>
     </div>
     <div class="error-messages">
@@ -64,25 +189,6 @@
           <div class="error-message" *ngIf="loginForm.get('lname').hasError(error.type) && (loginForm.get('lname').dirty || loginForm.get('lname').touched)">
               {{ error.message }}
           </div>
-      </div>
-      <div class="form-group row">
-      <label for="Remarks" class="col-sm-4 col-form-label">Transaction Password</label>
-          <div class="col-sm3">
-              <input type="password" class="form-control" id="Remarks" formControlName="tpassword" placeholder="Enter Transaction Password">
-          </div>
-      </div>
-      <div class="error-messages">
-        <ng-container *ngFor="let error of error_messages.tpassword">
-          <div class="error-message" *ngIf="loginForm.get('tpassword').hasError(error.type) && (loginForm.get('tpassword').dirty || loginForm.get('tpassword').touched)">
-      {{ error.message }}
-      
-          </div>
-        </ng-container>
-      </div>
-    </form>
-      <div id="mydiv">
-        <button type="submit" class="btn btn-primary">Transfer</button>
-      </div>
       </ng-container>
   </div>
     <div class="form-group row">
@@ -107,7 +213,7 @@
         </div>
     </div>
     <div class="form-group row">
-    <label for="Remarks" class="col-sm-4 col-form-label">Transaction Password<span style="color:red" >*</span></label>
+    <label for="Remarks" class="col-sm-4 col-form-label">Transaction Password <span style="color:red" >*</span></label>
         <div class="col-sm3">
             <input type="text" class="form-control" id="Remarks" formControlName="rname"  placeholder="Enter Remarks">
         </div>
