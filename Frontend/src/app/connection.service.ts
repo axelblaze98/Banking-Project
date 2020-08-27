@@ -1,4 +1,4 @@
-import { AccountHolderDetails } from './admin';
+//import { AccountHolderDetails } from './admin';
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -14,11 +14,13 @@ export class ConnectionService {
   ngOnInit(): void {
   }
 
-  getNames(): Observable<AccountHolderDetails[]>
+  getAccountDetails(refId): Observable<any>
   {
-    return this.http.get<AccountHolderDetails[]>('http://localhost:8086/viewAllAccounts');
+    return this.http.get<any>("http://localhost:8086/viewAccountByRefId/"+refId) //refID
 
   }
+
+
 
 }
   
