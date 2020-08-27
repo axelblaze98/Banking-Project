@@ -33,7 +33,8 @@ export class OpenAccountComponent implements OnInit {
     ],
     'ad': [
       { type: 'required', message: 'Aadhar Number is required.' },
-      { type: 'required', message: 'Aadhar Number Should be of 12 digit' },
+      { type: 'maxLength', message: 'Aadhar Number Should be of 12 digit' },
+      { type: 'minLength', message: 'Aadhar Number Should be of 12 digit' },
     ],
     'add': [
       { type: 'required', message: 'Address is required.' },

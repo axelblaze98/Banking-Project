@@ -16,15 +16,15 @@ export class SetnewtransactionpasswordComponent implements OnInit {
 
     'password': [
       { type: 'required', message: 'password is required.' },
-      { type: 'minlength', message: 'password length.' },
-      { type: 'maxlength', message: 'password length.' },
-      { type: 'pattern', message:'password must consist one special character,one alphabet and one numric'}
+      { type: 'minlength', message: 'password length should be 4.' },
+      { type: 'maxlength', message: 'password length should be 4.' },
+      { type: 'pattern', message:'password must consist of only number'}
     ],
     'confirmpassword': [
       { type: 'required', message: 'password is required.' },
-      { type: 'minlength', message: 'password length.' },
-      { type: 'maxlength', message: 'password length.'},
-      {type: 'pattern', message:'password must consist one special character,one alphabet and one numric' }
+      { type: 'minlength', message: 'password length should be 4.' },
+      { type: 'maxlength', message: 'password length should be 4.'},
+      {type: 'pattern', message:'password must consist of only number' }
     ],
   }
 

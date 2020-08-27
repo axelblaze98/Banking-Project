@@ -11,49 +11,42 @@ import { Router } from '@angular/router';
 export class FundTransferComponent implements OnInit {
   loginForm: FormGroup;
   error_messages = {
-    'tpassword': [
-      { type: 'required', message: 'Transaction Password is required.' }
-      
-    ],
-  
-    'fname': [
-      { type: 'required', message: 'Account Number is required.' },
-    ],
+    // 'fname': [
+    //   { type: 'required', message: 'Account Number is required.' },
+    // ],
     
     'lname': [
       { type: 'required', message: 'Amount is required.' },
     ],
      
     'rname': [
-      { type: 'required', message: 'Remarks required.' },
+      { type: 'required', message: 'Password required.' },
+      { type: 'minLength', message: 'Password should be of Length 4.' },
+      { type: 'maxLength', message: 'Password should be of Length 4.' }
     ]
   }
   constructor(public formBuilder: FormBuilder, private http: HttpClient,private router: Router)
    { 
     this.loginForm = this.formBuilder.group({
-      fname: new FormControl('', Validators.compose([
-        Validators.required ,
-        Validators.minLength(9),
-        Validators.maxLength(9)
-      ])),
+      // fname: new FormControl('', Validators.compose([
+      //   Validators.required,
+      //   Validators.minLength(8),
+      //   Validators.maxLength(8)
+      // ])),
       lname: new FormControl('', Validators.compose([
         Validators.required,
         Validators.min(1),
-        Validators.pattern(/^-?(1|[2-9]\d*)?$/)
+        Validators.pattern(/^-?(0|[0-9]\d*)?$/)
         
       ])),
       rname: new FormControl('', Validators.compose([
-        Validators.required
-      ])),
-      tpassword: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.minLength(4),
         Validators.maxLength(4),
-        Validators.pattern(/^-?(0|[1-9]\d*)?$/)
-        
+        Validators.minLength(4),
+        Validators.pattern(/^-?(0|[0-9]\d*)?$/)
       ]))
     });
-   }
+  }
   add
   AccNo=sessionStorage.getItem('AccountNumber');
   ngOnInit(): void {
