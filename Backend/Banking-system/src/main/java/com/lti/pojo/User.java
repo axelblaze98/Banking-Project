@@ -20,7 +20,7 @@ import javax.persistence.Table;
 @NamedQuery(name="changePassword",query="update User set loginPassword=:password where userId=:id")
 @NamedQuery(name="getIdByAccNumber",query="select u.userId from User u where u.accountNumber.accountNumber =:accNumber")
 @NamedQuery(name="getTnPassword",query="select u.transationalPassword from User u where u.accountNumber.accountNumber=:accNumber")
-@NamedQuery(name="setLastLoginDate",query="update User set lastLogin:=dateTime where userId=:id")
+@NamedQuery(name="setLastLoginDate",query="update User set lastLogin=:dateTime where userId=:id")
 public class User {
 	@Id
 	@Column(name="userId",length=6)

@@ -9,5 +9,5 @@ public interface TransactionService {
 	void transaction(TransactionDetailsDto transactionDetails);
 	List<Transaction> getMiniStatement(String accNumber);
 	List<Transaction> getTransactionHistory(String fromDate,String toDate,String accountNumber);
-	String changeDateFormat(String date);
+//	String changeDateFormat(String date);
 }

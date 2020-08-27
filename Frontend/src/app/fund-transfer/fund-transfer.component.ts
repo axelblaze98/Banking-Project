@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { ConnectionService } from './../connection.service';
+import { FundsDataClass } from '../admin';
 
 @Component({
   selector: 'app-fund-transfer',
@@ -25,7 +27,7 @@ export class FundTransferComponent implements OnInit {
       { type: 'maxLength', message: 'Password should be of Length 4.' }
     ]
   }
-  constructor(public formBuilder: FormBuilder, private http: HttpClient,private router: Router)
+  constructor(public formBuilder: FormBuilder, private http: HttpClient,private router: Router, private _connservice : ConnectionService)
    { 
     this.loginForm = this.formBuilder.group({
       // fname: new FormControl('', Validators.compose([
@@ -49,13 +51,35 @@ export class FundTransferComponent implements OnInit {
   }
   add
   AccNo=sessionStorage.getItem('AccountNumber');
+
+  a;b;c;d;e;
+
   ngOnInit(): void {
-    this.http.get<any>("http://localhost:8086/getBeneficiaryNameAndAccountNo/"+this.AccNo) //fetching account number for current session
-    .subscribe(
-      data => {console.log(data)
+    this._connservice.viewBeneficiary(this.AccNo)
+    .subscribe(data => {
+        console.log(data)
         this.add = data; //data stored in user obj
         console.log(this.add);
       })
   }
-  types = ['NEFT', 'IMPS', 'RTGS'];
+  
+  fundsDataObj:FundsDataClass = new FundsDataClass();
+  send(form){
+    console.log(this.fundsDataObj)
+    // console.log(form.value.amount)
+    // console.log(form.value.pin)
+    // console.log(form.value.transactionType)
+    // console.log(form.value.beneficiary)
+
+    this.fundsDataObj.toAccount = form.value.beneficiary;
+    this.fundsDataObj.transactionMode = form.value.transactionType;
+    this.fundsDataObj.fromAccount = this.AccNo;
+    this.fundsDataObj.transactionBalance = form.value.amount;
+    this.fundsDataObj.tnPassword = form.value.amount;
+
+
+    this._connservice.setFundTransferData(this.fundsDataObj)
+
+    this.router.navigate(['confirmtransaction']);
+  }
 }

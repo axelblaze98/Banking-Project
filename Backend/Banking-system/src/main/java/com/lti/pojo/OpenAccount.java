@@ -57,49 +57,49 @@ public class OpenAccount {
 	@Column(unique = true, length = 12, nullable = false)
 	private String aadharCard;
 	
-	@Column(length = 20, nullable = false)
+	@Column(length = 20)
 	private String dob;
 	
 
-	@Column(length = 20, nullable = false)
+	@Column(length = 20)
 	private String resAddress1;
 
-	@Column(length = 20, nullable = false)
+	@Column(length = 20)
 	private String resAddress2;
 
-	@Column(length = 15, nullable = false)
+	@Column(length = 15)
 	private String resLandMark;
 
-	@Column(length = 15, nullable = false)
+	@Column(length = 15)
 	private String resState;
 
-	@Column(length = 15, nullable = false)
+	@Column(length = 15)
 	private String resCity;
 
-	@Column(length = 6, nullable = false)
+	@Column(length = 6)
 	private String resPincode;
 	
 
-	@Column(length = 20, nullable = false)
+	@Column(length = 20)
 	private String perAddress1;
 
-	@Column(length = 20, nullable = false)
+	@Column(length = 20)
 	private String perAddress2;
 
-	@Column(length = 15, nullable = false)
+	@Column(length = 15)
 	private String perLandMark;
 
-	@Column(length = 15, nullable = false)
+	@Column(length = 15)
 	private String perState;
 
-	@Column(length = 15, nullable = false)
+	@Column(length = 15)
 	private String perCity;
 
-	@Column(length = 6, nullable = false)
+	@Column(length = 6)
 	private String perPincode;
 	
 
-	@Column(length = 20, nullable = false)
+	@Column(length = 20)
 	private String occupation;
 
 	@Column(length = 20)

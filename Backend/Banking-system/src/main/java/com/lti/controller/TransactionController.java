@@ -50,8 +50,8 @@ public class TransactionController {
 	
 	@PostMapping(path="/transactionHistory")
 	public List<Transaction> getTransactionHistory(@RequestBody TransactionHistoryDto transdetails){
-		String fromDate= service.changeDateFormat(transdetails.getFromDate());
-		String toDate= service.changeDateFormat(transdetails.getFromDate());
+		String fromDate= transdetails.getFromDate();
+		String toDate= transdetails.getFromDate();
 		return service.getTransactionHistory(fromDate, toDate, transdetails.getAccountNumber());
 	}
 	

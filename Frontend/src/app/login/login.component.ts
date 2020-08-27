@@ -62,12 +62,12 @@ export class LoginComponent implements OnInit {
     ],
 
 
-    // 'password': [
-    //   { type: 'required', message: 'password is required.' },
-    //   { type: 'minlength', message: 'password length.' },
-    //   { type: 'maxlength', message: 'password length.' },
-    //   { type: 'pattern', message:'password must consist one special character,one alphabet and one numeric'}
-    // ],
+    'password': [
+      { type: 'required', message: 'password is required.' },
+      { type: 'minlength', message: 'password length.' },
+      { type: 'maxlength', message: 'password length.' },
+      { type: 'pattern', message:'password must consist one special character,one alphabet and one numeric'}
+    ],
     
   }
 
@@ -81,12 +81,12 @@ export class LoginComponent implements OnInit {
       ])),
       
       
-      // password: new FormControl('', Validators.compose([
-      //   Validators.required,
-      //   Validators.minLength(6),
-      //   Validators.maxLength(15),
-      //   Validators.pattern('(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}')
-      // ])),
+      password: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.minLength(6),
+        Validators.maxLength(15),
+        Validators.pattern('(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}')
+      ])),
       
     }, 
       

@@ -30,14 +30,14 @@
 				<input class="form-control" formControlName="password" type="password" placeholder="Enter Your Password" name = "password" [(ngModel)]="user.password"/>
       </div>
     </div>
-			<!-- <div class="error-messages">
+			<div class="error-messages">
 				<ng-container *ngFor="let error of error_messages.password">
 					<div class="error-message" *ngIf="loginForm.get('password').hasError(error.type) && (loginForm.get('password').dirty || loginForm.get('password').touched)">
             {{ error.message }}
             
 					</div>
 				</ng-container>
-			</div> -->
+			</div>
       <div class="wrapper">
         <button type="submit" class="form-control btn btn-primary" style="margin-bottom: 20px; width: 100px;" [disabled]="!loginForm.valid">Login</button>
       </div>

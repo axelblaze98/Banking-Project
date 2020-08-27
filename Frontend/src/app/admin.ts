@@ -88,3 +88,17 @@ export class AddBeneficiary{
 	  name: string;
 	  nickName: string;
 }
+
+export class FundsDataClass{
+    fromAccount:string;
+    toAccount:string;
+    transactionMode:string;
+    transactionBalance:number;
+    tnPassword :string;
+}
+
+export class TransactionHistory{
+    fromDate:string;
+    toDate:string;
+    accountNumber:string;
+}
