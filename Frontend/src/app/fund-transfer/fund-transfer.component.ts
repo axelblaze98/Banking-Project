@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-fund-transfer',
@@ -21,7 +23,7 @@ export class FundTransferComponent implements OnInit {
       { type: 'required', message: 'Remarks required.' },
     ]
   }
-  constructor(public formBuilder: FormBuilder)
+  constructor(public formBuilder: FormBuilder, private http: HttpClient,private router: Router)
    { 
     this.loginForm = this.formBuilder.group({
       fname: new FormControl('', Validators.compose([
@@ -40,11 +42,15 @@ export class FundTransferComponent implements OnInit {
       ]))
     });
   }
-
+  add
+  AccNo=sessionStorage.getItem('AccountNumber');
   ngOnInit(): void {
+    this.http.get<any>("http://localhost:8086/getBeneficiaryNameAndAccountNo/"+this.AccNo) //fetching account number for current session
+    .subscribe(
+      data => {console.log(data)
+        this.add = data; //data stored in user obj
+        console.log(this.add);
+      })
   }
-  Add = ['Parth', 'Isha', 'Yash', 'Ankit'];
   types = ['NEFT', 'IMPS', 'RTGS'];
-  
-
 }

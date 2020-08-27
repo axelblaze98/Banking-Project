@@ -13,9 +13,12 @@ export class AddBeneficiaryComponent implements OnInit {
 
 
   user= new AddBeneficiary();
+  nickname;
 
+  AccNo=sessionStorage.getItem('AccountNumber');
   AddBenef(){
-    console.log(this.user);
+    this.user.userAcNumber=this.AccNo;
+    console.log(this.user)
     this.http.post<any>("http://localhost:8086/addBeneficiary", this.user)
     .subscribe(
       data => {console.log(data)
@@ -42,6 +45,9 @@ export class AddBeneficiaryComponent implements OnInit {
     'fname': [
       { type: 'required', message: 'Beneficiary Name is required.' },
     ],
+    'bename': [
+      { type: 'required', message: 'Beneficiary Nickname is required.' },
+    ],
     'password': [
       { type: 'required', message: 'Account Number is required.' },
       { type: 'required', message: 'Account Number must be of 9 digit' }
@@ -59,14 +65,17 @@ export class AddBeneficiaryComponent implements OnInit {
       fname: new FormControl('', Validators.compose([
         Validators.required
       ])),
+      bename: new FormControl('', Validators.compose([
+        Validators.required
+      ])),
       password: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.minLength(9)
+        Validators.minLength(8)
       
       ])),
       confirmpassword: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.minLength(9)
+        Validators.minLength(8)
       ])),
     }, { 
       validators: this.password.bind(this)

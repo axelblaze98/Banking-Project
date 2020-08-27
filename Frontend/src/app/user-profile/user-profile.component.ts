@@ -25,3 +25,5 @@ export class UserProfileComponent implements OnInit {
       }
       
 )
+}
+}
