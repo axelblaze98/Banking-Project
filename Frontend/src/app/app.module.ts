@@ -13,14 +13,6 @@ import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { SessionexpiredComponent } from './sessionexpired/sessionexpired.component';
-<<<<<<< HEAD
-import { TransactionhistoryComponent } from './transactionhistory/transactionhistory.component';
-import { UseridComponent } from './userid/userid.component';
-import { ReferenceidComponent } from './referenceid/referenceid.component';
-import { UpdatedpasswordComponent } from './updatedpassword/updatedpassword.component';
-import { AfterconfirmtransactionComponent } from './afterconfirmtransaction/afterconfirmtransaction.component';
-=======
->>>>>>> ce1e351fc4ee95a49ea13a62020ab17aa7e9b57b
 
 @NgModule({
   declarations: [
@@ -30,15 +22,7 @@ import { AfterconfirmtransactionComponent } from './afterconfirmtransaction/afte
     navBarMainComponent,
     navBarLoginComponent,
     navBarAccountComponent,
-    navBarAdminComponent,
-<<<<<<< HEAD
-    TransactionhistoryComponent,
-    UseridComponent,
-    ReferenceidComponent,
-    UpdatedpasswordComponent,
-    AfterconfirmtransactionComponent
-=======
->>>>>>> ce1e351fc4ee95a49ea13a62020ab17aa7e9b57b
+    navBarAdminComponent
      ],
   imports: [
     BrowserModule,
