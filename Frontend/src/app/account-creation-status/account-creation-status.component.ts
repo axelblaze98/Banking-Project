@@ -1,3 +1,4 @@
+import { ConnectionService } from './../connection.service';
 import { Component, OnInit } from '@angular/core';
 import { HostListener } from '@angular/core';
 
@@ -20,15 +21,10 @@ export class AccountCreationStatusComponent implements OnInit {
   //    alert("BACK BUTTON PRESSED")
   // }
   //       // console.log("back button pressed")
-  constructor() { }
-
+  constructor(private _connservice : ConnectionService) { }
+  accounts;
   ngOnInit(): void {
+    this.accounts=this._connservice.accountCreationStatus;
+    console.log(this.accounts);
   }
-
-  ref = sessionStorage.getItem('referenceId')
-  approval = sessionStorage.getItem('adminApproved')
-  remark = sessionStorage.getItem('adminRemark')
-  accNo = sessionStorage.getItem('accNumber')
-  
-
 }

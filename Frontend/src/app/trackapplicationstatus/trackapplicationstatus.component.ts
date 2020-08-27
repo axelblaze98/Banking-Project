@@ -35,7 +35,9 @@ export class TrackapplicationstatusComponent implements OnInit {
 
   view()
   {
-    this._connservice.getAccountDetails(this.refId).subscribe(data=> console.log(data))
+    this._connservice.getAccountStatusDetails(this.refId).subscribe(data=> {
+    this._connservice.setApplicationStatus(data);
+    })
 
   }
 
