@@ -8,8 +8,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 
-//@NamedQuery(name = "gettingBenefIdFromAccounts", query = "select b.beneficiaryId from beneficiary b where b.userAccountNumber = :from and b.beneficiaryAccountNumber = :to")
-//														  select b.beneficiary_Id from beneficiary_details b where b.user_Account_Number = '124' and b.beneficiary_Account_Number = '123';
+@NamedQuery(name = "getNameAndAccountNumber", query ="select b.beneficiaryNickName, b.beneficiaryAccountNumber from Beneficiary b where b.userAccountNumber = :acno")														  
 @NamedQuery(name = "beneficiaryExistance" , query = "select count(*) from Beneficiary b where b.userAccountNumber = :from and b.beneficiaryAccountNumber=:to\r\n")
 @Entity
 @Table(name = "beneficiary_details")
