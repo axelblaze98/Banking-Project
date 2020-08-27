@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
       }
       else{
         alert("Welcome Dear Customer");
-        sessionStorage.setItem('AccountNumber', data.accountNumber);
+        sessionStorage.setItem('AccountNumber', data.accountNumber); //key value pair 
         console.log(data.accountNumber)
         this.router.navigate(['accountmainpage']);
       }

@@ -95,6 +95,23 @@ public class TransactionServiceImpl implements TransactionService {
 		return  last5Transactions;
 		}
 	}
+
+	@Override
+	public List<Transaction> getTransactionHistory(String fromDate, String toDate, String accountNumber) {
+		return repo.getTransactionBetweenDates(fromDate, toDate, accountNumber);
+	}
+
+	@Override
+	public String changeDateFormat(String date) {
+		// TODO Auto-generated method stub
+		String splitDate[];
+        splitDate=date.split("-");
+        String finalDate="";
+        for(int i=2;i>=0;i--){
+            finalDate=finalDate+splitDate[i]+"-";
+        }
+        return finalDate.substring(0,10);
+	}
 	
 	
 }

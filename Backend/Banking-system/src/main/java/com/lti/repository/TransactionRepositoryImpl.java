@@ -38,5 +38,13 @@ public class TransactionRepositoryImpl implements TransactionRepository {
 		// TODO Auto-generated method stub
 		return em.createNamedQuery("getMiniStatement").setParameter("accNumber",accNumber).getResultList();
 	}
+	@Override
+	public List<Transaction> getTransactionBetweenDates(String fromDate, String toDate, String accountnumber) {
+		// TODO Auto-generated method stub
+		System.out.println(fromDate);
+		System.out.println(toDate);
+		System.out.println(accountnumber);
+		return em.createNamedQuery("transactionHistory").setParameter("accNumber",accountnumber).setParameter("fromDate",fromDate).setParameter("toDate",toDate).getResultList();
+	}
 
 }

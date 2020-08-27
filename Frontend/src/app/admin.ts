@@ -1,6 +1,6 @@
 export class Login {
-        "userId":String;
-        "password":String;
+        "userId":string;
+        "password":string;
 }
 
 export class AccountHolderDetails {
@@ -22,9 +22,9 @@ export class Forgotuserid {
 
 export class UserRegister{
     constructor(){}
-    "accNumber" : String;
-    "lgnPassword" : String;
-    "tnPassword": String
+    "accNumber" : string;
+    "lgnPassword" : string;
+    "tnPassword": string
 }
 
 export class AdminRegister{
@@ -80,4 +80,11 @@ export class userDetails{
     public acntBalance : string;
     public occupation :string;
 
+}
+
+export class AddBeneficiary{
+      userAcNumber: string;
+	  benfAcNumber: string;
+	  name: string;
+	  nickName: string;
 }
