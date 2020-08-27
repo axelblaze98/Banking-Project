@@ -1,3 +1,7 @@
+import { AfterconfirmtransactionComponent } from './afterconfirmtransaction/afterconfirmtransaction.component';
+import { UpdatedpasswordComponent } from './updatedpassword/updatedpassword.component';
+import { ReferenceidComponent } from './referenceid/referenceid.component';
+import { UseridComponent } from './userid/userid.component';
 import { TransactionhistoryComponent } from './transactionhistory/transactionhistory.component';
 import { OffersComponent } from './offers/offers.component';
 import { SetnewtransactionpasswordComponent } from './setnewtransactionpassword/setnewtransactionpassword.component';
@@ -25,7 +29,6 @@ import { HomepagemainComponent } from './homepagemain/homepagemain.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-
 const routes: Routes = [
   {path: '', component: HomepagemainComponent},
   {path: 'faqmain', component: FaqmainComponent},
@@ -50,7 +53,11 @@ const routes: Routes = [
   {path: 'forgotuserid', component: ForgotuseridComponent},
   {path: 'settransactionpassword', component: SetnewtransactionpasswordComponent},
   {path: 'offers', component: OffersComponent},
-  {path: 'transactionhistory', component: TransactionhistoryComponent}
+  {path: 'transactionhistory', component: TransactionhistoryComponent},
+  {path: 'displayuserid', component: UseridComponent},
+  {path: 'displayreferenceid', component:ReferenceidComponent},
+  {path: 'displayupdatedloginpassword', component: UpdatedpasswordComponent},
+  {path: 'confirmtransaction', component: AfterconfirmtransactionComponent}
 ];
 
 @NgModule({
@@ -58,5 +65,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [FaqmainComponent, AccountmainpageComponent, HomepagemainComponent, AboutusComponent, ContactusComponent, LearnmoreComponent, ForgotpasswordComponent, LoginComponent, RegisterComponent, OpenAccountComponent, AdminloginComponent, AddBeneficiaryComponent, FundTransferComponent, TrackapplicationstatusComponent, LogoutComponent, AdminregisterComponent, AccountCreationStatusComponent, SetnewpasswordComponent, AdminDashboardComponent, UserProfileComponent, ForgotuseridComponent, SetnewtransactionpasswordComponent, OffersComponent, TransactionhistoryComponent]
+export const routingComponents = [FaqmainComponent, AccountmainpageComponent, HomepagemainComponent, AboutusComponent, ContactusComponent, LearnmoreComponent, ForgotpasswordComponent, LoginComponent, RegisterComponent, OpenAccountComponent, AdminloginComponent, AddBeneficiaryComponent, FundTransferComponent, TrackapplicationstatusComponent, LogoutComponent, AdminregisterComponent, AccountCreationStatusComponent, SetnewpasswordComponent, AdminDashboardComponent, UserProfileComponent, ForgotuseridComponent, SetnewtransactionpasswordComponent, OffersComponent, TransactionhistoryComponent, UseridComponent, ReferenceidComponent, UpdatedpasswordComponent, AfterconfirmtransactionComponent]
 

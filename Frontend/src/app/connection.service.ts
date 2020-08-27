@@ -23,7 +23,10 @@ export class ConnectionService {
   {
     return this.http.get<any>("http://localhost:8086/viewAccountByRefId/"+refId)
   }
-  setApplicationStatus(data){
+
+
+  setApplicationStatus(data)
+  {
     this.accountCreationStatus = data;
     this.router.navigate(['trackaccount']);
   }
