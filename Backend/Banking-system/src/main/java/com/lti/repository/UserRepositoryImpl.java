@@ -102,5 +102,19 @@ public class UserRepositoryImpl implements UserRepository {
 		return (String)em.createNamedQuery("getIdByAccNumber")
 				.setParameter("accNumber",accNumber).getSingleResult();
 	}
+	@Override
+	public String getTransactionPassword(String fromAccNumber) {
+		// TODO Auto-generated method stub
+		return (String)em.createNamedQuery("getTnPassword")
+				.setParameter("accNumber",fromAccNumber).getSingleResult();
+	}
+	@Override
+	public void savelastLogin(String userId,String date) {
+		// TODO Auto-generated method stub
+		em.createNamedQuery("setLastLoginDate")
+		.setParameter("id",userId)
+		.setParameter("dateTime",date)
+		.executeUpdate();
+	}
 }
 	

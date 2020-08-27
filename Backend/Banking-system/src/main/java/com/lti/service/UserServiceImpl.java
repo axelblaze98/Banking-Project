@@ -1,5 +1,8 @@
 package com.lti.service;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 
@@ -43,6 +46,7 @@ public class UserServiceImpl implements UserService {
 			userLogin.setUserId(Integer.toString(num));
 		}
 		
+		
 		repo.save(userLogin);
 		
 		return userLogin.getUserId();
@@ -68,6 +72,10 @@ public class UserServiceImpl implements UserService {
 					throw new ServiceException("Invalid Credentials");
 				}
 				repo.setNoOfInvalidAttempts(userId, 0);
+				DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");  
+				LocalDateTime now = LocalDateTime.now();
+				
+				repo.savelastLogin(userId,dtf.format(now));
 				User user = repo.findUserById(userId);
 				return user;
 			}

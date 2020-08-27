@@ -12,6 +12,7 @@ import com.lti.exception.ServiceException;
 import com.lti.repository.BeneficiaryRepo;
 import com.lti.repository.OpenAccountRepo;
 import com.lti.repository.TransactionRepository;
+import com.lti.repository.UserRepository;
 import com.lti.pojo.*;
 
 @Service
@@ -23,12 +24,21 @@ public class TransactionServiceImpl implements TransactionService {
 	TransactionRepository repo;
 	@Autowired
 	BeneficiaryRepo benrepo;
+	@Autowired
+	UserRepository userrepo;
 	
 	@Override
 	public void transaction(TransactionDetailsDto transactionDetails) {
 		// TODO Auto-generated method stub
 		int tsId=13691;
 		Transaction transaction = new Transaction();
+		
+		String actualTnPassword = userrepo.getTransactionPassword(transactionDetails.getFromAccount());
+		System.out.println(transactionDetails.getTnPassword());
+		
+		if(!actualTnPassword.equals(transactionDetails.getTnPassword())) {
+			throw new ServiceException("Invalid Transaction Password");
+		}
 		if(!benrepo.isAccountPresent(transactionDetails.getFromAccount(),transactionDetails.getToAccount())) {
 			throw new ServiceException("Benificiary not Found");
 		}

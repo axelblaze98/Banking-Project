@@ -6,7 +6,14 @@ public class TransactionDetailsDto {
 	private String toAccount;
 	private String transactionMode;
 	private int transactionBalance;
+	private String tnPassword;
 	
+	public String getTnPassword() {
+		return tnPassword;
+	}
+	public void setTnPassword(String tnPassword) {
+		this.tnPassword = tnPassword;
+	}
 	public String getFromAccount() {
 		return fromAccount;
 	}
@@ -34,8 +41,9 @@ public class TransactionDetailsDto {
 	@Override
 	public String toString() {
 		return "TransactionDetailsDto [fromAccount=" + fromAccount + ", toAccount=" + toAccount + ", transactionMode="
-				+ transactionMode + ", transactionBalance=" + transactionBalance + "]";
+				+ transactionMode + ", transactionBalance=" + transactionBalance + ", tnPassword=" + tnPassword + "]";
 	}
+	
 	
 	
 	
