@@ -1,11 +1,14 @@
 package com.lti.repository;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
+import com.lti.dto.viewBeneficiary;
 import com.lti.pojo.Beneficiary;
 
 @Repository
@@ -17,7 +20,7 @@ public class BeneficiaryRepoImpl implements BeneficiaryRepo {
 	@Override
 	public List<viewBeneficiary> getBeneficiary(String accNo){
 		
-		List<viewBeneficiary> beneficiaryList = entityManager.createQuery("getNameAndAccountNumber")
+		List<viewBeneficiary> beneficiaryList = entityManager.createNamedQuery("getNameAndAccountNumber")
 				.setParameter("acno", accNo).getResultList();
 		return beneficiaryList;
 	}

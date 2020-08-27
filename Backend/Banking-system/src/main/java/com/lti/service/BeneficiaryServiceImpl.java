@@ -1,9 +1,12 @@
 package com.lti.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lti.dto.BeneficiaryDto;
+import com.lti.dto.viewBeneficiary;
 import com.lti.exception.ServiceException;
 import com.lti.pojo.Beneficiary;
 import com.lti.repository.BeneficiaryRepo;
