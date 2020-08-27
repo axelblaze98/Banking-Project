@@ -78,7 +78,6 @@ public class OpenAccountServiceImpl implements OpenAccountService {
 		OpenAccount account = repo.getAccountByAccNumber(accNo);
 		ViewUserDetailsDto details = new ViewUserDetailsDto();
 		details.setAadharCard(account.getAadharCard());
-		details.setDob(account.getDob());
 		details.setEmail(account.getEmail());
 		details.setFirstName(account.getFirstName());
 		details.setLastName(account.getLastName());

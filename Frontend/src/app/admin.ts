@@ -70,14 +70,13 @@ export class userDetails{
     public mobileNumber :string;
     public email :string;
     public aadharCard :string;
-    public dob :string;
     public resAddress1 :string;
     public resAddress2 :string;
     public resLandMark  :string;
     public resState :string;
     public resCity :string;
     public resPincode :string;
-    public acntBalance : string;
+    public accountBalance : string;
     public occupation :string;
 
 }

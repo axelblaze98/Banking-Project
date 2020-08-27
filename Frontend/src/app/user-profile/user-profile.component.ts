@@ -15,13 +15,12 @@ export class UserProfileComponent implements OnInit {
 
     user = new userDetails();
     accNumber = sessionStorage.getItem("AccountNumber") //fetched from sessionstorage
-
+    
   ngOnInit(): void {
-    console.log(this.user);
     this.http.get<any>("http://localhost:8086/viewUserDetails/"+this.accNumber) //fetching account number for current sezzzzzzzzzzzzzzzzzzzzzzzzz
     .subscribe(
-      data => {console.log(data)
-        alert(data.message);
+      data => {
+        this.user = data
       }
       
 )
