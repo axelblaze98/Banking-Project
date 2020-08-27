@@ -1,3 +1,4 @@
+import { TransactionhistoryComponent } from './transactionhistory/transactionhistory.component';
 import { OffersComponent } from './offers/offers.component';
 import { SetnewtransactionpasswordComponent } from './setnewtransactionpassword/setnewtransactionpassword.component';
 import { ForgotuseridComponent } from './forgotuserid/forgotuserid.component';
@@ -48,7 +49,8 @@ const routes: Routes = [
   {path: 'userprofile', component: UserProfileComponent},
   {path: 'forgotuserid', component: ForgotuseridComponent},
   {path: 'settransactionpassword', component: SetnewtransactionpasswordComponent},
-  {path: 'offers', component: OffersComponent}
+  {path: 'offers', component: OffersComponent},
+  {path: 'transactionhistory', component: TransactionhistoryComponent}
 ];
 
 @NgModule({
@@ -56,5 +58,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [FaqmainComponent, AccountmainpageComponent, HomepagemainComponent, AboutusComponent, ContactusComponent, LearnmoreComponent, ForgotpasswordComponent, LoginComponent, RegisterComponent, OpenAccountComponent, AdminloginComponent, AddBeneficiaryComponent, FundTransferComponent, TrackapplicationstatusComponent, LogoutComponent, AdminregisterComponent, AccountCreationStatusComponent, SetnewpasswordComponent, AdminDashboardComponent, UserProfileComponent, ForgotuseridComponent, SetnewtransactionpasswordComponent, OffersComponent]
+export const routingComponents = [FaqmainComponent, AccountmainpageComponent, HomepagemainComponent, AboutusComponent, ContactusComponent, LearnmoreComponent, ForgotpasswordComponent, LoginComponent, RegisterComponent, OpenAccountComponent, AdminloginComponent, AddBeneficiaryComponent, FundTransferComponent, TrackapplicationstatusComponent, LogoutComponent, AdminregisterComponent, AccountCreationStatusComponent, SetnewpasswordComponent, AdminDashboardComponent, UserProfileComponent, ForgotuseridComponent, SetnewtransactionpasswordComponent, OffersComponent, TransactionhistoryComponent]
 

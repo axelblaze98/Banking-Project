@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import { Router } from '@angular/router';
+import { userDetails } from './../admin';
 
 @Component({
   selector: 'app-user-profile',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor( private http: HttpClient,private router: Router
+    ) { }
+
+    user = new userDetails();
+    accNumber = sessionStorage.getItem("AccountNumber") //fetched from sessionstorage
 
   ngOnInit(): void {
-  }
-
-}
+    console.log(this.user);
+    this.http.get<any>("http://localhost:8086/viewUserDetails/"+this.accNumber) //fetching account number for current session
+    .subscribe(
+      data => {console.log(data)
+        this.user = data; //data stored in user obj
+      }
+      
+)

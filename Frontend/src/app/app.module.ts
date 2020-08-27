@@ -12,7 +12,6 @@ import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { SessionexpiredComponent } from './sessionexpired/sessionexpired.component';
-import { TransactionhistoryComponent } from './transactionhistory/transactionhistory.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +22,6 @@ import { TransactionhistoryComponent } from './transactionhistory/transactionhis
     navBarLoginComponent,
     navBarAccountComponent,
     navBarAdminComponent,
-    TransactionhistoryComponent
      ],
   imports: [
     BrowserModule,
