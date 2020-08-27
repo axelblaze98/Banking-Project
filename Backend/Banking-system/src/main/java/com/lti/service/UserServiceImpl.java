@@ -108,4 +108,14 @@ public class UserServiceImpl implements UserService {
 				throw new ServiceException("Please Register First");
 			}
 		}
+		@Override
+		public String resetTransactionPassword(String userId, String updatedPassword) {
+			// TODO Auto-generated method stub
+			if(!repo.isUserValid(userId))
+			{	
+				throw new ServiceException("User Doesn't Exist");
+			}
+			repo.resetTransactionPassword(userId,updatedPassword);
+			return updatedPassword;
+		}
 }

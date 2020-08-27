@@ -10,4 +10,5 @@ public interface UserService {
 	int getInvalidAttempts(String UserId);
 	String resetPassword(String userId, String updatedPassword);
 	String getUserId(String accNumber);
+	String resetTransactionPassword(String userId, String updatedPassword);
 }

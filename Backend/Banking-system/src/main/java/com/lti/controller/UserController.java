@@ -129,4 +129,26 @@ public class UserController {
 		}
 	}
 
+	@PostMapping(path="/forgetTransactionPassword")
+	private Status forgetTransactionPassword(@RequestBody UserLoginForgotPasswordDataDTO forgetPassword) {
+		ForgetPasswordStatus forgetPasswordStatus = new ForgetPasswordStatus();
+		try {
+		String newPassword= service.resetTransactionPassword(forgetPassword.getUserId(),forgetPassword.getPassword());
+		
+		forgetPasswordStatus.setPassword(newPassword);
+		forgetPasswordStatus.setStatus(StatusType.SUCCESS);
+		forgetPasswordStatus.setMessage("Password Change Successful");
+		
+		return forgetPasswordStatus;
+		}
+		catch(ServiceException e) {
+			Status status= new Status();
+
+			status.setStatus(StatusType.FAILURE);
+			status.setMessage(e.getMessage());
+			
+			return status;
+		}
+	}
+
 }
