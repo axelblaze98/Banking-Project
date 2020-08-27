@@ -13,6 +13,10 @@ import { AppComponent } from './app.component';
 
 import { SessionexpiredComponent } from './sessionexpired/sessionexpired.component';
 import { TransactionhistoryComponent } from './transactionhistory/transactionhistory.component';
+import { UseridComponent } from './userid/userid.component';
+import { ReferenceidComponent } from './referenceid/referenceid.component';
+import { UpdatedpasswordComponent } from './updatedpassword/updatedpassword.component';
+import { AfterconfirmtransactionComponent } from './afterconfirmtransaction/afterconfirmtransaction.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,11 @@ import { TransactionhistoryComponent } from './transactionhistory/transactionhis
     navBarLoginComponent,
     navBarAccountComponent,
     navBarAdminComponent,
-    TransactionhistoryComponent
+    TransactionhistoryComponent,
+    UseridComponent,
+    ReferenceidComponent,
+    UpdatedpasswordComponent,
+    AfterconfirmtransactionComponent
      ],
   imports: [
     BrowserModule,

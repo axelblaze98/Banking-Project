@@ -6,7 +6,7 @@
 </div>
 <div class="wrapper">
   <div class="card" style="width:50%">
-    <form class="form">
+    <form class="form" [formGroup]="loginForm">
       <div class="form-group row">
         <label for="From_Account" class="col-sm-4 col-form-label">From Account</label>
         <div class="col-sm3">
@@ -47,10 +47,18 @@
           </div>
       </div>
       <div class="form-group row">
-      <label for="Remarks" class="col-sm-4 col-form-label">Remarks</label>
+      <label for="Remarks" class="col-sm-4 col-form-label">Transaction Password</label>
           <div class="col-sm3">
-              <input type="text" class="form-control" id="Remarks" placeholder="Enter Remarks">
+              <input type="password" class="form-control" id="Remarks" formControlName="tpassword" placeholder="Enter Transaction Password">
           </div>
+      </div>
+      <div class="error-messages">
+        <ng-container *ngFor="let error of error_messages.tpassword">
+          <div class="error-message" *ngIf="loginForm.get('tpassword').hasError(error.type) && (loginForm.get('tpassword').dirty || loginForm.get('tpassword').touched)">
+      {{ error.message }}
+      
+          </div>
+        </ng-container>
       </div>
     </form>
       <div id="mydiv">
