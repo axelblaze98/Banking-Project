@@ -1,5 +1,8 @@
 package com.lti.repository;
 
+import java.util.List;
+
+import com.lti.dto.viewBeneficiary;
 import com.lti.pojo.Beneficiary;
 
 public interface BeneficiaryRepo {
