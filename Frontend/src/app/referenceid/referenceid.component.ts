@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConnectionService } from './../connection.service';
 
 @Component({
   selector: 'app-referenceid',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReferenceidComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service : ConnectionService) { }
 
+  userId
   ngOnInit(): void {
+    this.userId = this.service.userIdStatus
   }
 
 }

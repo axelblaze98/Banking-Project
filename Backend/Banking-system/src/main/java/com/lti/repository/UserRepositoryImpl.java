@@ -97,18 +97,21 @@ public class UserRepositoryImpl implements UserRepository {
 		.executeUpdate();
 	}
 	@Override
+	@Transactional
 	public String getUserByAccNumber(String accNumber) {
 		// TODO Auto-generated method stub
 		return (String)em.createNamedQuery("getIdByAccNumber")
 				.setParameter("accNumber",accNumber).getSingleResult();
 	}
 	@Override
+	@Transactional
 	public String getTransactionPassword(String fromAccNumber) {
 		// TODO Auto-generated method stub
 		return (String)em.createNamedQuery("getTnPassword")
 				.setParameter("accNumber",fromAccNumber).getSingleResult();
 	}
 	@Override
+	@Transactional
 	public void savelastLogin(String userId,String date) {
 		// TODO Auto-generated method stub
 		em.createNamedQuery("setLastLoginDate")

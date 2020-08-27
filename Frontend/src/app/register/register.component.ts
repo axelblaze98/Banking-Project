@@ -3,6 +3,7 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { UserRegister } from './../admin';
+import { ConnectionService } from './../connection.service';
 
 @Component({
   selector: 'app-register',
@@ -15,6 +16,7 @@ export class RegisterComponent implements OnInit {
 
   Registration()
   {
+    
     console.log(this.user);
     this.http.post<any>("http://localhost:8086/userRegister", this.user)
     .subscribe(
@@ -23,7 +25,6 @@ export class RegisterComponent implements OnInit {
       { 
         if(data.message=="Account Not Found"){
         alert("Please create Account Before Registration");
-        this.router.navigate(['openaccount']);
         }
         else{
           alert("User Already Exists")
@@ -31,8 +32,9 @@ export class RegisterComponent implements OnInit {
         }
       }
       else{
-        alert("User Registered"+data.userId); //alert userid once implemented
-        this.router.navigate(['login']);
+        this.service.setUserId(data.userId)
+        // alert("User Registered"+data.userId); //alert userid once implemented
+        this.router.navigate(['displayreferenceid']);
       }
     }
 )
@@ -83,7 +85,8 @@ export class RegisterComponent implements OnInit {
   }
 
   constructor(
-    public formBuilder: FormBuilder, private http: HttpClient,private router: Router
+    public formBuilder: FormBuilder, private http: HttpClient,private router: Router,
+    public service : ConnectionService
 
   ) {
     this.loginForm = this.formBuilder.group({

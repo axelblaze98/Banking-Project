@@ -12,10 +12,10 @@ import { Login } from './../admin';
 export class LoginComponent implements OnInit {
 
   user =new Login();
-
+  
   UserLogin()
   {
-
+    sessionStorage.setItem("userId",this.user.userId)
     console.log(this.user);
     this.http.post<any>("http://localhost:8086/userLogin", this.user)
     .subscribe(
@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
         }
       }
       else{
-        alert("Welcome Dear Customer");
+        
         sessionStorage.setItem('AccountNumber', data.accountNumber); //key value pair 
         console.log(data.accountNumber)
         this.router.navigate(['accountmainpage']);

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { Forgotpassword } from './../admin';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-setnewtransactionpassword',
@@ -10,6 +13,22 @@ export class SetnewtransactionpasswordComponent implements OnInit {
 
   
   loginForm: FormGroup;
+  user = new Forgotpassword();
+
+  userId = sessionStorage.getItem('userId')
+  view(){
+    this.user.userId = this.userId;
+    console.log(this.user)
+    this.http.post<any>("http://localhost:8086/forgetTransactionPassword",this.user)
+      .subscribe(data=>{
+        if(data.status=='FAILURE'){
+          alert(data.message+",Please register");
+        }else{
+          alert("Password Updated")
+          this.router.navigate(['accountmainpage'])
+        }
+      })
+  }
   
 
   error_messages = {
@@ -29,6 +48,8 @@ export class SetnewtransactionpasswordComponent implements OnInit {
   }
 
   constructor(
+    private http : HttpClient,
+    private router : Router,
     public formBuilder: FormBuilder
   ) {
     this.loginForm = this.formBuilder.group({

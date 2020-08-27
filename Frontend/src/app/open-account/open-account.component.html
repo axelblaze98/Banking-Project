@@ -147,7 +147,7 @@
                 <div class="card" style="width:50%">
                     <div>
                         <div class="form-group row">
-                            <label for="staticEmail" class="col-sm-5 col-form-label" style="font-size: large;"><b>Residential Address: </b></label>
+                            <label for="staticEmail" class="col-sm-5 col-form-label" style="font-size: large;"><b>Enter Address: </b></label>
                         </div>
     
                         <div class="form-group row">
@@ -223,95 +223,6 @@
                         <div class="error-messages">
                             <ng-container *ngFor="let error of error_messages.pi">
                                 <div class="error-message" *ngIf="loginForm.get('pi').hasError(error.type) && (loginForm.get('pi').dirty || loginForm.get('pi').touched)">
-                                    {{ error.message }}
-                                </div>
-                            </ng-container>
-                        </div>
-                        <div class="form-group row">
-                            <label for="staticEmail" class="col-sm-5 col-form-label" style="font-size: large;"><b>Permanent Address: </b></label> 
-                        </div>
-    
-                        <!-- <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" (click)=checkAdress() id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                                Permanent address same as Residential Address
-                            </label>
-                        </div> -->
-                        <br>
-    
-                        <div class="form-group row">
-                            <label for="perLine1" class="col-sm-5 col-form-label">Address Line 1 <span style="color:red" >*</span></label>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control"  id="perLine1" formControlName="ri" placeholder="Enter Address Line1" name="perad1"
-                                required [(ngModel)] = "newAccount.perAddress1">
-                            </div>
-                        </div>
-                        <div class="error-messages">
-                            <ng-container *ngFor="let error of error_messages.ri">
-                                <div class="error-message" *ngIf="loginForm.get('ri').hasError(error.type) && (loginForm.get('ri').dirty || loginForm.get('ri').touched)">
-                                    {{ error.message }}
-                                </div>
-                            </ng-container>
-                        </div>
-                        <div class="form-group row">
-                            <label for="perLine2" class="col-sm-5 col-form-label">Address Line 2 <span style="color:red" >*</span></label>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control"  id="perLine2" formControlName="an" placeholder="Enter Address Line2" 
-                                required [(ngModel)] = "newAccount.perAddress2">
-                            </div>
-                        </div>
-                        <div class="error-messages">
-                            <ng-container *ngFor="let error of error_messages.an">
-                                <div class="error-message" *ngIf="loginForm.get('an').hasError(error.type) && (loginForm.get('an').dirty || loginForm.get('an').touched)">
-                                    {{ error.message }}
-                                </div>
-                            </ng-container>
-                        </div>
-                        <div class="form-group row">
-                                <label for="perLandmark" class="col-sm-5 col-form-label">Landmark</label>
-                                <div class="col-sm-6">
-                                <input type="text" class="form-control"  id="perLandmark" placeholder="Enter Landmark"
-                                [(ngModel)] = "newAccount.perLandMark">
-                                </div>
-                        </div>
-                        <div class="form-group row">
-                                <label for="perState" class="col-sm-5 col-form-label">State <span style="color:red" >*</span></label>
-                                <div class="col-sm-6">
-                                <input type="text" class="form-control"  id="perState" formControlName="rk" placeholder="Enter State" 
-                                required [(ngModel)] = "newAccount.perState">
-                                </div>
-                        </div>
-                        <div class="error-messages">
-                            <ng-container *ngFor="let error of error_messages.rk">
-                                <div class="error-message" *ngIf="loginForm.get('rk').hasError(error.type) && (loginForm.get('rk').dirty || loginForm.get('rk').touched)">
-                                    {{ error.message }}
-                                </div>
-                            </ng-container>
-                        </div>
-                        <div class="form-group row">
-                                <label for="perCity" class="col-sm-5 col-form-label">City <span style="color:red" >*</span></label>
-                                <div class="col-sm-6">
-                                <input type="text" class="form-control"  id="perCity" formControlName="aj" placeholder="Enter City" 
-                                required [(ngModel)] = "newAccount.perCity">
-                                </div>
-                        </div>
-                        <div class="error-messages">
-                            <ng-container *ngFor="let error of error_messages.aj">
-                                <div class="error-message" *ngIf="loginForm.get('aj').hasError(error.type) && (loginForm.get('aj').dirty || loginForm.get('aj').touched)">
-                                    {{ error.message }}
-                                </div>
-                            </ng-container>
-                        </div>
-                        <div class="form-group row">
-                                <label for="perCode" class="col-sm-5 col-form-label">Pin Code <span style="color:red" >*</span></label>
-                                <div class="col-sm-6">
-                                    <input type="tel" pattern="[0-9]{6}"  class="form-control" id="perCode" formControlName="ar"  placeholder="Enter Pin Code" 
-                                    [(ngModel)] = "newAccount.perPincode">
-                                </div>
-                        </div>
-                        <div class="error-messages">
-                            <ng-container *ngFor="let error of error_messages.ar">
-                                <div class="error-message" *ngIf="loginForm.get('ar').hasError(error.type) && (loginForm.get('ar').dirty || loginForm.get('ar').touched)">
                                     {{ error.message }}
                                 </div>
                             </ng-container>

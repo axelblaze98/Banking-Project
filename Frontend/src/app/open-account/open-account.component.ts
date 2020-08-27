@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { OpenAccount } from '../admin';
 import { HttpClient } from '@angular/common/http';
+import { ConnectionService } from './../connection.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-open-account',
@@ -72,7 +74,9 @@ export class OpenAccountComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    public formBuilder: FormBuilder
+    public formBuilder: FormBuilder,
+    private service: ConnectionService,
+    private router: Router
     ) {
       this.loginForm = this.formBuilder.group({
         fname: new FormControl('', Validators.compose([
@@ -185,7 +189,8 @@ export class OpenAccountComponent implements OnInit {
           if(data.status=='FAILURE'){
             alert(data.message);
           }else{
-            alert(data.message);
+            this.service.setRefId(data.message);
+            this.router.navigate(['displayuserid'])
           }
         })
       }

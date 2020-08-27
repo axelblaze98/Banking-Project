@@ -40,6 +40,21 @@ export class ConnectionService {
     this.fundTransferData = data;
     // this.router.navigate(['confirmtransaction'])
   }
+
+  referenceIdStatus
+  setRefId(data){
+    this.referenceIdStatus = data;
+  }
+
+  userIdStatus
+  setUserId(data){
+    this.userIdStatus = data;
+  }
+
+  updatedPassword
+  setNewPassword(data){
+    this.updatedPassword = data;
+  }
 }
   
 

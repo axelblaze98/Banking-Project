@@ -3,6 +3,7 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Forgotpassword } from './../admin';
+import { ConnectionService } from './../connection.service';
 @Component({
   selector: 'app-forgotpassword',
   templateUrl: './forgotpassword.component.html',
@@ -43,7 +44,8 @@ export class ForgotpasswordComponent implements OnInit {
 
   constructor(
     public formBuilder: FormBuilder,
-    private http: HttpClient,private router: Router
+    private http: HttpClient,private router: Router,
+    private service:ConnectionService
   ) {
     this.loginForm = this.formBuilder.group({
       fname: new FormControl('', Validators.compose([
@@ -86,10 +88,9 @@ export class ForgotpasswordComponent implements OnInit {
       .subscribe(data=>{
         if(data.status=='FAILURE'){
           alert(data.message+",Please register");
-          this.router.navigate(['register']);
         }else{
-          alert(data.message+" and new password is "+data.password);
-          this.router.navigate(['login'])
+          this.service.setNewPassword(data.password)
+          this.router.navigate(['displayupdatedloginpassword'])
         }
       })
   }

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { Forgotpassword } from './../admin';
 
 @Component({
   selector: 'app-setnewpassword',
@@ -10,7 +13,7 @@ export class SetnewpasswordComponent implements OnInit {
 
   
   loginForm: FormGroup;
-  
+  user = new Forgotpassword();
 
   error_messages = {
 
@@ -29,7 +32,8 @@ export class SetnewpasswordComponent implements OnInit {
   }
 
   constructor(
-    public formBuilder: FormBuilder
+    public formBuilder: FormBuilder,
+    private http: HttpClient, private router: Router
   ) {
     this.loginForm = this.formBuilder.group({
       
@@ -51,6 +55,20 @@ export class SetnewpasswordComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+  userId = sessionStorage.getItem('userId')
+  view(){
+    this.user.userId = this.userId;
+    console.log(this.user)
+    this.http.post<any>("http://localhost:8086/forgetPassword",this.user)
+      .subscribe(data=>{
+        if(data.status=='FAILURE'){
+          alert(data.message+",Please register");
+        }else{
+          alert("Password Updated")
+          this.router.navigate(['accountmainpage'])
+        }
+      })
   }
 
   password(formGroup: FormGroup) {
