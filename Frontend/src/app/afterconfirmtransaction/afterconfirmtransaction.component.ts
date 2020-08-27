@@ -19,11 +19,21 @@ export class AfterconfirmtransactionComponent implements OnInit {
     this.fundsData = this._connservice.fundTransferData;
   }
 
-  doTransaction(){
+  confirmTrans(){
     return this.http.post<any> ('http://localhost:8086/transaction', this.fundsData)
     .subscribe(
       data => {
         console.log(data)
+        if(data.status=="FAILURE"){
+          alert(data.message)
+        }else{
+          alert(data.message)
+          this.router.navigate(['accountmainpage'])
+        }
       })
+    }
+    cancelTrans(){
+      alert("Transaction cancelled")
+      this.router.navigate(['fundtransfer'])
     }
 }

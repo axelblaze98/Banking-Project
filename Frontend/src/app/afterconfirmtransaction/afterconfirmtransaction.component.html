@@ -2,7 +2,7 @@
     <h3>After Confirm Transaction</h3>
     </div>
     <div class="wrapper">
-    <div class="card" style="width:40%">
+    <div class="card" style="width:60%">
       <p><b></b></p>
     
     <div>
@@ -48,17 +48,15 @@
           
         </div>     
        </div>
-       <div class="wrapper">
+       
       
-        <button type="submit" class="btn btn-primary" (click)="doTransaction()">Transfer</button>
-        
-        </div>
-      
-        <div class="Back">
-        
-          <button type="submit" class="btn btn-primary">Cancel</button>
-      </div> 
     </form>
+    <div class="wrapper">
+      
+      <button style="float:right; margin-right: 10%;" type="button" class="btn btn-primary" (click)="confirmTrans()">Transfer</button>
+      <button style="float:left;" type="button" class="btn btn-danger" (click)="cancelTrans()">Cancel</button>
+    </div>
+
 </div>     
 </div>
 </div>

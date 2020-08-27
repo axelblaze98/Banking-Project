@@ -61,22 +61,22 @@ public class OpenAccount {
 	private String dob;
 	
 
-	@Column(length = 20, nullable = false)
+	@Column(length = 20)
 	private String resAddress1;
 
-	@Column(length = 20, nullable = false)
+	@Column(length = 20)
 	private String resAddress2;
 
-	@Column(length = 15, nullable = false)
+	@Column(length = 15)
 	private String resLandMark;
 
-	@Column(length = 15, nullable = false)
+	@Column(length = 15)
 	private String resState;
 
-	@Column(length = 15, nullable = false)
+	@Column(length = 15)
 	private String resCity;
 
-	@Column(length = 6, nullable = false)
+	@Column(length = 6)
 	private String resPincode;
 	
 

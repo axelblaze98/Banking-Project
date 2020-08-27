@@ -94,5 +94,11 @@ export class FundsDataClass{
     toAccount:string;
     transactionMode:string;
     transactionBalance:number;
-    transactionPin : number
+    tnPassword :string;
+}
+
+export class TransactionHistory{
+    fromDate:string;
+    toDate:string;
+    accountNumber:string;
 }
