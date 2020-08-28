@@ -33,27 +33,33 @@ public class BeneficiaryServiceImpl implements BeneficiaryService{
 		System.out.println(benf.getUserAcNumber());
 		System.out.println(accountRepo.isAccountActive(benf.getBenfAcNumber()));
 		try {
-			if(!accountRepo.isAccountActive(benf.getBenfAcNumber())) {
+			if(!accountRepo.isAccountActive(benf.getBenfAcNumber())) 
+			{
 				throw new ServiceException("Beneficiary Account does not exist");
 			}
 			else {
-				if(repo.isAccountPresent(benf.getUserAcNumber(), benf.getBenfAcNumber())) {
+				if(repo.isAccountPresent(benf.getUserAcNumber(), benf.getBenfAcNumber())) 
+				{
 					throw new ServiceException("Beneficiary already exist");
-				}
-				else {
-					Beneficiary beneficiary = new Beneficiary();
-					
-					beneficiary.setBenefAccountNumber(benf.getBenfAcNumber());
-					beneficiary.setUserAccountName(benf.getUserAcNumber());
-					beneficiary.setBeneficiaryName(benf.getName());
-					beneficiary.setBeneficiaryNickName(benf.getNickName());
-					System.out.println(beneficiary);
-					repo.save(beneficiary);
+				} else {
+					if(benf.getBenfAcNumber().equals(benf.getUserAcNumber())) 
+					{
+						throw new ServiceException("Can not add yourself as Beneficiary");
+					} else {
+						Beneficiary beneficiary = new Beneficiary();
+						
+						beneficiary.setBenefAccountNumber(benf.getBenfAcNumber());
+						beneficiary.setUserAccountName(benf.getUserAcNumber());
+						beneficiary.setBeneficiaryName(benf.getName());
+						beneficiary.setBeneficiaryNickName(benf.getNickName());
+						System.out.println(beneficiary);
+						repo.save(beneficiary);
+					}
 				}
 			}
-		}catch (Exception e) {
-				throw new ServiceException(e.getMessage());
-				// TODO: handle exception
+		}catch (Exception e) 
+		{
+			throw new ServiceException(e.getMessage());
 		}
 	}
 }
