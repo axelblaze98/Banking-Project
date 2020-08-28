@@ -7,7 +7,6 @@ public class ViewUserDetailsDto {
 	private String mobileNumber;
 	private String email;
 	private String aadharCard;
-	private String dob;
 	private String resAddress1;
 	private String resAddress2;
 	private String resLandMark;
@@ -15,7 +14,7 @@ public class ViewUserDetailsDto {
 	private String resCity;
 	private String resPincode;
 	private int accountBalance;
-	private String occupation;
+	private String occupation = "Self-Employed";
 	
 	
 	public int getAccountBalance() {
@@ -65,12 +64,6 @@ public class ViewUserDetailsDto {
 	}
 	public void setAadharCard(String aadharCard) {
 		this.aadharCard = aadharCard;
-	}
-	public String getDob() {
-		return dob;
-	}
-	public void setDob(String dob) {
-		this.dob = dob;
 	}
 	public String getResAddress1() {
 		return resAddress1;

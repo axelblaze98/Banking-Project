@@ -107,6 +107,7 @@ public class UserRepositoryImpl implements UserRepository {
 	@Transactional
 	public String getTransactionPassword(String fromAccNumber) {
 		// TODO Auto-generated method stub
+		System.out.println(fromAccNumber);
 		return (String)em.createNamedQuery("getTnPassword")
 				.setParameter("accNumber",fromAccNumber).getSingleResult();
 	}

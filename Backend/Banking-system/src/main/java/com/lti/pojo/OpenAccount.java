@@ -81,32 +81,13 @@ public class OpenAccount {
 	
 
 	@Column(length = 20)
-	private String perAddress1;
+	private String occupation = "Self-Employeed";
 
 	@Column(length = 20)
-	private String perAddress2;
-
-	@Column(length = 15)
-	private String perLandMark;
-
-	@Column(length = 15)
-	private String perState;
-
-	@Column(length = 15)
-	private String perCity;
-
-	@Column(length = 6)
-	private String perPincode;
-	
+	private String sourceOfIncome = "Service";
 
 	@Column(length = 20)
-	private String occupation;
-
-	@Column(length = 20)
-	private String sourceOfIncome;
-
-	@Column(length = 20)
-	private String annualSalary;
+	private String annualSalary = "5LPA";
 	
 	@Column(nullable = true, length = 20)
 	private String approvedByAdmin = "Waiting for Approval";
@@ -212,36 +193,7 @@ public class OpenAccount {
 	public void setResCity(String resCity) {
 		this.resCity = resCity;
 	}
-	public String getPerAddress1() {
-		return perAddress1;
-	}
-	public void setPerAddress1(String perAddress1) {
-		this.perAddress1 = perAddress1;
-	}
-	public String getPerAddress2() {
-		return perAddress2;
-	}
-	public void setPerAddress2(String perAddress2) {
-		this.perAddress2 = perAddress2;
-	}
-	public String getPerLandMark() {
-		return perLandMark;
-	}
-	public void setPerLandMark(String perLandMark) {
-		this.perLandMark = perLandMark;
-	}
-	public String getPerState() {
-		return perState;
-	}
-	public void setPerState(String perState) {
-		this.perState = perState;
-	}
-	public String getPerCity() {
-		return perCity;
-	}
-	public void setPerCity(String perCity) {
-		this.perCity = perCity;
-	}
+
 	public String getOccupation() {
 		return occupation;
 	}
@@ -284,12 +236,7 @@ public class OpenAccount {
 	public void setResPincode(String resPincode) {
 		this.resPincode = resPincode;
 	}
-	public String getPerPincode() {
-		return perPincode;
-	}
-	public void setPerPincode(String perPincode) {
-		this.perPincode = perPincode;
-	}
+	
 	public String getApprovedByAdmin() {
 		return approvedByAdmin;
 	}
