@@ -75,7 +75,7 @@ export class FundTransferComponent implements OnInit {
     this.fundsDataObj.transactionMode = form.value.transactionType;
     this.fundsDataObj.fromAccount = this.AccNo;
     this.fundsDataObj.transactionBalance = form.value.amount;
-    this.fundsDataObj.tnPassword = form.value.amount;
+    this.fundsDataObj.tnPassword = form.value.pin;
 
 
     this._connservice.setFundTransferData(this.fundsDataObj)
