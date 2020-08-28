@@ -2,64 +2,66 @@
 <div class="cardz">
 
 <div class="row mb-2">
-<div class="col-md-6">
-      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-        <div class="col p-4 d-flex flex-column position-static">
-          <h5 class="mb-0">Exciting offers for our dear customer</h5>
-          <br/>
-          <p class="card-text mb-auto">Click here for exciting new offers exclusively for you!</p>
-          <a routerLink="/offers"><button type="button" class="btn btn-outline-danger">Exciting offers here</button></a>
-        </div>
-        <div class="col-auto d-none d-lg-block">
-          <img src="/assets/IMAGES/rupaycard.png" width="200" height="250" alt="">
-        </div>
-      </div>
-    </div>
+              <div class="col-md-6">
+                <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                  <div class="col p-4 d-flex flex-column position-static">
+                    <h5 class="mb-0">Exciting offers for our dear customer</h5>
+                    <br/>
+                    <p class="card-text mb-auto">Click here for exciting new offers exclusively for you!</p>
+                    <a routerLink="/offers"><button type="button" class="btn btn-outline-danger">Exciting offers here</button></a>
+                  </div>
+                  <div class="col-auto d-none d-lg-block">
+                    <img src="/assets/IMAGES/rupaycard.png" width="200" height="250" alt="">
+                  </div>
+                </div>
+              </div>
 
-    <div class="col-md-6">
-      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-        <div class="col p-4 d-flex flex-column position-static">
-          <h5 class="mb-0">Viewing Your Account Details:</h5>
-          <br/>
-          <p class="mb-auto">Account Holder Name: {{accountHolderName}}</p>
-          <p class="mb-auto">Account Number: {{accountNumber}}</p>
-          <p class="mb-auto">Account Balance: {{accountBalance}}</p>
-        </div>
-        <div class="col-auto d-none d-lg-block">
-          <img src="/assets/IMAGES/accounticons.png" width="200" height="250" alt="">
-        </div>
-      </div>
-</div>
+                <div class="col-md-6">
+                  <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                      <h5 class="mb-0">Viewing Your Account Details:</h5>
+                      <br/>
+                      <p class="mb-auto">Account Holder Name: {{accountHolderName}}</p>
+                      <p class="mb-auto">Account Number: {{accountNumber}}</p>
+                      <p class="mb-auto">Account Balance: {{accountBalance}}</p>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                      <img src="/assets/IMAGES/accounticons.png" width="200" height="250" alt="">
+                    </div>
+                  </div>
+                </div>
 </div>
   
   <div>
-  <div class="headsup">
-    Mini Statement
+      <div class="headsup">
+        Mini Statement
+      </div>
+          <table class="table table-secondary">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Transaction ID</th>
+                  <th scope="col">From Account</th>
+                  <th scope="col">To Account</th>
+                  <th scope="col">Transaction Amount</th>
+                  <th scope="col">Transaction Type</th>
+                  <th scope="col">Transaction Mode</th>
+                  <th scope="col">Transaction Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor = "let transaction of miniStatement">
+                  <td>{{transaction.transactionId}}</td>
+                  <td>{{transaction.fromAccountNumber}}</td>
+                  <td>{{transaction.toAccountNumber}}</td>
+                  <td>{{transaction.transactionAmount}}</td>
+                  <td>Debit</td>
+                  <td>{{transaction.transactionMode}}</td>
+                  <td>{{transaction.transactionDate}}</td>
+                </tr>
+              </tbody>
+            </table>
   </div>
-    <table class="table table-secondary">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">Transaction ID</th>
-            <th scope="col">From Account</th>
-            <th scope="col">To Account</th>
-            <th scope="col">Transaction Amount</th>
-            <th scope="col">Transaction Type</th>
-            <th scope="col">Transaction Mode</th>
-            <th scope="col">Transaction Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor = "let transaction of miniStatement">
-            <td>{{transaction.transactionId}}</td>
-            <td>{{transaction.fromAccountNumber}}</td>
-            <td>{{transaction.toAccountNumber}}</td>
-            <td>{{transaction.transactionAmount}}</td>
-            <td>Debit</td>
-            <td>{{transaction.transactionMode}}</td>
-            <td>{{transaction.transactionDate}}</td>
-          </tr>
-        </tbody>
-      </table>
-  </div>
+
+
   </div>
   

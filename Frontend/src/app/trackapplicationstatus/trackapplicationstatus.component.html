@@ -1,45 +1,38 @@
 <navbarlogin></navbarlogin>
+
 <div class="wrapper">
   <h3>Track Application Status</h3>
-  </div>
-  <div class="wrapper">
-  
+</div>
+
+<div class="wrapper"> 
   <div class="card" style="width:50%">
     <p><b></b></p>
-  
-  <div>
+      <div>
     
-    <form class="form" [formGroup]="loginForm" (ngSubmit) = "view()">
-        
-    <div class="form-group row">
-      
-    <label for="start" class="col-sm-4 col-form-label">Reference ID -</label>
-    
-    <div class="col-sm-6">
-      
-     <input [(ngModel)] = "refId" type="text" class="form-control" formControlName="fname" id="start" placeholder="" required>
-      
-    </div>
-         
-   </div>
-   <div class="error-messages">
-    <ng-container *ngFor="let error of error_messages.fname">
-      <div class="error-message" *ngIf="loginForm.get('fname').hasError(error.type) && (loginForm.get('fname').dirty || loginForm.get('fname').touched)">
-        {{ error.message }}
+        <form class="form" [formGroup]="loginForm" (ngSubmit) = "view()">
+                  
+                  <div class="form-group row">
+                        <label for="start" class="col-sm-4 col-form-label">Reference ID -</label>
+                      <div class="col-sm-6">   
+                          <input [(ngModel)] = "refId" type="text" class="form-control" formControlName="fname" id="start" placeholder="" required>  
+                      </div>     
+                  </div>
+
+                  <div class="error-messages">
+                        <ng-container *ngFor="let error of error_messages.fname">
+                              <div class="error-message" *ngIf="loginForm.get('fname').hasError(error.type) && (loginForm.get('fname').dirty || loginForm.get('fname').touched)">
+                                {{ error.message }}
+                              </div>
+                        </ng-container>
+                  </div>
+
+                  <div class="wrapper"> 
+                    <button type="submit" class="btn btn-primary" style="margin-bottom: 20px; width: 100px;" [disabled]="!loginForm.valid">Submit</button>
+                    </div>
+        </form>
       </div>
-    </ng-container>
-  </div>    
-   <div class="wrapper">
-      
-    
-    <button type="submit" class="btn btn-primary" style="margin-bottom: 20px; width: 100px;" [disabled]="!loginForm.valid">Submit</button>
-    
-    </div>
-  </form>
-   
-  </div>
     
   
   </div>
-  </div>
+</div>
 
