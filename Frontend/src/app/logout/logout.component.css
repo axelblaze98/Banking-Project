@@ -1,0 +1,17 @@
+.form{
+       
+    margin-top:10px;
+    margin-left:30px;
+   
+   }
+   .wrapper
+   {
+    display: flex;
+   justify-content: center;
+   margin-top: 80px;
+   color: purple;
+   margin-bottom: 100px;
+
+   
+   }  
+   

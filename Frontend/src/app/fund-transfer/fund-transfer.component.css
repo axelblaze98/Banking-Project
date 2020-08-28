@@ -1,0 +1,27 @@
+.text{
+    text-align:center;
+}
+.form{
+    margin-left: 30px;
+}
+.wrapper{
+    margin-top:10px;
+    display: flex;
+    justify-content: center;
+}
+.card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: left;
+    background-color:#d8d8dae0;
+}
+#mydiv{
+    display: flex;
+    justify-content: center;
+}
+.error-message {
+    color: red;
+}
+input.ng-touched.ng-invalid {
+    border: 1px solid red;
+}

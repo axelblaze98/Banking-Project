@@ -1,0 +1,58 @@
+<navbaraccount></navbaraccount>
+
+<div class="cardz">
+
+    
+
+
+    <div class="headsup">
+      TRANSACTION HISTORY
+    </div>
+      <div>
+          <label for="dob" class="col-sm-4 col-form-label">From Date<span style="color:red" >*</span></label>
+            <div class="col-sm-4">
+              <input type="date" class="form-control" id="dob" placeholder="Enter DOB" 
+              required [(ngModel)]="fromDate" >
+            </div>
+        
+        <label for="dob" class="col-sm-4 col-form-label">To Date<span style="color:red" >*</span></label>
+          <div class="col-sm-4">
+            <input type="date" class="form-control" id="dob" placeholder="Enter DOB" 
+            required [(ngModel)]="toDate" >
+          </div>
+
+          <div class="wrapper">
+            <button class="btn btn-primary" type="button" style="margin-bottom: 20px; margin-top: 20px; width: 100px; " (click)="transHistory()" >Submit</button><br>
+        </div>
+
+    </div>
+    
+    
+
+
+    <div>
+      <table class="table table-secondary">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Transaction ID</th>
+              <th scope="col">From Account</th>
+              <th scope="col">To Account</th>
+              <th scope="col">Transaction Amount</th>
+              <th scope="col">Transaction Mode</th>
+              <th scope="col">Transaction Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let details of transDetails">
+              <td>{{details.transactionId}}</td>
+              <td>{{details.fromAccountNumber}}</td>
+              <td>{{details.toAccountNumber}}</td>
+              <td>{{details.transactionAmount}}</td>
+              <td>{{details.transactionMode}}</td>
+              <td>{{details.transactionDate}}</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+  </div>

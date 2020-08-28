@@ -1,0 +1,25 @@
+.bg-warning {
+    background-color: darkblue !important;
+  }
+  .navbar-nav{
+    width: 100%;
+    display:table;
+    color: whitesmoke !important;
+
+  }
+  .navbar-nav > li {
+    float:none;
+    display:table-cell;
+    text-align:center;
+    text-decoration-style: dashed;
+    margin-bottom: 10px;
+
+  }
+  .navbar-custom{
+    color: white !important;
+  }
+  .navbar-nav > li > a{
+    color: white !important;
+    text-decoration: none;
+    background-color: transparent;
+}

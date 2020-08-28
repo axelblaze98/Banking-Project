@@ -1,0 +1,67 @@
+<navbaradmin></navbaradmin>
+<div class="cardz">
+<h1 style="padding-left: 40%;">All Account Holders Details</h1>
+<br>
+<div >
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+            <th style="margin: auto;" scope="col">Title</th>
+            <th style="margin: auto; border-collapse: collapse;" scope="col">First Name</th>
+            <th scope="col">Middle Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Mobile Number</th>
+            <th scope="col">Email Address</th>
+            <th scope="col">Father's Name</th>
+            <th scope="col">Mother's Name</th>
+            <th scope="col">Unique Aadhar Card</th>
+            <th scope="col"> DOB</th>
+            <th scope="col"> Address Line1</th>
+            <th scope="col"> Address Line2</th>
+            <th scope="col"> Landmark</th>
+            <th scope="col"> State</th>
+            <th scope="col"> City</th>
+            <th scope="col"> Pincode</th>
+            <th scope="col">Account Number</th>
+            <th scope="col"> Account Reference ID</th>
+            <th scope="col">Account Balance</th>
+            <th scope="col"> Approved By admin</th>
+            <th scope="col">Admin Remark</th>
+            <th scope="col">Submit Details</th>
+        </tr>
+      </thead>
+     <tbody>
+      <tr *ngFor="let account of accounts; let i=index; let num of array">
+        <td><span>{{account.title}}</span></td>
+        <td><span>{{account.firstName}}</span></td>
+        <td><span>{{account.middleName}}</span></td>
+        <td><span>{{account.lastName}}</span></td>
+        <td><span>{{account.mobileNumber}}</span></td>
+        <td><span>{{account.email}}</span></td>
+        <td><span>{{account.fatherName}}</span></td>
+        <td><span>{{account.motherName}}</span></td>
+        <td><span>{{account.aadharCard}}</span></td>
+        <td><span>{{account.dob}}</span></td>
+        <td><span>{{account.resAddress1}}</span></td>
+        <td><span>{{account.resAddress2}}</span></td>
+        <td><span>{{account.resLandMark}}</span></td>
+        <td><span>{{account.resState}}</span></td>
+        <td><span>{{account.resCity}}</span></td>
+        <td><span>{{account.resPincode}}</span></td>
+        <td><span>{{account.accountNumber}}</span></td>
+        <td><span>{{account.refernceId}}</span></td>
+        <td><span>{{account.accountBalance}}</span></td>
+        <td><span>
+            <select id=i name="approvedByAdmin" [(ngModel)]="adminObj.approvedByAdmin" (ngModelChange)="dataChanged($event)" >
+                <option value="Approved" >Approved</option>
+                <option value="Decline" >Decline</option>
+            </select>
+        </span></td>
+        <td><span><input type="text" id="remarks" name="remarks" [(ngModel)]="adminObj.adminRemark" ></span></td>
+          <button class="btn btn-dark" type="button" (click) ="sendAdminRemarks(i)" style="margin-bottom: 20px; width: 100px;">Submit</button><br>
+      </tr>
+      </tbody> 
+    </table>
+    <br><br><br>
+    </div>
+</div>  
